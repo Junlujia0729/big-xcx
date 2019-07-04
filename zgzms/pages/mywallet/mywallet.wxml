@@ -1,0 +1,24 @@
+
+<view class='container'>
+  <image src='http://imgs.52jiaoshi.com/1517985800.jpg' class='pic' mode="widthFix"></image>
+  <view class='content'>
+    <view class='cheak-btn' bindtap='cheak'>
+      查看明细
+    </view>
+    <view class='balance'>我的余额(元)</view>
+    <view class='price'>{{datas.balance}}</view>
+    <view class='canuse'>可提现</view>
+    <view class='can-price'>{{datas.can_extract}}</view>
+    <view class='take-btn' bindtap="cash">
+      立即提现
+    </view>
+    <view class='tips'>
+      <view>1.购买后立即计算收益，下周可申请提现本周的收益</view>
+      <view>2.如拼课失败、或订单退费，收益将取消</view>
+      <view>3.申请提现后，收益直接进入您的微信钱包</view>
+    </view>
+  </view>
+</view>
+<view class="contact_btn" bindtap='retuen' wx:if="{{gohome}}">
+  <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+</view>

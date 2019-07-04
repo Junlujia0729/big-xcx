@@ -1,0 +1,175 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<!--已经购买   -->
+<view class='container-card' wx:if="{{items.is_buy == 1 && items.is_dialy_class == 1}}">
+  <view class='header'>
+    <view class='columntitle'>{{items.title}}</view>
+    <view class='total'>
+      <text>{{items.num}}人参加</text><text class='line'>|</text><text>{{items.dialy_num}}次打卡</text>
+    </view>
+  </view>
+  <view class='userinfo'>
+    <view class='hearder-img'>
+      <image src='{{headimgurl}}'></image>
+    </view>
+    <view class='user-data'>
+      <text class='linkname'>{{nickname}}</text>
+      <text class='date-num'>已坚持</text>
+      <text class='c-3'>{{column_my_dialy.count}}</text>
+      <text class='c-6'>天</text>
+      <text wx:if="{{column_my_dialy.bdcount > 0}}"> 含补打{{column_my_dialy.bdcount}}天</text>
+      <text wx:if="{{column_new_class.classnum > column_my_dialy.count}}"> 缺席{{column_new_class.classnum-column_my_dialy.count}}天</text>
+    </view>
+    <view class='calendar' bindtap='calendar'>
+      <text>打卡日历</text>
+      <image src='http://imgs.52jiaoshi.com/1515140167.png'></image>
+    </view>
+  </view>
+  <navigator url='../columndetail/columndetail?id={{column_id}}' class='more'>
+    <text>打卡任务</text>
+    <text class='jump-more'>全部任务</text>
+    <image src='../../images/icon_arrow_list.png'></image>
+  </navigator>  
+
+  <view class='section' wx:for="{{column_new_class}}"  wx:for-item="item" wx:key="key" data-id="{{item.id}}" wx:if="{{item.title}}">
+    <image src='{{item.module_img}}' bindtap='clock' data-id="{{item.id}}"></image>
+    <view class='section-msg' bindtap='clock' data-id="{{item.id}}">
+      <text class='section-title'>{{item.title}}</text>
+      <text class='date'>{{item.created_time}} 打卡任务</text>
+    </view>
+    
+    <!--未打卡  -->
+    <form wx:if="{{item && item.dialy_time == 0}}" bindsubmit="gotoDaka" report-submit="true">
+      <button form-type="submit" class='btn'>去打卡</button>
+      <input name='id' value='{{item.id}}' type='hidden' style='opacity:0;height:2rpx;'></input>
+    </form>
+    
+    <!--已打卡  -->
+    <view class='btn-ready' wx:if="{{item && item.dialy_time > 0}}" bindtap='clock' data-id="{{item.id}}">
+      <image src='http://imgs.52jiaoshi.com/1515141702.png'></image>
+      已打卡
+    </view>
+  </view>
+
+</view>
+<block wx:if="{{items.is_buy == 1 && items.is_dialy_class == 1}}">
+  <!--评论  -->
+  <include src="../common/commentlist.wxml"/>
+  <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}</view>
+</block>
+
+<view class="container" style='padding-bottom:140rpx;' wx:else>
+  <view class='class_pic'>
+      <view class='class_pic_bg_2'>
+        <image src='{{items.img_big}}'></image>
+        <view class='class_pic_cont_box'>
+            <view class='classname'>{{items.title}}</view>
+            <view class='time'>{{items.sub_title}}</view>
+            <view class='num'>{{items.num}}人订阅</view>
+        </view>
+      </view>      
+  </view>
+  <navigator class='teacher-list' url='../column/moreteacher?id={{items.id}}' wx:if="{{items.author.length > 0}}">
+    <view class='teacher-header' wx:for="{{items.author}}" data-key="{{item.auser}}" wx:for-item="item" wx:key="name">
+      <image src='{{item.img}}'></image>
+      <text>{{item.name}}</text>
+    </view>
+    <image src='http://imgs.52jiaoshi.com/1514359044.png' class='teacher_introduc'></image>
+  </navigator>
+  <view class="seprate-line"></view>
+  <view>
+    <view class='classdetail'>
+      <text>最近更新</text>  
+    </view>
+    <view class='content'>
+      <block wx:for="{{items.newclass}}" wx:key="key" wx:for-item="item" wx:for-index="idx">
+        <view class="update_list" wx:if="{{idx < 3}}">
+          <view class='news-title'>{{item.title}}</view>
+          <view class="msg">
+            <text class="book">{{item.created_time}}</text>
+            <!-- <text class="book">{{item.module_title}}</text> -->
+            <text class="writer">{{item.author}}</text>
+            <text></text>
+            <!-- <text class="date">{{item.created_time}}</text> -->
+          </view>
+          <!-- <view class='news-desc'>{{item.summary}}</view>     -->
+        </view>
+      </block>
+    </view>
+    <view class="seprate-line"></view>
+    <view class='classdetail'>
+      <text>专栏详情</text>  
+    </view>
+    <view class='content'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <!-- <view class='classdetail'>
+      <text>订阅须知</text>  
+    </view>
+    <view id="content_slide1">
+      <view class='notice'>
+        <template is="wxParse" data="{{wxParseData:notice.nodes}}" />
+      </view>
+    </view> -->
+  </view>
+</view>
+<view class="bottom_fixed_buttons" wx:if="{{items.is_buy == 1 && items.is_dialy_class == 0}}">
+   <view class='w11' wx:if="{{items.is_buy == 1}}">
+    <button bindtap='Listen' data-id="{{items.classid}}">收听栏目</button>
+  </view> 
+</view>
+<view class="bottom_fixed_buttons" wx:if="{{items.is_buy != 1}}">
+  <view wx:if="{{items.columnstate > 1}}" class='w11 gray'>
+        <button>已售罄</button>
+  </view>
+  <block wx:if="{{items.columnstate <= 1}}">
+    <!--有试学-->
+    <block wx:if="{{items.free_class == 1 && items.price > 0}}">
+      <view class='w1'>
+        <button bindtap='trial'>试听</button> 
+      </view>
+      <view class='w2' wx:if="{{platform == 'ios'}}">
+          <button bindtap='guideApp'>了解更多</button> 
+      </view>
+      <view class='w2' wx:else>
+        <form bindsubmit="buycolumn" report-submit="true">
+          <button form-type='submit'>订阅栏目{{items.price_text}}</button> 
+        </form>
+      </view>
+    </block> 
+    <block wx:else>
+      <view class="w11">
+        <block wx:if="{{items.price > 0}}">
+          <block wx:if="{{platform == 'ios'}}">
+            <button bindtap='guideApp'>了解更多</button>
+          </block>
+          <block wx:else>
+            <form bindsubmit="buycolumn" report-submit="true">
+              <button form-type='submit'>订阅栏目{{items.price_text}}</button>
+            </form> 
+          </block>
+        </block>
+        <block wx:else>
+          <form bindsubmit="buyfreeclass" report-submit="true">
+            <button form-type='submit'>收听栏目</button>
+          </form>
+        </block>
+      </view>
+    </block>
+  </block>
+</view>
+
+<button class="contact_btn" session-from="sobot|{{nickname}}_{{items.title}}|{{headimgurl}}" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>
+
+
+<!--IOS支付  -->
+<view class='mask' wx:if="{{guideApp == 1}}">
+  <view class='mask-content'>
+    <view class='mask-tip' style='text-align:center;font-size:32rpx;font-weight: bold;'>打开我爱教师APP了解更多</view>
+    <view class='mask-tip2'>基于微信小程序平台的运营规范，请打开我爱教师APP了解更多关于课程内容。</view>
+    <view class='mask-tip'>您可在应用市场搜索 “我爱教师” 下载安装</view>
+    <view class='clickok'>
+      <button bindtap='closeguideApp'>知道了</button>
+    </view>
+  </view>
+</view>

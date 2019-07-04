@@ -1,0 +1,14 @@
+<view class="container">
+  <view>
+    <span>未掌握</span>
+    <span class="know">已掌握</span>
+  </view>
+  <view class='words' animation="{{animation}}">
+    今天是2018年9月27日，星期四  
+    <span wx:if="{{show}}">天气不太好，要下雨</span>
+    <span wx:else>________________</span>
+    ，哈哈。
+  </view>
+  <button class="animation-button" bindtap="rotateThenScale">记住</button>
+  <view bindlongtap="recite" class="recite" bindtouchend="bindTouchEnd" animation="{{animationMiddleHeaderItem}}">背   </view>
+</view>

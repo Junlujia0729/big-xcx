@@ -1,0 +1,94 @@
+<view class="sub_comment_box">
+  <form report-submit="true" bindsubmit="submitComment">
+    <view class="sub_c_b_input_box">
+      <button form-type="submit" class="{{comment_words_count ? 'active' : ''}}">发送</button>
+      <image src="/images/publish_picture_icon.png" bindtap='showCmtImgBox' mode="widthFix"></image>
+      <view class="textarea_box">
+        <!-- <textarea bindinput="textAreaInput" cursor-spacing="15" auto-height fixed maxlength="300" placeholder="我来说一说..." value="{{const_com_text}}" show-confirm-bar="{{false}}" name="com_text"></textarea>  -->
+        <input type="text" bindfocus='setSelectFalse' placeholder="我来说一说..." name="com_text" confirm-type='send' bindinput="textAreaInput" value="{{const_com_text}}" maxlength="300" cursor-spacing="15" /> 
+      </view>
+      <text class="{{comment_img_count ? 'active' : ''}}" >{{comment_img_count}}</text>
+    </view>
+    <view class="sub_c_b_image_box {{showCmtImg ? 'active' : ''}}">
+      <input type="text" confirm-type="发送" value="{{comment_img_url}}" />
+      <view class="selectpic">
+        <image class="select" src="{{comment_img_url == '' ? '/images/publish_picture_add.png' : comment_img_url}}" bindtap='selectImg' mode="aspectFill"></image>
+        <image class="close {{comment_img_count ? 'active' : ''}}" src="/images/publish_picture_delete.png" bindtap='deleteImg' mode='widthFix'></image>
+      </view>
+      <view class="tips">已选{{comment_img_count}}张，还可加{{1-comment_img_count}}张</view>
+      <button form-type="submit" class="{{comment_img_count ? 'active' : ''}}">确认发送</button>
+    </view>
+  </form>
+</view>
+
+
+
+
+
+
+<view class="dyn_comment_header">
+  热门留言
+</view>
+<view class="dyn_comment_item">
+  <view class="d_c_i_header">
+    <view class="d_c_i_h_avatar">
+      <image src="http://wx.qlogo.cn/mmopen/5a8vxqqIiafOIFbkiahZrIh6dxiaIMoNricuLlDqBibGeibTaHZbaTyHibs7lrDSlxPicbGa1D8XHic2f5LR4oyFz3RW1KeudMbuwEq2K/0" mode="aspectFill" alt="一直孤傲的狼" ></image>
+    </view>
+    <view class="d_c_i_h_dot">
+      <image src="/images/three_spot_v.png" mode="widthFix"></image>
+    </view>
+    <view class="d_c_i_h_up">
+      <image src="/images/comment_dianzan.png" mode="widthFix"></image>
+      <text>10</text>
+    </view>
+    <view class="d_c_i_h_tit">
+      <view class="d_c_i_h_tit_name">一直孤傲的狼</view>
+      <view class="d_c_i_h_tit_time">36分钟前</view>
+    </view>
+  </view>
+  <view class="d_c_i_cont">
+    <view class="d_c_i_cont_txt">
+      <text bindtap='replayThisText' data-uname='一直孤傲的狼' data-uid="0" data-cmtid="2" data-rplid="1">说得很好，很赞同。坐着的观点独特有魅力，很适合正在备考的学生。</text>
+    </view>
+  </view>
+  <view class="d_c_i_reply">
+    <view class="d_c_i_reply_item">
+      <text class="d_c_i_reply_from">我爱教师</text>
+      <text class="d_c_i_reply_txt">回复</text>
+      <text class="d_c_i_reply_to">一直孤傲的狼</text>
+      <text bindtap='replayThisText' data-uname='我爱教师' data-uid="0" data-cmtid="2" data-rplid="1" class="d_c_i_reply_cnt">喜欢你，您的支持就是我们的动力。</text>
+    </view>
+  </view>
+</view>
+
+<view class="dyn_comment_item">
+  <view class="d_c_i_header">
+    <view class="d_c_i_h_avatar">
+      <image src="http://wx.qlogo.cn/mmopen/5a8vxqqIiafOIFbkiahZrIh6dxiaIMoNricuLlDqBibGeibTaHZbaTyHibs7lrDSlxPicbGa1D8XHic2f5LR4oyFz3RW1KeudMbuwEq2K/0" mode="aspectFill" alt="樱桃小丸子" ></image>
+    </view>
+    <view class="d_c_i_h_dot">
+      <image src="/images/three_spot_v.png" mode="widthFix"></image>
+    </view>
+    <view class="d_c_i_h_up">
+      <image src="/images/comment_dianzan.png" mode="widthFix"></image>
+      <text>点赞</text>
+    </view>
+    <view class="d_c_i_h_tit">
+      <view class="d_c_i_h_tit_name">樱桃小丸子</view>
+      <view class="d_c_i_h_tit_time">刚刚</view>
+    </view>
+  </view>
+  <view class="d_c_i_cont">
+    <view class="d_c_i_cont_txt">
+      说得很好，很赞同。坐着的观点独特有魅力，很适合正在备考的学生。
+    </view>
+  </view>
+  <view class="d_c_i_reply">
+    <view class="d_c_i_reply_item">
+      <text class="d_c_i_reply_from offical">我爱教师</text>
+      <text class="d_c_i_reply_txt">回复</text>
+      <text class="d_c_i_reply_to">一直孤傲的狼</text>
+      <text class="d_c_i_reply_cnt">喜欢你，您的支持就是我们的动力。</text>
+    </view>
+  </view>
+</view>

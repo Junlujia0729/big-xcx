@@ -1,0 +1,12 @@
+/* agreement.wxss */
+@import"../../wxParse/wxParse.wxss";
+.footer{position: fixed;bottom:0;left:0;height: 98rpx;line-height: 98rpx;
+            display: block;width: 100%;z-index: 999;}
+.footerLeft{float: left;width: 60%;display: block;color: #333;
+            font-size: 26rpx;background-color: #f5f5f5;}
+.footerLeft image{width: 34rpx;height: 34rpx;margin:0 4%;display: inline-block;
+position: relative;bottom:-5rpx;}
+.footerRight{margin-left: 60%;display: block;height: 98rpx;line-height: 98rpx;
+            text-align: center;background: #B2B2B2;color: #fff;font-size: 36rpx;}
+.footerRight_a{background: #3eccb3;}   
+.content{padding: 30rpx;}        

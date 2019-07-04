@@ -1,0 +1,79 @@
+<view class='container-card'>
+  <view class='userinfo'>
+    <view class='hearder-img'>
+      <image src='{{headimgurl}}'></image>
+    </view>
+    <view class='user-data'>
+      <text class='linkname'>{{nickname}}</text>
+      <text class='date-num'>#{{items.column_title}}#</text>
+    </view>
+  </view>
+</view>
+<view class="top-handle fs28 box box-lr box-align-center box-pack-center calendar-header">
+    <view class="prev box box-rl" bindtap="handleCalendar" data-handle="prev">
+        <view class="prev-handle box box-lr box-align-center box-pack-center">
+          <image src='http://imgs.52jiaoshi.com/1515146943.png'></image>
+        </view>
+    </view>
+    <view class="date-area box box-lr box-align-center box-pack-center">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+    <view class="next box box-lr" bindtap="handleCalendar" data-handle="next">
+        <view class="next-handle box box-lr box-align-center box-pack-center">
+          <image src='http://imgs.52jiaoshi.com/1515147046.png'></image>  
+        </view>
+    </view>
+</view>
+<view class='detepicker'>
+  <view class="flex box box-tb box-align-center">
+    <view class="calendar pink-color box box-tb">
+          
+      <view class="weeks box box-lr box-pack-center box-align-center">
+        <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+      </view>
+      <view class="days box box-lr box-wrap">
+        <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}"></view>
+        <view class="grid white-color box box-align-center box-pack-center" wx:for="{{days}}" wx:key="{{index}}" data-idx="{{index}}" bindtap="tapDayItem">
+          <view wx:if="{{item.task && item.isbegin && item.dialy_time > 0}}" class="day border-radius pink-bg box box-align-center box-pack-center"  data-id="{{item.id}}" bindtap="clock">{{item.day}}</view>
+          <view wx:elif="{{item.task && item.isbegin && item.dialy_time == 0}}" class="day border-radius not-clock box box-align-center box-pack-center"  data-id="{{item.id}}" bindtap="clock">{{item.day}}</view>
+          <view wx:elif="{{item.task && item.isbegin == 0}}" class="day border-radius has-task box box-align-center box-pack-center" bindtap='nobegin'>{{item.day}}</view>
+          <view wx:else class="day box box-align-center box-pack-center" bindtap='nodaily'>{{item.day}}</view>
+          <view class='today' wx:if="{{today == item.absday}}">今天</view>   
+        </view>
+      </view>
+   </view>
+  </view>
+</view>
+<view class='explain-1'>
+  <view>说明:</view>
+  <view>
+    <image src='http://imgs.52jiaoshi.com/1515147664.png'></image>
+    <text>已打卡</text>
+  </view>  
+  <view>
+    <image src='http://imgs.52jiaoshi.com/1515150218.png'></image>
+    <text>未打卡</text>
+  </view> 
+  <view>
+    <image src='http://imgs.52jiaoshi.com/1515150296.png'></image>
+    <text>未开始</text>
+  </view> 
+</view>
+<!-- <view wx:if="{{showPicker}}" class="box box-tb">
+	<view class="picker-btns box box-lr box-pack-between box-align-center">
+		<view class="picker-btn picker-cancel" data-type="cancel" bindtap="tapPickerBtn">取消</view>
+		<view class="picker-btn picker-confirm" data-type="confirm" bindtap="tapPickerBtn">确定</view>
+	</view>
+	<picker-view class="flex" indicator-style="height: 50px;" style="width: 100%; height: 150px;" value="{{picker_value}}" bindchange="pickerChange">
+		<picker-view-column>
+			<view class="picker-view" wx:for="{{picker_year}}" style="line-height: 50px">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view class="picker-view" wx:for="{{picker_month}}" style="line-height: 50px">{{item}}月</view>
+		</picker-view-column>
+	</picker-view>
+</view> -->
+<block>
+  <!--评论  -->
+  <include src="../common/commentlist.wxml"/>
+  <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}</view>
+</block>
+

@@ -1,0 +1,20 @@
+/* pages/mineclass/viewfile.wxss */
+page{
+  background: #f5f5f5;
+}
+.box{
+  padding:24rpx;
+  margin-bottom:20rpx;
+  background: #fff;
+}
+text{
+  display: block;
+  font-size:32rpx;
+  color:#333333;
+  margin-bottom: 20rpx;
+}
+.prim_button{
+  color:#3eccb3;
+  background: #fff;
+  border: 2rpx solid #3eccb3;
+}

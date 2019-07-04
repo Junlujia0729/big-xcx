@@ -1,0 +1,21 @@
+
+<scroll-view id="content_slide1"> 
+  <view class='item' wx:for="{{classlist}}" wx:for-item="item" wx:key="key" >
+    <view class='chapter_name_if' wx:if="{{item.iftrial==1}}">
+      <view class='chapter_right'>
+        <navigator url='../play/play?id={{item.classid}}'>
+          <image src='../../images/z_icon_position_play_off.png'></image>
+        </navigator>
+      </view>  
+      <view class='chapter_left'>
+        {{item.classname}}   
+      </view>                                  
+    </view>
+    <view class='chapter_name' wx:else>
+      {{item.classname}} 
+    </view>
+    <view class='chapter_time'>
+      {{item.begintime}} - {{item.endtime}}
+    </view>
+  </view>
+</scroll-view>

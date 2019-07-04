@@ -1,0 +1,2 @@
+<!--pages/mycolumn/mycolumn.wxml-->
+<include src="../common/columnlist.wxml"/>

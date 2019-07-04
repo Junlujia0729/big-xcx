@@ -1,0 +1,93 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="dyn_item">
+  <view class="regu_item_head">
+    <view class="regu_item_head_tit">{{regudata.title}}
+</view>
+    <view class="regu_item_head_stat">
+      <text class="left">{{regudata.liulan ? regudata.liulan + '浏览' : ''}}</text>
+      <text class="right">{{regudata.publish_time}}</text>
+    </view>
+  </view>
+  <!-- <view class="dyn_item_cont">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view> -->
+  <view class="dyn_item_cont">
+    <rich-text nodes="{{content}}"></rich-text> 
+  </view>
+  <view wx:for="{{regudata.enclosure}}" wx:key="key1" wx:for-index="idx1" class="filelist_box">
+      <view style="border-top:none;" class="filelist_item" bindtap='openFile' data-type="{{item.type}}" data-url='{{item.url}}'>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+</view>
+
+<!-- <view class="moreoper">
+  <view class="moreoper_box">
+    <image bindtap='changeMoreButtonShow' class="more_button" src="{{moreButtonsShow ? '/images/regu/regu_close_more.png' : '/images/regu/regu_more.png'}}" />
+    <view class="more_list {{moreButtonsShow ? 'active' : ''}}">
+      <view class="more_list_item button_box" open-type="share">
+        <button open-type='share'><image src="/images/regu/regu_m_share@2x.png" /></button>
+        <button open-type='share'><text>分享</text></button>
+      </view>
+      <view class="more_list_item">
+        <button><image src="/images/regu/regu_m_question@2x.png" /></button>
+        <button><text>常见问题</text></button>
+      </view>
+      <view class="more_list_item">
+        <button open-type="contact" show-message-card="true"><image src="/images/regu/regu_m_message@2x.png" /></button>
+        <button open-type="contact" show-message-card="true"><text>咨询</text></button>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<view class='fix_mask' wx:if="{{filelistShow}}" catchtap='changeFilelistShow'>
+  <image class='close' src='/images/regu/regu_close_more.png' catchtap='changeFilelistShow'></image>
+  <scroll-view class='filelist' scroll-y="true">
+    <view class="filelist_title">附件列表</view>
+    <view wx:for="{{regudata.enclosure}}" wx:key="key1" wx:for-index="idx1" class="filelist_box">
+      <view class="filelist_item" bindtap='openFile' data-type="{{item.type}}" data-url='{{item.url}}'>
+        <text>{{item.name}}</text>
+      </view>
+    </view>  
+  </scroll-view>
+</view>
+<view class="reguoper">
+  <block wx:for="{{menus}}" wx:key="key1" wx:for-index="idx1">
+    <view wx:if="{{item.type == 1}}" class="reguoper_item" data-url="{{item.url}}" bindtap="changeFilelistShow">
+      <view class="{{idx1==0?'noborder':''}}"><text>{{item.title}}</text></view>
+    </view>
+    <view wx:if="{{item.type == 2}}" class="reguoper_item" data-url="{{item.url}}" bindtap="moreRegus">
+      <view class="{{idx1==0?'noborder':''}}"><text>{{item.title}}</text></view>
+    </view>
+    <view wx:if="{{item.type == 3}}" class="reguoper_item" data-url="{{item.url}}" bindtap="gotoUrl">
+      <view class="{{idx1==0?'noborder':''}}"><text>{{item.title}}</text></view>
+    </view>
+  </block>
+  <!-- <view class="reguoper_item">
+    <image src="/images/regu/regu_mijuan@2x.png" /><text>押题密卷</text>
+  </view>
+  <view class="reguoper_item" bindtap='changeFilelistShow'>
+    <image src="/images/regu/regu_biaoge@2x.png" /><text>职位表格</text>
+  </view>
+  <view class="reguoper_item" bindtap='moreRegus'>
+    <image src="/images/regu/regu_gengduo@2x.png" /><text>更多简章</text>
+  </view>
+  <view class="reguoper_item active">
+    <image src="/images/regu/regu_jiedu@2x.png" /><text>简章解读</text>
+  </view> -->
+</view>
+
+<view class="sub_reply_mask {{replay_to_user == '' ? '' : 'active'}}" bindtap='cancelReplayMask'></view>
+<view class="sub_reply_box {{replay_to_user == '' ? '' : 'active'}}">
+  <form report-submit="true" bindsubmit="submitReply">
+    <view class="sub_c_b_input_box">
+      <view class="textarea_box">
+        <input bindconfirm='confirmReply' type="text" placeholder="回复{{replay_to_user}}..." name="replay_text" confirm-type='send' bindinput="textAreaInput" value="{{const_reply_text}}" maxlength="300" cursor-spacing="15" />
+      </view>
+      <button form-type="submit" class="{{replay_words_count ? 'active' : ''}}">发送</button>
+    </view>
+  </form>
+</view>
+
+<button class="contact_btn" session-from="sobot|{{userInfo.nickname}}_{{regudata.title}}|{{userInfo.headimgurl}}" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>

@@ -1,0 +1,44 @@
+<!--pages/dynamic/dynamic.wxml-->
+<view class="head_catelog">
+  <view class="head_cate_item active_{{cate[0]}}">最新</view>
+  <view class="head_cate_item active_{{cate[1]}}">最热</view>
+</view>
+
+<view class="dyn_item">
+  <view class="dyn_item_tit">
+    <view class="dyn_tit_left">
+      <image src="http://wx.qlogo.cn/mmopen/5a8vxqqIiafOIFbkiahZrIh6dxiaIMoNricuLlDqBibGeibTaHZbaTyHibs7lrDSlxPicbGa1D8XHic2f5LR4oyFz3RW1KeudMbuwEq2K/0" mode="aspectFill"></image>
+    </view>
+    <view class="dyn_tit_right" bindtap='clickDot'>
+      <image src="/images/three_spot.png" mode="widthFix" ></image>
+    </view>
+    <view class="dyn_tit_mid">
+      <view class="dyn_tit_nickname">我爱教师</view>
+      <view class="dyn_tit_crttime">刚刚</view>
+    </view>
+  </view>
+  <view class="dyn_item_cont">
+    <view class="dyn_cont_txt">
+      【再见青春！卡卡正式宣布退役】昨天，前世界足球先生、巴西球星卡卡宣布退役。在圣保罗出道、在AC米兰成名、随国家队和俱乐部获世界杯、世俱杯和欧冠等荣誉……35岁的他在夺得金球奖10周年的日子宣布退役，结束了16年的球员生涯。网友：再见青春，再见初恋。你的足球偶像还在踢球吗？
+    </view>
+    <view class="dyn_cont_img">
+      <image src="http://wx3.sinaimg.cn/thumb150/9e5389bbly1fmkozvijsfj20c80eoq49.jpg" data-src="http://wx3.sinaimg.cn/thumb150/9e5389bbly1fmkozvijsfj20c80eoq49.jpg" mode="widthFix" data-pindex='1' data-index='1' bindtap='clickImage' bindload="imageLoad" style="width:{{imageSize[1][3].width}}rpx;" mode="widthFix" />
+      <image src="http://wx4.sinaimg.cn/thumb150/9e5389bbly1fmkozvqqr1j20c80h4wg4.jpg" data-src="http://wx4.sinaimg.cn/thumb150/9e5389bbly1fmkozvqqr1j20c80h4wg4.jpg" mode="widthFix" data-pindex='1' data-index='2' bindtap='clickImage' bindload="imageLoad" style="width:{{imageSize[1][3].width}}rpx;" mode="widthFix" />
+      <image src="http://wx4.sinaimg.cn/thumb150/9e5389bbly1fmkp01dgkoj20c80ggmzx.jpg" data-src="http://wx4.sinaimg.cn/thumb150/9e5389bbly1fmkp01dgkoj20c80ggmzx.jpg" mode="widthFix" data-pindex='1' data-index='3' bindtap='clickImage' bindload="imageLoad" style="width:{{imageSize[1][3].width}}rpx;" mode="widthFix" />
+    </view>
+  </view>
+  <view class="dyn_item_oper">
+    <view class="dyn_oper_it dyn_oper_share">
+      <image src="/images/item_share.png" mode="widthFix" style="width:42rpx;vertical-align: middle;margin-right:14rpx;" />
+      <text>分享</text>
+    </view>
+    <view class="dyn_oper_it dyn_oper_comment">
+      <image src="/images/item_comment.png" mode="widthFix" style="width:42rpx;vertical-align: middle;margin-right:14rpx;" />
+      <text>20</text>
+    </view>
+    <view class="dyn_oper_it dyn_oper_up">
+      <image src="/images/item_dianzan.png" mode="widthFix" style="width:42rpx;vertical-align: middle;margin-right:14rpx;" />
+      <text>30</text>
+    </view>
+  </view>
+</view>

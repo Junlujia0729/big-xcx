@@ -1,0 +1,80 @@
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+<view wx:if="{{mobile}}">
+  <view style='background:#fff;padding:30rpx 0 24rpx 0;'>
+  <view class='explain'>
+      <view class='explain-tit'>绑定我爱教师APP账号说明</view>
+      <view class='explain-info'>1.请输入您在我爱教师APP的注册账号；</view>
+      <view class='explain-info'>2.绑定成功后，将同步您在APP的所有课程。</view>
+    </view>
+  </view>
+
+  <view class='title'>
+    <text class='line'></text>
+    <text class='word'>绑定APP注册手机号</text>
+    <text class='line'></text>
+  </view>
+  <form bindsubmit="checkmobile" report-submit="true">
+    <view class="container">
+      <view class='userinfo'>
+        <view class='nickname'>
+          <text class='name'>手机号</text>
+          <input placeholder="请输入手机号" id="mobile" value='' type='text' 
+        name="mobile" bindblur="bindphone"/>
+        </view>
+        
+        <view class='nickname area resets_line'>
+          <text class='name'>验证码</text>
+          <input placeholder="请输入短信验证码" id="verifycode" name="verifycode"/>
+          <button placeholder="" class="HuoQuX" bindtap="get_mobile_code" id="zphone"  name="verifycode" class="{{is_show?'show':'hide'}}" >获取验证码</button>
+          <button placeholder="" class="HuoQuX" style="border: none" class="{{is_show?'hide':'show'}} yzm-btn">{{last_time}}</button>
+          
+        </view>
+        <!-- <button class='footer' bindtap="queryScore">
+          查询
+        </button> -->  
+      </view>
+    </view>
+    
+    <button class='footer' formType="submit">
+      绑定
+    </button>
+    <button class='cancle' bindtap='cancle'>
+      取消
+    </button>
+    
+  </form>
+</view>
+<view wx:else>
+  <view  wx:if="{{items.length > 0}}" style="width:100%;overflow:hidden;">
+    <navigator class='curriculum_list' url="../mineclass/mineclass?id={{item.classid}}" wx:for="{{items}}" wx:for-item="item" wx:key="key"> 
+      <view class='curriculum_list_info '>
+        <view class='class_names'>{{item.classname}}</view>
+      </view>
+      <view class='keep'>
+        <view wx:if="{{item.live_type == 1}}" class='live-stuta'>回放课</view>
+        <view wx:if="{{item.live_type == 2}}" class='live-stuta'><image class="live-img" src="/images/icon_home_live@2x.png" mode="widthFix" />直播中</view>
+        <view wx:if="{{item.live_type > 2}}" class='live-stuta'><image class="live-img" src="/images/icon_home_live@2x.png" mode="widthFix" />{{item.live_text}}</view>
+        
+      </view>
+      <view class='start_time'>上次观看: {{item.lasttime}}</view>
+    </navigator>
+  </view> 
+  <view wx:if="{{items.length == 0 && loadc == 1}}" class='container'>
+    <view class='classtype'>
+      <view>您在准备2018年上的资格证笔试?</view>
+      <navigator url='../classlist/classlist' class='go-class'>
+        去看看笔试课
+      </navigator>
+    </view>
+    <view class='classtype'>
+      <view>您在准备2017年下的资格证面试?</view>
+      <view class='go-class' bindtap='interview'>去看看面试课</view>
+    </view>
+    <view class='classtype'>
+      <view>您在准备教师招聘考试?</view>
+      <view class='go-class' bindtap='interview_jz'>去看看教招课</view>
+    </view>
+  </view> 
+</view>

@@ -1,0 +1,75 @@
+
+/*每日一练  */
+page{font-size: 28rpx;}
+.line{height: 20rpx;background:#f3f4f5;}
+.cir-border{
+  border: 1px solid #ddd;
+  width: 312rpx;
+  height: 312rpx;
+  border-radius: 50%;
+  margin:40rpx auto 0;
+}
+.cir{   
+  position: relative;
+  left:-268rpx;
+  top:-56rpx;  
+}  
+  
+.top{  
+  text-align: center  
+}  
+  
+.cc{      
+   margin-top: 20rpx;  
+   font-size: 90rpx;
+   color: #333;     
+}
+.cc text{font-size: 32rpx;display: inline-block;margin-left: 20rpx;}
+.cc-t{
+  margin-top: 80rpx; 
+  color: #999;
+  font-size: 32rpx;
+}  
+.answers{padding:40rpx 25rpx 0;overflow: hidden;}
+.answers-item{width:100rpx;height: 100rpx;text-align: center;float: left;padding: 20rpx; }
+.answers-item text{color: #333;display: inline-block;padding-top: 10rpx;font-size: 24rpx;max-width: 70rpx;text-align: center;}
+.true-answer,.false-answer,.no-answer{
+  width: 70rpx;
+  height: 70rpx;
+  background: #3eccb3;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70rpx;
+  margin-left: 17.5rpx;
+}
+.no-answer{
+  background: none;
+  border:1px solid #3eccb3;
+  color: #3eccb3;
+}
+.false-answer{
+  background: #ff5a5a;  
+}
+.share{
+  width: 240rpx;
+  height: 80rpx;
+  margin: 60rpx auto 0;
+  background: url('http://imgs.52jiaoshi.com/1527132553.png') no-repeat 56rpx center; 
+  color: #666;
+  font-size: 32rpx;
+  text-align: left;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  background-size:45rpx 45rpx; 
+  padding: none;
+  border:1rpx solid #ddd;
+  padding-left: 120rpx;
+}
+.share::after{
+  border:none;
+}
+.bottom_fixed_buttons view.w11 .clock{background: #fff;border:1px solid #3eccb3;color: #3eccb3;
+font-size: 32rpx;}
+.bottom_fixed_buttons view.w11 .practice{background: #3eccb3;}
+.dyn_comment_item:last-child{margin-bottom: 100rpx;}

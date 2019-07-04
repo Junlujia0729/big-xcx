@@ -1,0 +1,526 @@
+@import"../../wxParse/wxParse.wxss";
+@import "../common/dynamic.wxss";
+
+page{
+  background: #fff;
+  padding-bottom: 98rpx;
+}
+
+
+#content_slide1{
+  padding-left:24rpx; 
+  padding-right:24rpx; 
+  overflow: hidden;
+}
+#content_slide1 .item{
+  border-bottom: 1px solid #eee;
+}
+
+.btn{
+  position: fixed;
+  bottom:0;
+  left:0;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #fefefe;
+  border-top: 1px solid #fbfbfb;
+  width: 100%;
+}
+
+.pay{
+    text-align: center;
+    display: block;
+    border-radius: 8rpx;
+    background: #ff6b49;
+    color: #fff;
+    font-size: 32rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    width: 95%;
+    margin: 5rpx auto;
+}
+
+
+.classdetail{
+  height: 48rpx;
+  padding:20rpx 30rpx;
+  background: #f5f5f5;
+  font-size: 30rpx;
+  color: #666;
+}
+.notice-icon{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+.classdetail text{
+  padding-left: 20rpx;
+}
+.content img{
+  width: 100%;
+  height: 100%;
+}
+.more_news{
+  margin:5rpx 100rpx 0 65%;
+  text-align: center;
+  border-radius: 10rpx;
+  color: #ff6b49;
+  font-size: 32rpx;
+  height:70rpx;
+  line-height:70rpx;
+  position: relative;
+}
+.more_news image{
+  width: 38rpx;
+  height: 38rpx;
+}
+.more_news text{
+  padding:2rpx 8rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background: #ff6b49;
+  color: #fff;
+  border-radius: 15rpx;
+  font-size: 22rpx;
+  position: absolute;
+  right:30rpx;
+  top:-8rpx;
+  display: inline-block;
+}
+.buy{
+  float: left;
+  width: 55%;
+  text-align:center;
+  display:block;
+  border-radius:8rpx;
+  background:#ff6b49;
+  color:#fff;
+  font-size:32rpx;
+  height:70rpx;
+  line-height:70rpx;
+  margin-left:5%;
+}
+
+
+.btn-buy{
+  width: 95%;
+  text-align:center;
+  display:block;
+  border-radius:8rpx;
+  background:#ff6b49;
+  color:#fff;
+  font-size:32rpx;
+  height:70rpx;
+  line-height:70rpx;
+  margin:5rpx 20rpx; 
+}
+.content{
+  padding: 12rpx 24rpx;
+  color: #666;
+  text-align:left !important;
+}
+.content view{
+  margin-bottom: 20rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+}  
+
+.header{
+  padding: 30rpx;
+  border-bottom:1px solid #e9e9e9;
+}
+.play{
+  width: 160rpx;
+  float: right;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666;
+}
+.play image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.progress{
+  padding-top: 26rpx;
+  padding-left: 30rpx;
+}
+.message{
+  font-size: 28rpx;
+  color: #999;
+}
+.title{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333; 
+  padding-bottom: 30rpx;
+}
+.sub-title{
+  font-size: 26rpx;
+  color: #666;
+  padding-bottom: 30rpx;
+}
+
+
+/*音频播放  */
+audio{
+  display: none !important;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.song-list{
+  padding-bottom: 80px;
+  color: #666;
+}
+.song-item {
+  display: flex;
+  padding: 10px;
+}
+.song-item.even{
+  background: #f3f3f3;
+}
+.song-item.current{
+  color: #31c27c;
+}
+.song-item .song-no{
+  width: 30px;
+}
+.song-item .song-name{
+  flex: 1;
+}
+.footer{
+
+  background: #31c27c;
+  color: #fff;
+}
+.song-info{
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
+}
+.song-info .song-name{
+  flex: 1;
+  overflow: hidden;
+}
+.song-info .song-time{
+  width: 50px;
+  text-align: right;
+}
+
+
+/*播放器*/
+.aplayer_box{
+  background: #fff;
+  padding:40rpx 30rpx;
+}
+.aplayer_controls{
+  position: relative;
+}
+.aplayer_controls .btn_box{
+  margin: 0 auto;
+  height:124rpx;
+  line-height:124rpx;
+  width:350rpx;
+}
+.aplayer_controls .btn_box .btn_prev,.aplayer_controls .btn_box .btn_next{
+  display: inline-block;
+  vertical-align: middle;
+  width: 41rpx;
+  height: 50rpx;
+}
+.aplayer_controls .btn_box .btn_prev{
+  margin-right:72rpx;
+}
+.aplayer_controls .btn_box .btn_next{
+  margin-left:72rpx;
+}
+.aplayer_controls .btn_box .btn_play{
+  display: inline-block;
+  vertical-align: middle;
+  width: 124rpx;
+  height: 124rpx;
+}
+.aplayer_controls .btn_mode{
+  position: absolute;
+  width: 44rpx;
+  height: 39rpx;
+  right: 50rpx;
+  top: 53rpx;/*124-39/2*/
+}
+.aplayer_progress__bar{
+  padding:32rpx;
+  height:32rpx;
+  position: relative;
+}
+.aplayer_progress__bar text{
+  float:left;
+  width:100rpx;
+  height:32rpx;
+  line-height: 32rpx;
+  font-size:24rpx;
+  text-align: left;
+  color:#999999;
+}
+.aplayer_progress__bar text.right{
+  float:right;
+  text-align: right;
+}
+.aplayer_progress__bar .process{
+  margin-left:100rpx;
+  margin-right:100rpx;
+  margin-top:12rpx;
+}
+.aplayer_progress__bar .dragbar{
+  position: absolute;
+  width:32rpx;
+  height:32rpx;
+  background: #fff;
+  box-shadow: 0 0 0 2rpx rgba(0,0,0,0.1);
+  border-radius: 32rpx;
+  bottom:32rpx;
+  left:124rpx;/*48 + 100 - 24*/
+}
+
+/*评论*/
+/*.d_c_i_h_tit{
+  margin-left:0;
+}
+.d_c_i_cont{
+  padding-left:0;
+}
+.d_c_i_reply{
+  margin-left:0;
+}*/
+.dyn_item_oper{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.dyn_item_oper .dyn_oper_comment{
+  
+}
+
+.dyn_item_oper .dyn_oper_comment view{
+  margin:20rpx 0;
+  border-left:1rpx solid #e5e5e5;
+  border-right:1rpx solid #e5e5e5;
+  height:42rpx;
+  line-height:42rpx;
+}
+
+.aplayer_progress__bar slider{
+  width: 426rpx;
+  height: 5rpx;
+  margin: 0 auto 10rpx;
+}
+
+.aplayer_progress__bar .wx-slider-handle{
+  width:40rpx;
+  height:40rpx;
+  top:6rpx;
+}
+
+.clock-btn,.clock-btn-al{
+  margin:24rpx auto;
+}
+.clock-btn{
+  width:200rpx;
+  height:200rpx;
+  border:8rpx solid #3eccb3;
+  border-radius: 200rpx;
+}
+.clock-btn button{
+  background-color:#3eccb3;
+  color: #fff;
+  text-align: center;
+  width:170rpx;
+  height:170rpx;
+  border-radius: 170rpx;
+  line-height: 170rpx;
+  font-size: 36rpx;
+  margin:15rpx auto;
+  padding:0;
+}
+
+.clock-btn-al{
+  text-align: center;
+}
+.clock-btn-al image{
+  width: 72rpx;
+  height: 72rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right:20rpx;
+  margin-top:-14rpx;
+}
+.clock-btn-al text{
+  display:inline-block;
+  height:72px;
+  line-height:72px;
+  font-size:48rpx;
+  color:#3eccb3;
+}
+
+/*分享卡片  */
+.mask{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+
+}
+.card{
+  width: 500rpx;
+  position: fixed;
+  background: #fff;
+  left:50%;
+  top:50rpx;
+  margin-left: -250rpx;
+  /* margin-top: -534rpx; */
+}
+
+.card-header{
+  width: 100%;
+  height: 454rpx;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 90rpx;
+  left:0;
+}
+
+.headerimg{
+  width: 80rpx;
+  height: 80rpx;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  margin: 40rpx auto 20rpx;
+}
+.read{
+  font-size: 36rpx;
+  line-height: 38rpx;
+}
+.headerimg image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.linkname{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  padding-bottom: 12rpx;
+}
+.desc{
+  font-size: 22rpx;
+  line-height: 24rpx;
+  padding-bottom: 66rpx;
+}
+.clock-days{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  font-weight: bold;
+  padding-bottom: 20rpx;
+}
+.clock-days .days{
+  display:inline-block ;
+  padding: 0 30rpx;
+}
+.clock-time{
+  font-size: 20rpx;
+  line-height: 20rpx;
+}
+.join{
+  width: 100%;
+  height: 380rpx;
+  position: absolute;
+  bottom:0;
+  left:0;
+  text-align: center;
+  padding-top: 30rpx;
+}
+.card-title{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #333;
+  padding-bottom: 10rpx;
+  font-weight: bold;
+}
+
+.number{
+  font-size: 20rpx;
+  color: #999;
+  padding-bottom: 40rpx;
+}
+.xcx-code{
+  width: 172rpx;
+  height: 172rpx;
+  display: block;
+  margin: 0 auto 30rpx;
+}
+.pic{
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin: 0 auto;
+}
+.tips{
+  font-size: 24rpx;
+  color: #333;
+  padding-top: 20rpx;
+  
+}
+.share{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+  background: #3eccb3;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: -130rpx;
+  left:0;
+  text-align: center;
+  border-radius: 50rpx;
+  padding: 0;
+}
+.save{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #333;
+  background: #fff;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: -130rpx;
+  right:0;
+  text-align: center;
+  border-radius: 50rpx;
+}
+.close{
+  width: 27rpx;
+  height: 27rpx;
+  position: absolute;
+  top:20rpx;
+  right:20rpx;
+}
+.bag{
+  width: 100%;
+}
+.aplayer_progress__bar .wx-slider-handle{
+  width:40rpx;
+  height:40rpx;
+  top:6rpx;
+}
+
+/*音频  */
+

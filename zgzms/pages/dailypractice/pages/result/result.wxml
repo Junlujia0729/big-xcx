@@ -1,0 +1,38 @@
+
+<!--答题结果-->
+<view class='cir-border'>
+  <view class="wrap">  
+    <view class="top">  
+      <!-- <canvas class="cir" style="width:212px; height:212px;" canvas-id="canvasArc">  
+      </canvas>   -->
+      <view class="cc-t">正确率</view>
+      <view class="cc">{{correct_rate}}<text>%</text></view>  
+    </view>  
+  </view> 
+</view>
+ 
+
+<button open-type='share' class='share' >分享</button>
+<!--答案  -->
+<view class='answers'>
+  <view class='answers-item' wx:for="{{questions}}" wx:key="key" wx:item-for="item" data-index="{{[index]}}" bindtap='checkitem'>
+    <view class="{{item.result == 1 ? 'true-answer' : 'false-answer'}}">{{index +1}}</view>
+  </view>
+</view>
+
+<view class='line'></view>
+<!--课程广告栏  -->
+<image src=''></image>
+<!-- 底部按钮 -->
+<view class='bottom_fixed_buttons'>
+  <view class='w11'>
+      <button class='clock' bindtap='analysis'>查看解析</button>
+  </view>
+  <view class='w11'>
+    <button class='practice'>做题日历</button>   
+  </view>
+</view>
+
+
+
+

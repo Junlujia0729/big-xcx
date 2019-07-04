@@ -1,0 +1,121 @@
+.sub_comment_box{
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  left:0;
+  z-index: 999;
+  border-top:1rpx solid #e5e5e5;
+  background: #fff;
+}
+.sub_c_b_input_box{
+  padding:12rpx 30rpx;
+}
+.sub_c_b_input_box .textarea_box{
+  border:1rpx solid #e5e5e5;
+  margin-right:120rpx;
+  border-radius: 6rpx;
+  padding:10rpx;
+}
+.sub_c_b_input_box textarea,.sub_c_b_input_box input{
+  width: 100%;
+  font-size:30rpx;
+}
+.sub_c_b_input_box image{
+  width:40rpx;
+  display: block;
+  margin-top:15rpx;
+  float:right;
+}
+.sub_c_b_input_box text{
+  position: absolute;
+  right:20rpx;
+  top:17rpx;
+  color:#fff;
+  background: #ff6b49;
+  width:30rpx;
+  height:30rpx;
+  border-radius: 30rpx;
+  font-size:20rpx;
+  line-height:30rpx;
+  text-align: center;
+  display: none;
+}
+.sub_c_b_input_box text.active{
+  display: block;
+}
+.sub_c_b_input_box button{
+  float:right;
+  width:60rpx;
+  height:40rpx;
+  border-radius: 6rpx;
+  color:#fff;
+  background: #ccc;
+  font-size:20rpx;
+  text-align: center;
+  line-height: 40rpx;
+  margin-top:15rpx;
+  margin-left:10rpx;
+  padding:0;
+  border:none;
+}
+.sub_c_b_input_box button.active{
+  background: #ff6b49;
+}
+
+.sub_c_b_image_box{
+  background: #f9f9f9;
+  height:340rpx;
+  text-align: center;
+  padding: 30rpx 0 50rpx 0;
+  display: none;
+}
+.sub_c_b_image_box.active{
+  display:block;
+}
+.sub_c_b_image_box text{
+  display: none;
+}
+.sub_c_b_image_box input{
+  display:none;
+}
+.sub_c_b_image_box .selectpic{
+  position: relative;
+  width:180rpx;
+  height:180rpx;
+  margin:30rpx auto;
+}
+.sub_c_b_image_box image.select{
+  width:180rpx;
+  height:180rpx;
+}
+.sub_c_b_image_box image.close{
+  position: absolute;
+  width:34rpx;
+  top:-17rpx;
+  right:-17rpx;
+  display:none;
+}
+.sub_c_b_image_box image.close.active{
+  display: block;
+}
+
+.sub_c_b_image_box button{
+  background: #ccc;
+  height:70rpx;
+  line-height: 70rpx;
+  font-size:32rpx;
+  width:230rpx;
+  text-align: center;
+  color:#fff;
+  border-radius: 70rpx;
+  border:none;
+}
+.sub_c_b_image_box button.active{
+  background: #3eccb3;
+}
+.sub_c_b_image_box .tips{
+  text-align: center;
+  font-size:24rpx;
+  color:#ccc;
+  line-height:30rpx;
+}

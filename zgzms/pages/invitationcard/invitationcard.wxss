@@ -1,0 +1,200 @@
+
+page{
+  background: #3f3f3f;
+}
+.footer{
+  position: fixed;
+  background: #fff;
+  height: 214rpx;
+  bottom: 0;
+  left: 0;
+  white-space:nowrap;
+  width: 100%;
+}
+.tips{
+  text-align: center;
+  padding: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+scroll-view image{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+.cardTemplate{
+  display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 40rpx;
+  background-image: url('http://imgs.52jiaoshi.com/1517641416.jpg');
+  background-repeat: no-repeat;
+  background-size:100% 100%; 
+  border-radius: 10rpx;
+}
+.active{
+  background-color: rgba(0, 0, 0, .6);
+}
+.active .active-img{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, .3);
+  border-radius: 10rpx;
+  background-image:url('http://imgs.52jiaoshi.com/1517824995.png') ;
+  background-size:92rpx 92rpx;
+  background-position: 14rpx 14rpx;
+  background-repeat:no-repeat;  
+}
+ 
+.card{
+  width: 510rpx;
+  height: 900rpx;
+  position: fixed;
+  background: #fff;
+  left:50%;
+  top:34rpx;
+  margin-left: -255rpx;
+}
+.card-header{
+  width: 100%;
+  height: 454rpx;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 90rpx;
+  left:0;
+}
+
+.headerimg{
+  width: 80rpx;
+  height: 80rpx;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: block;
+  margin: 40rpx auto 20rpx;
+}
+.read{
+  font-size: 36rpx;
+  line-height: 38rpx;
+}
+.headerimg image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.linkname{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  padding-bottom: 12rpx;
+}
+.desc{
+  font-size: 22rpx;
+  line-height: 24rpx;
+  padding-bottom: 66rpx;
+}
+.clock-days{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  font-weight: bold;
+  padding-bottom: 20rpx;
+}
+.clock-days .days{
+  display:inline-block ;
+  padding: 0 30rpx;
+}
+.clock-time{
+  font-size: 20rpx;
+  line-height: 20rpx;
+}
+.join{
+  width: 100%;
+  height: 380rpx;
+  position: absolute;
+  bottom:0;
+  left:0;
+  text-align: center;
+  padding-top: 30rpx;
+}
+.card-title{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #333;
+  padding-bottom: 10rpx;
+  font-weight: bold;
+}
+
+.number{
+  font-size: 20rpx;
+  color: #999;
+  padding-bottom: 40rpx;
+}
+.xcx-code{
+  width: 172rpx;
+  height: 172rpx;
+  display: block;
+  margin: 0 auto 30rpx;
+}
+.pic{
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin: 0 auto;
+}
+.tips{
+  font-size: 28rpx;
+  color: #999;
+  padding-top: 20rpx;
+  
+}
+.share{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #fff;
+  background: #3eccb3;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: -130rpx;
+  left:0;
+  text-align: center;
+  border-radius: 50rpx;
+  padding: 0;
+}
+.save{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #333;
+  background: #fff;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: -130rpx;
+  right:0;
+  text-align: center;
+  border-radius: 50rpx;
+}
+.close{
+  width: 27rpx;
+  height: 27rpx;
+  position: absolute;
+  top:20rpx;
+  right:20rpx;
+}
+.bag{
+  width: 100%;
+}
+.tip{
+  width: 140rpx;
+  height: 46rpx;
+  border: 2px solid #3eccb3;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  color: #3eccb3;
+  text-align: center;
+  line-height: 46rpx;
+  position: fixed;
+  right: 30rpx;
+  bottom:275rpx;
+}

@@ -1,0 +1,88 @@
+/* pages/home/home.wxss */
+@import "../classlist/classlist.wxss";
+@import "../common/columnlist.wxss";
+.seprate-line{
+  height:10rpx;
+  background: #f3f4f5;
+}
+.slide-image{
+  width: 100%;
+}
+.fix_mask {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+} 
+.simpledialog {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 999;
+    border-radius: 6rpx;
+    width: 100%;
+    height: 100%;
+}
+.close {
+    position: absolute;
+    width: 72rpx;
+    height: 72rpx;
+    left:50%;
+    bottom:-100rpx;
+    margin-left: -36rpx;
+    z-index: 999;  
+}
+.content{
+    position: absolute;
+    width: 520rpx;
+    height: 630rpx;
+    left:50%;
+    top:50%;
+    margin-left: -260rpx;
+    margin-top: -315rpx;
+}
+.router_box{
+  height:168rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.router_item{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  text-align: center;
+}
+.router_item image{
+  width:70rpx;
+  border-radius: 70rpx;
+  margin-top:30rpx;
+}
+.router_item text{
+  font-size:24rpx;
+  color:#333333;
+  display: block;
+}
+.weinituijian{
+  padding:36rpx 20rpx 6rpx 20rpx;
+  font-size:32rpx;
+  color:#333333;
+}
+.class-title text {
+  font-size:30rpx;
+  font-weight: normal;
+}
+.column_item .clumn-name{
+  font-weight: normal;
+}
+
+/*每日练习  */
+.practice-daily{padding: 30rpx 0 0 30rpx;}
+.practice-daily .navigator{display: inline-block;margin-bottom: 30rpx;margin-right:30rpx;}
+.practice-daily image{width: 330rpx;height: 160rpx;display: inline-block;}

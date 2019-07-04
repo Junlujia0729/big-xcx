@@ -1,0 +1,16 @@
+
+<view class='container' style='height:{{screenHeight}}px'>
+  <view class='countent'>
+    <image src='{{play}}' class='play' bindtap='audioPlay'></image>
+    <view class='duration'>
+      {{process_time}}
+    </view>
+    <slider bindchange="handleTouchEnd" min="0" max="100" backgroundColor="#f5f5f5" value='{{ap_progress}}' activeColor="#3eccb3" data-time="{{duration}}" block-size="12" block-color="#fff"/>
+    <view class='btn'>
+      <image src='http://imgs.52jiaoshi.com/1520502259.png'></image>
+      <image src='http://imgs.52jiaoshi.com/1520502286.png' class='submitaudio' bindtap='submitaudio'></image>
+      <image src='http://imgs.52jiaoshi.com/1520502318.png' bindtap='download'></image>
+    </view>
+  </view>
+</view>
+

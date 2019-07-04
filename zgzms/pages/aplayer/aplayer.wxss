@@ -1,0 +1,126 @@
+/* pages/aplayer/aplayer.wxss */
+page{
+  font-size: 14px;
+}
+audio{
+  display: none !important;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.song-list{
+  padding-bottom: 80px;
+  color: #666;
+}
+.song-item {
+  display: flex;
+  padding: 10px;
+}
+.song-item.even{
+  background: #f3f3f3;
+}
+.song-item.current{
+  color: #31c27c;
+}
+.song-item .song-no{
+  width: 30px;
+}
+.song-item .song-name{
+  flex: 1;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #31c27c;
+  color: #fff;
+}
+.song-info{
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
+}
+.song-info .song-name{
+  flex: 1;
+  overflow: hidden;
+}
+.song-info .song-time{
+  width: 50px;
+  text-align: right;
+}
+
+
+/*播放器*/
+.aplayer_box{
+  background: #fff;
+  padding:40rpx 30rpx;
+}
+.aplayer_controls{
+  position: relative;
+}
+.aplayer_controls .btn_box{
+  margin: 0 auto;
+  height:124rpx;
+  line-height:124rpx;
+  width:350rpx;
+}
+.aplayer_controls .btn_box .btn_prev,.aplayer_controls .btn_box .btn_next{
+  display: inline-block;
+  vertical-align: middle;
+  width: 41rpx;
+  height: 50rpx;
+}
+.aplayer_controls .btn_box .btn_prev{
+  margin-right:72rpx;
+}
+.aplayer_controls .btn_box .btn_next{
+  margin-left:72rpx;
+}
+.aplayer_controls .btn_box .btn_play{
+  display: inline-block;
+  vertical-align: middle;
+  width: 124rpx;
+  height: 124rpx;
+}
+.aplayer_controls .btn_mode{
+  position: absolute;
+  width: 44rpx;
+  height: 39rpx;
+  right: 50rpx;
+  top: 53rpx;/*124-39/2*/
+}
+.aplayer_progress__bar{
+  padding:32rpx;
+  height:32rpx;
+  position: relative;
+}
+.aplayer_progress__bar text{
+  float:left;
+  width:100rpx;
+  height:32rpx;
+  line-height: 32rpx;
+  font-size:24rpx;
+  text-align: left;
+  color:#999999;
+}
+.aplayer_progress__bar text.right{
+  float:right;
+  text-align: right;
+}
+.aplayer_progress__bar .process{
+  margin-left:100rpx;
+  margin-right:100rpx;
+  margin-top:12rpx;
+}
+.aplayer_progress__bar .dragbar{
+  position: absolute;
+  width:32rpx;
+  height:32rpx;
+  background: #fff;
+  box-shadow: 0 0 0 2rpx rgba(0,0,0,0.1);
+  border-radius: 32rpx;
+  bottom:32rpx;
+  left:124rpx;/*48 + 100 - 24*/
+}

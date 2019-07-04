@@ -1,0 +1,22 @@
+@import "../../../common/dynamic.wxss";
+/*每日一练  */
+page{font-size: 28rpx;}
+.header_zgz{height: 160rpx;background: url('http://imgs.52jiaoshi.com/1527047574.png');
+background-size:100% 100%;padding:45rpx 0  45rpx 375rpx;color: #fff; }
+.header_zp{height: 160rpx;background: url('http://imgs.52jiaoshi.com/1528702753.png');
+background-size:100% 100%;padding:45rpx 0  45rpx 375rpx;color: #fff; }
+.header view{margin-bottom: 38rpx;line-height: 28rpx;}
+.header view .left{width: 140rpx;text-align: right;display: inline-block;margin-right: 40rpx;}
+.header view .right{font-size: 44rpx;}
+.nav{height: 40rpx;padding: 30rpx 0;display: flex;line-height: 40rpx;}
+.nav navigator{flex: 1;text-align: center;}
+.nav .Rankings{border-right:1px solid #ddd;line-height: 40rpx;vertical-align: middle;}
+.nav image{width: 50rpx;height: 40rpx;display: inline-block;margin-right: 16rpx;}
+.nav text{position: relative;top:-10rpx;}
+.nav .calendar image{width: 40rpx;height: 40rpx;display: inline-block;margin-right: 16rpx;}
+.line{height: 20rpx;background:#f3f4f5;}
+
+.bottom_fixed_buttons view.w11 .clock{background: #fff;border:1px solid #3eccb3;color: #3eccb3;
+font-size: 32rpx;}
+.bottom_fixed_buttons view.w11 .practice{background: #3eccb3;}
+.dyn_comment_item:last-child{margin-bottom: 100rpx;}

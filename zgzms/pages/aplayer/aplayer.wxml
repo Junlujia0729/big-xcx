@@ -1,0 +1,32 @@
+<block wx:if="{{loading === true && audioAction.method == 'play'}}">
+  <loading>歌曲加载中</loading>
+</block>
+<audio src="{{src}}" name="{{name}}" author="{{author}}" poster="{{poster}}" action="{{audioAction}}" bindplay="started" bindended="ended" bindtimeupdate="timeupdate" controls></audio>
+<scroll-view class="song-list">
+  <block wx:for="{{displayList}}" wx:for-item="song" wx:for-index="index" wx:key="key">
+    <view class="song-item {{index % 2 === 1 ? 'even': 'odd' }} {{src === song.src ? 'current': ''}}" bindtap="playItem" data-src="{{song.src}}">
+      <view class="song-no">{{displayList.length - index }}</view><view class="song-name">{{song.songname}}</view>
+    </view>
+  </block>
+</scroll-view>
+<view class="footer">
+  <view class="aplayer_box">
+    <view class="aplayer_controls">
+      <view class="btn_box">
+        <image class="btn_prev" mode="aspectFit" bindtap="prev" src="/images/aplayer/prev.png" />
+        <image class="btn_play" mode="aspectFit" bindtap="play_pause" src="/images/aplayer/{{status}}.png" />
+        <image class="btn_next" mode="aspectFit" bindtap="next" src="/images/aplayer/next.png" />
+      </view>
+      <image class="btn_mode" mode="aspectFit" bindtap="switchMode" src="/images/aplayer/{{mode}}.png" />
+    </view>
+    <view class="aplayer_progress__bar">
+      <text class="ap_progress_time">{{process_time}}</text>
+      <text class="ap_all_time right">{{total_time}}</text>
+      <view class="process">
+        <progress percent="{{ap_progress}}" stroke-width="4" />
+      </view>
+      <view class="dragbar"></view>
+    </view>
+  </view>
+</view>
+

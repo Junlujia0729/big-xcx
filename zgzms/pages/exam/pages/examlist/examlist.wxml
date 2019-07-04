@@ -1,0 +1,20 @@
+
+
+<view class='list'>
+  <navigator class='list-item' url='../examdetail/examdetail?id={{item.paperid}}' wx:for="{{datas}}" wx:key="key" wx:item-for="item">
+    <view class='top'> 
+      <text class='state fl' wx:if="{{item.examstatus == 1}}">进行中</text>
+      <text class='state fl' wx:if="{{item.examstatus == 2}}">未开始</text>
+      <text class='state fl' wx:if="{{item.examstatus == 3}}">已结束</text>
+      <text class='time fr'>{{item.starttime}}</text>
+    </view>
+    <view class='bottom'>
+      <view class='exam-name'>{{item.title}}</view>
+      <view style='overflow:hidden;'>
+        <text class='fl' wx:if="{{item.baomingstatus == 0}}">未报名</text>
+        <text class='fl' wx:if="{{item.baomingstatus == 1}}">已报名</text>
+        <text class='fr'>{{item.baomingnumber}}人参加考试</text>
+      </view>
+    </view>
+  </navigator>
+</view>

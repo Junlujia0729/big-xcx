@@ -1,0 +1,293 @@
+.dyn_item{margin-top:20rpx;background: #fff;}
+.regu_item_head{
+  padding:0 30rpx;
+  border-bottom: 1rpx solid #ccc;
+  margin-bottom: 30rpx;
+}
+.regu_item_head .regu_item_head_tit{
+  font-size:38rpx;
+  color:#333333;
+}
+.regu_item_head_stat{
+  padding:24rpx 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.regu_item_head_stat text{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  text-align: center;
+  color:#999999;
+  font-size:24rpx;
+}
+.regu_item_head_stat text.left{
+  text-align: left;
+}
+.regu_item_head_stat text.right{
+  text-align: right;
+}
+.dyn_item_tit{padding:30rpx;}
+.dyn_item_cont{padding:0 30rpx 30rpx 30rpx;}
+.dyn_tit_left{float:left;width:80rpx;}
+.dyn_tit_right{float:right;width:50rpx;}
+.dyn_tit_mid{margin-left:100rpx;margin-right:63rpx;}
+.dyn_tit_left image{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 80rpx;
+}
+.dyn_tit_right image{
+  width:43rpx;
+}
+.dyn_tit_nickname{
+  font-size:30rpx;
+  line-height: 55rpx;
+}
+.dyn_tit_crttime{
+  font-size:24rpx;
+  color:#999999;
+  line-height: 24rpx;
+}
+.dyn_cont_txt{
+  font-size:32rpx;
+  line-height: 48rpx;
+}
+.dyn_cont_img{
+  margin-top:20rpx;
+}
+.dyn_item_oper{
+  /* border-top: 2rpx solid #e5e5e5; */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  height:82rpx;
+  line-height: 82rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding:0 20rpx;
+}
+.dyn_item_oper .dyn_oper_it {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    text-align: center;
+}
+.dyn_item_oper button.dyn_oper_it{
+  background: transparent;
+  padding:0;
+  margin: 0;
+  border:none;
+}
+.dyn_item_oper button.dyn_oper_it::after{
+  border:none;
+}
+.dyn_item_oper .dyn_oper_it text{
+  font-size:26rpx;
+  line-height: 26rpx;
+  color:#666666;
+}
+
+/**评论部分**/
+.dyn_comment_header{
+  padding:30rpx;
+  font-size:30rpx;
+  height:30rpx;
+  line-height:30rpx;
+  color:#333333;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.dyn_comment_item{
+  padding:30rpx 30rpx 0 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.dyn_comment_item:last-child{
+  border-bottom: none;
+}
+.d_c_i_h_avatar{
+  width:70rpx;
+  float:left;
+}
+.d_c_i_h_avatar image{
+  width:70rpx;
+  height:70rpx;
+  border-radius: 70rpx;
+}
+.d_c_i_h_up,.d_c_i_h_dot{
+  float:right;
+  padding-left:30rpx;
+  padding-right:30rpx;
+  height: 70rpx;
+  text-align: left;
+}
+.d_c_i_h_up_dz{
+  float:right;
+  padding-left:30rpx;
+  padding-right:0;
+  height: 70rpx;
+  text-align: right;
+}
+.d_c_i_h_up image{
+  width:28rpx;
+  vertical-align: middle;
+}
+.d_c_i_h_up image.comment{
+  width:30rpx;
+}
+.d_c_i_h_up text{
+  font-size:26rpx;
+  color:#666666;
+  margin-left:14rpx;
+  height:30rpx;
+  line-height:30rpx;
+}
+.d_c_i_h_dot image{
+  width:6rpx;
+  vertical-align: middle;
+}
+.d_c_i_h_tit{
+  margin-left:85rpx;
+}
+.d_c_i_h_tit_name{
+  /* color:#9ab3af;
+  font-size:26rpx;*/
+  color:#5b6a92;
+  font-size:30rpx;
+}
+.d_c_i_h_tit_time{
+  /* color:#999999;
+  font-size:20rpx; */
+  color:#737373;
+  font-size:20rpx;
+}
+.d_c_i_cont{
+  padding-left:85rpx;
+  padding-bottom: 20rpx;
+}
+.d_c_i_cont .d_c_i_cont_txt{
+  margin-top:10rpx;
+  font-size:30rpx;
+  /* color:#333333; */
+  color:#000;
+}
+.d_c_i_cont .d_c_i_cont_img{
+  margin-top:20rpx;
+}
+.d_c_i_cont .d_c_i_cont_img image{
+  margin-right: 20rpx;
+}
+.d_c_i_reply{
+  /* border-top:1rpx solid #e5e5e5; */
+  margin-left:85rpx;
+  padding:20rpx;
+  margin-bottom: 40rpx;
+  background: #f3f3f5;
+}
+.d_c_i_reply.d_c_i_like{
+  margin-bottom: 0;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.d_c_i_reply_item text{
+  font-size:26rpx;
+  /* color:#333333; */
+  color:#111111;
+}
+.d_c_i_reply_item .d_c_i_reply_from,.d_c_i_reply_item .d_c_i_reply_txt,.d_c_i_reply_item .d_c_i_reply_to{
+  margin-right:14rpx;
+}
+.d_c_i_like_1 .d_c_i_reply_item .d_c_i_reply_to{
+  margin-right:7rpx;
+}
+.d_c_i_reply_item .d_c_i_reply_from,.d_c_i_reply_item .d_c_i_reply_to{
+  /* color:#9ab3af; */
+  color:#5b6a92;
+}
+.d_c_i_reply_item text.offical{
+  color:#ff6b49;
+}
+.d_c_i_reply_all{
+  color:#9ab3af;
+  font-size:26rpx;
+  text-decoration:underline;
+}
+
+/**发表回复*/
+.sub_reply_mask{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top:0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+  display: none;
+}
+.sub_reply_mask.active{
+  display:block;
+}
+.sub_reply_box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display:none;
+}
+.sub_reply_box.active{
+  display:block;
+}
+.sub_c_b_input_box{
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+.sub_c_b_input_box .textarea_box{
+  background-color: #f5f5f5;
+  padding: 5px;
+  width: 100%;
+}
+.sub_c_b_input_box textarea,.sub_c_b_input_box input{
+  width: 100%;
+  font-size:28rpx;
+}
+.sub_c_b_input_box button{
+  width: 50px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5px;
+  border-radius: 2px;
+  text-align: center;
+  padding: 0 2px !important;
+  font-size: 14px;
+  background-color: #ccc;
+  color: #fff;
+}
+.sub_c_b_input_box button.active{
+  background: #3eccb3;
+}
+
+/*增加音频  */
+.play_audio{width: 560rpx;margin: 30rpx 0 30rpx;border:1rpx solid #e5e5e5;background: #fbfbfb;
+padding: 15rpx 20rpx;vertical-align: center;border-radius: 20rpx;height: 80rpx;line-height: 80rpx;
+position: relative;}
+.play_audio_left{width: 60rpx;height: 60rpx;float: left;margin-top: 10rpx;}
+.play_audio_left image{width: 100%;height: 100%;}
+.play_audio_right{margin-left: 85rpx;position: relative;top:-10rpx;}
+.play_time{position: relative;top:-20rpx;font-size: 26rpx;color: #666;left:25rpx;}
+.time_schedule{float:left;line-height: 30rpx;}
+.play_dura{float:right;margin-right: 65rpx;line-height: 30rpx;}
+
+/*回复评论音频  */
+.reply_audio{width: 505rpx;height: 70rpx;line-height: 70rpx;padding: 0 30rpx;background: #fff;
+border-radius: 50rpx;margin:20rpx 0;}
+.reply_audio_btn{width: 25rpx;height: 34rpx;position: relative;bottom:-5rpx;}
+.reply_audio .reply_audio_duration{float: right;color: #666;}

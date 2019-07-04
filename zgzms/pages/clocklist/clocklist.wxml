@@ -1,0 +1,9 @@
+<view class='container-card'>
+  <view class='section' wx:for="{{items}}" wx:key="key" wx:item-for="item" data-id="{{item.id}}" catchtap='selectcolumn'>
+    <image src='{{item.module_img}}'></image>
+    <view class='section-msg'>
+      <text>{{item.title}}</text>
+      <text class='date'>{{item.created_time}}打卡任务</text>
+    </view>
+  </view>
+</view>

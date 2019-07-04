@@ -1,0 +1,264 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="container" style='padding-bottom:200rpx;'>
+  <view class='class_pic_bg_2'>
+    <view class='vodie-classname'>{{datas.classname}}</view>
+    <view class='vodie-time'>
+      <text class="timestr">{{datas.begintime}}开课</text>
+      <text wx:if="{{!platform_ios}}" class='line'>|</text>
+      <text wx:if="{{!platform_ios}}" wx:for="{{datas.salestext}}" wx:for-item="item" wx:key="key" class="dyntext_{{item.color}}">{{item.content}}</text>
+    </view>
+    <view wx:if= "{{!platform_ios}}" class="class_sale_price">
+      <text class="price_tt">￥</text><text class="price">{{datas.price}}</text>
+      <text wx:if= "{{!platform_ios}}" class="orgprice" wx:if="{{datas.ori_price > 0}}" >{{datas.ori_price}}</text>
+      <view class="labels">
+        <text wx:for="{{datas.labels}}" wx:for-item="item" wx:key="key" class="dyntext_{{item.color}}">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+  <navigator class='teacher-list' url='../classx/moreteacher?id={{datas.classid}}' wx:if="{{teacherlist.length > 0}}">
+    <view class='teacher-header' wx:for="{{teacherlist}}" data-key="{{item.auser}}" wx:for-item="item" wx:key="key">
+      <image src='{{item.headimg}}'></image>
+      <text>{{item.teacher}}</text>
+    </view>
+    <image src='http://imgs.52jiaoshi.com/1514359044.png' class='teacher_introduc'></image>
+  </navigator>
+  <view class="seprate-line"></view>
+  <block wx:if="{{datas.coupon_rule}}">
+    <view class='discount' wx:if="{{datas.coupon_rule}}">
+      <text class='dis-desc'>{{datas.coupon_rule.desc}}</text>
+      <text style=''>领取课程优惠券{{datas.coupon_rule.money}}元 </text>
+      <text data-id="{{datas.coupon_rule.id}}" class='pick' bindtap='get_coupons' 
+      wx:if="{{datas.coupon_rule.received == 0 && received==0}}">领取</text>
+      <text data-id="{{datas.coupon_rule.id}}" class='pick-1' wx:if="{{datas.coupon_rule.received == 1 ||received==1}}">已领取 </text>
+    </view>
+    <view class="seprate-line" wx:if="{{datas.coupon_rule}}"></view>
+  </block>
+  <block wx:if="{{grouplist.length > 0 && !platform_ios}}">
+    <view class='spell-number' wx:if="{{grouplist.length > 0}}">
+      正在拼课，可直接参与
+      <text bindtap='rule'>拼课规则</text> 
+    </view> 
+    <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{true}}" interval="{{interval}}" duration="{{duration}}" vertical circular wx:if="{{grouplist.length > 0}}" class="{{grouplist[0].length < 2 || !grouplist[0][1] || !grouplist[0][0] ? 'onegroup' : ''}}">
+      <block >
+        <swiper-item wx:for="{{grouplist}}" wx:for-item="item" wx:key="key">
+          <view class='groupmsg' wx:for="{{grouplist[index]}}" wx:for-item="item1" wx:key="key1" data-groupid="{{item1.id}}" bindtap='go_spell' wx:if="{{item1.id}}">
+            <view class='group-left'>
+              <image src='{{item1.user_info.headimgurl}}'></image>
+              <text class='group-leader'>{{item1.user_info.nickname}}</text>
+            </view>
+            <view class='group-right'>
+              <view>还差{{item1.group_number - item1.join_number}}人拼成</view>
+              <view class='spell-btn'>去参团</view>
+            </view>
+          </view>   
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="seprate-line" wx:if="{{grouplist.length > 0}}"></view>
+  </block>
+  <view class='spell-number-1' wx:if="{{grouplist.length == 0 && datas.group_rule && datas.group_rule.price && !platform_ios}}" bindtap='rule'>
+    拼课规则 
+    <image src='http://imgs.52jiaoshi.com/1514359044.png' class='teacher_introduc'></image>
+  </view> 
+  <view class='classdetail' wx:if="{{classlist.length > 0}}">
+    <text>课程表</text>   
+  </view>
+  <view id="content_slide1" wx:if="{{classlist.length > 0}}">
+    <block wx:for="{{classlist}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+      <view class='item' wx:if="{{idx < 5}}">
+        <navigator wx:if="{{item.iftrial==1}}" hover-class="none" url='../play/play?id={{item.classid}}'>
+          <view class='chapter_name_if'>
+            <view class='chapter_right'>
+                <image src='../../images/z_icon_position_play_off.png'></image>
+            </view>  
+            <view class='chapter_left'>
+              {{idx+1}}.{{item.classname}} 
+              <view class='chapter_time'>{{item.begintime}} - {{item.endtime}}
+                <text class='iftrial-flag'>可试学</text>
+              </view>  
+            </view>                                  
+          </view>
+        </navigator>
+        <view class='chapter_name' wx:else>
+          {{idx+1}}. {{item.classname}} 
+        </view>
+        <view class='chapter_time' wx:if="{{item.iftrial==0}}">
+          {{item.begintime}} - {{item.endtime}}
+        </view>
+      </view>
+    </block>
+  </view>
+  <navigator url="../classx/moreclass?id={{datas.classid}}" class='moreclass' wx:if="{{classlist.length >= 5}}">
+      查看更多
+  </navigator>
+  <view class="seprate-line"></view>
+  <view class='class_pic' wx:if="{{video.vodid}}">
+    <view class='class_pic_bg_5'>
+      <video id="myVideo"  wx:if="{{play}}" src='{{video.vodid}}' controls='true'></video>
+      <view wx:if="{{!play}}" bindtap="play">
+          <image src='{{video.vodpic}}'></image> 
+          <!-- <view class='class_pic_cont_box'>
+            {{video.title}}
+          </view>   -->
+          <!-- <view class='class_pic_cont'>
+            {{video.dur}}
+          </view> -->
+          <view class='play-mask'>
+            <image src='../../images/icon_course_video.png' class='play-icon'></image>
+          </view>   
+          </view>
+    </view>     
+  </view>
+  <view class='content'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  
+  <view wx:if="{{datas.ispay == 1}}">
+    <view class="bottom_fixed_buttons">
+      <!-- <view class='w2' >
+        <navigator url='../mineclass/mineclass?id={{datas.classid}}' wx:if="{{datas.ispay == 1}}" class='btn-flag' >
+          <button >立即观看</button>
+        </navigator>
+      </view> -->
+      <view wx:if="{{datas.ispay == 1}}" class='w11 gray'>
+        <button class='btn-flag'>已购买</button>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="bottom_fixed_buttons">
+      <view wx:if="{{datas.classstate == 1}}" class='w11 gray'>
+        <button class='btn-flag'>尚未开售</button>
+      </view>
+    
+      <!--没有购买过并且在开售期间  -->
+      <block wx:if="{{datas.classstate == 2}}">
+        <!--如果是0元课  -->
+        <view class='w2' wx:if="{{datas.price == 0}}">
+          <!-- <button bindtap='look' data-classid="{{datas.classid}}" class='btn-flag'>立即观看</button> -->
+          
+          <form bindsubmit="buyfreeclass" report-submit="true">
+            <view>
+               <button class='btn-flag' data-classid="{{datas.classid}}" form-type='submit'>立即观看</button>
+            </view>
+          </form>
+        </view>
+        
+        <!--如果不是元课  -->
+        <block wx:else>
+          <!--如果是ios  -->
+          <block wx:if="{{platform != 'ios'}}">
+            <view class="bottom_fixed_buttons">
+                <view class='w11 '>
+                  <button class='btn-flag' bindtap='guideApp'>了解更多</button>
+                </view>
+            </view>
+          </block>
+          <!--非ios  -->
+          <block wx:else>
+            <!--有试学课  -->
+            <!-- <view wx:if="{{datas.trials.lenght > 0}}">
+              <view class='chapter' bindtap='chapter ' >试学</view> 
+              <view class='buy' bindtap='buy'>立即购买</view> 
+            </view> -->
+            <!--可以拼课 0 发起拼团 1 立即参与 2 拼团中 3 团已满 4 拼团已结束-->
+            <block wx:if="{{datas.group_rule && datas.group_rule.price}}">
+              <view wx:if="{{datas.group_rule.state == 3}}" class='bt_content'>拼课人数已满，请重新发起</view>
+              <view wx:if="{{datas.group_rule.state == 4}}" class='bt_content'>拼课人数已满，请重新发起</view>
+              <view class='w1' wx:if="{{datas.group_rule.state == 0 || datas.group_rule.state == 2 || datas.group_rule.state == 3 || datas.group_rule.state == 4}}" >
+                <form bindsubmit="buyclass" report-submit="true">
+                  <button class='buy' form-type='submit'>单独购买￥{{datas.price}}</button>
+                </form>
+              </view>
+              <view class='w11' wx:if="{{datas.group_rule.state == 0}}">
+                <form bindsubmit="spellclass" report-submit="true">
+                  <button form-type='submit'>{{datas.group_rule.number}}人拼课￥{{datas.group_rule.price}}</button>
+                  <input name='id' value='{{datas.group_rule.groupid}}' type='hidden' style='opacity:0'></input>
+                </form> 
+              </view>
+              <view class='w11' data-id="0" wx:if="{{datas.group_rule.state == 3 || datas.group_rule.state == 4}}">
+                <form bindsubmit="spellclass" report-submit="true">
+                <button form-type='submit'>{{datas.group_rule.number}}人拼课￥{{datas.group_rule.price}}</button>
+                <input name='id' value='{{0}}' type='hidden' style='opacity:0'></input>
+                </form>
+              </view>
+            
+              <view class='w11' wx:if="{{datas.group_rule.state == 1}}">
+                <form bindsubmit="spellclass" report-submit="true">
+                  <button data-id="{{groupid}}" form-type='submit'>立即参与￥{{datas.group_rule.price}}
+                  </button>
+                </form>
+              </view>
+              <view class='w11' wx:if="{{datas.group_rule.state == 2}}">
+                <button bindtap='spelling' data-id="{{groupid}}">查看拼课进度</button>
+              </view>
+            </block>
+            <view class="w2" wx:else>
+              <view>
+                <form bindsubmit="buyclass" report-submit="true">
+                  <button class='btn-flag' form-type='submit'>立即购买￥{{datas.price}}</button>
+                </form>
+              </view>
+            </view>
+          </block>  
+        </block>
+      </block>
+
+      <view wx:if="{{datas.classstate == 3}}" class='w11 gray'>
+        <button class='btn-flag'>已停售</button>
+      </view>
+      <view wx:if="{{datas.classstate == 4}}" class='w11 gray'>
+        <button class='btn-flag'>已售罄</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="contact_btn_new">
+  <button session-from="sobot|{{userInfo.nickname}}_{{classid}}_{{datas.classname}}|{{userInfo.headimgurl}}" open-type="contact" show-message-card="true">
+      <image src="http://imgs.52jiaoshi.com/1517032517.png" mode="widthFix"></image> 
+  </button>
+  <text>咨询</text>
+</view>
+
+<form report-submit='true' bindsubmit='creatcard'>
+  <button class='invite-card' wx:if="{{datas.royalty > 0}}" form-type='submit'>
+    <image src='http://imgs.52jiaoshi.com/1517997217.gif'></image>
+    <text>赚{{datas.royalty}}元</text>
+  </button>
+</form>
+
+<!--分享成功后公众号二维码  -->
+<view class='mask' wx:if="{{isshare == 1}}">
+  <view class='mask-content'>
+    <image class='share-success-img' src='http://imgs.52jiaoshi.com/1517624055.png'></image>
+    <view class='share-success-txt'>分享成功</view>
+    <view class='mask-tips'>关注公众号</view>
+    <view class='mask-tips'>接收分销收益提醒</view>
+    <view class='close-mask' >
+      <view bindtap='' class='concern'>
+        <button open-type='contact' show-message-card="true" session-from="getGongzhonghao" class='concern-btn'>关注</button>
+      </view>
+      <view bindtap='closeMask'>关闭</view>
+    </view>
+  </view>
+</view>
+<!--返回首页  -->
+<view class="contact_btn" bindtap='retuen' wx:if="{{gohome}}">
+  <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+</view>
+
+
+<!--IOS支付  -->
+<view class='mask' wx:if="{{guideApp == 1}}">
+  <view class='mask-content'>
+    <view class='mask-tip' style='text-align:center;font-size:32rpx;font-weight: bold;'>打开我爱教师APP了解更多</view>
+    <view class='mask-tip2'>基于微信小程序平台的运营规范，请打开我爱教师APP了解更多关于课程内容。</view>
+    <view class='mask-tip'>您可在应用市场搜索 “我爱教师” 下载安装</view>
+    <view class='clickok'>
+      <button bindtap='closeguideApp'>知道了</button>
+    </view>
+  </view>
+</view>

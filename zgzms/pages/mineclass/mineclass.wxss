@@ -1,0 +1,98 @@
+/* pages/mine/mine.wxss */
+page{
+  background: #f5f5f5;
+}
+.curriculum_list {
+    position: relative;
+    background: #fff;
+    border-left: none;
+    border-right: none;
+    padding-left: 24rpx;
+    margin-bottom: 20rpx;
+}
+.curriculum_list_info {
+    padding-right: 24rpx;
+    display: block;
+}
+.curriculum_list_info .class_names {
+    height: 105rpx;
+    line-height: 105rpx;
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 32rpx;
+    padding: 0 24rpx 0 0;
+}
+.curriculum_list .keep {
+   
+    height: 96rpx;
+    line-height: 96rpx;
+    color: #999;
+    border-top: 1px solid #ddd;
+    padding-right: 24rpx;
+}
+.teacher, .start_time {
+    margin: 0 0 24rpx 0px;
+    color: #999;
+    font-size: 24rpx;
+}
+.live-stuta{
+  display: inline-block;
+  background: #3eccb3;
+  color: #fff;
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+}
+.live-img{
+  width: 38rpx;
+  height: 24rpx;
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+.live-stuta-4{
+  display: inline-block;
+  background: #fff;
+  color: #3eccb3;
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+  border: 1px solid #3eccb3;
+}
+.QQ , .logistics{
+  text-align: center;
+  font-size: 24rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  float: left;
+  width: 50%;
+}
+.QQ_border {
+  border-right:1px solid #ddd;
+}
+.QQ image, .logistics image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.file-name{
+  float:right;
+  margin-top:33rpx;
+  background: #3eccb3;
+  color:#fff;
+  padding:0 10rpx;
+  border-radius: 10rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size:24rpx;
+}

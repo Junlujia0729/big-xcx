@@ -1,0 +1,5 @@
+/* pages/dyndetail/dyndetail.wxss */
+@import "../common/dynamic.wxss";
+page{
+  padding-bottom: 98rpx;
+}

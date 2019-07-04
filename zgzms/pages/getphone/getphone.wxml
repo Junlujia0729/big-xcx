@@ -1,0 +1,37 @@
+<view class="login">
+  <image src="http://imgs.52jiaoshi.com/logo/52logo.png" style="width:144rpx;" mode="widthFix"></image>
+  <view>我们只为教师</view>
+
+  <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNum">微信登录</button>
+</view>
+
+
+
+<view class="fix_mask" wx:if="{{mobile}}"></view>
+<view class="content-pop" wx:if="{{mobile}}">
+    <view class="father">
+      <view style="" class='title-pop'>请绑定手机号</view>
+      <view style="padding: 0 .3rem .3rem;" class='explain'>
+          <view>1.请填写手机号以便我们更好的服务</view>
+          <view>2.已在我爱教师APP注册请输入注册手机号</view>
+          <view>3.未注册APP用户将自动注册我爱教师APP</view>
+      </view>
+      <form bindsubmit="checkmobile" report-submit="true">
+        <view class="resets_line code_line">
+          <input placeholder="请输入手机号" id="mobile" value='' type='number' name="mobile" bindblur="bindphone"/>
+        </view>
+        
+        <view class="resets_line code_line">
+            <input placeholder="请输入短信验证码" type="number" id="verifycode" name="verifycode"/>
+          <button placeholder="" class="HuoQuX" bindtap="get_mobile_code" id="zphone"  name="zphone" class="{{is_show?'show':'hide'}}" >获取验证码</button>
+          <button placeholder="" class="HuoQuX" style="border: none" class="{{is_show?'hide':'show'}} yzm-btn">{{last_time}}秒</button>
+        </view>
+        <button class='footer-pop' formType="submit">
+          绑定
+        </button>
+         
+      </form>
+    
+    </view>
+    <image src='http://imgs.52jiaoshi.com/zhjs/btn_close.png' class='close' bindtap='cancle'></image>
+</view>

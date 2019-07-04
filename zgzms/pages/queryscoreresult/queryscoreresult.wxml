@@ -1,0 +1,2 @@
+<!--pages/queryscoreresult/queryscoreresult.wxml-->
+<web-view src="{{url}}"></web-view>

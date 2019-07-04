@@ -1,0 +1,12 @@
+<!--pages/download/score.wxml-->
+
+<view class='picture'>
+  <image src='{{fileimg}}'></image>
+</view>
+<view class='btn' style='margin-top:20rpx;'>
+  <button bindtap='imageDown' class='imageDown'>保存到相册</button>
+  <button open-type='share' class='share'>分享给好友</button>
+</view>
+<!-- <button bindtap='imageDown'></button>
+<button open-type='share'>分享给好友</button> -->
+

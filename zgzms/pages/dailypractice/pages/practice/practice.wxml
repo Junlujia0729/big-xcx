@@ -1,0 +1,128 @@
+<!--pages/practice/practice/index.wxml-->
+<view class='contioner'>
+  <view class="exam_cont">
+    <swiper duration="100" current="{{current}}" bindchange="listenSwiper" >
+      <!-- <swiper-item>
+        <view class="question_cont">
+          <view class='exam-title'>
+            {{description.title}}
+          </view>
+          <view class="exam-desc">
+            <view><text class='exam-info'>考试科目</text><text>{{description.subject}}</text></view>
+            <view><text class='exam-info'>考试时长</text><text>{{description.times}}分钟</text></view>
+            <view><text class='exam-info'>考试总分</text><text>{{description.score}}分</text></view>
+            <view><text style="color:#999999;font-size:24rpx;">{{description.scores}}</text></view>
+            <view>{{description.notes}}</view>
+          </view>
+          <view class="exam_finger" bindtap='start'>
+            <image src="http://imgs.52jiaoshi.com/model_examination_gestures.png" mode="widthFix" style="display:block;margin:0 auto;width:120px" />
+          </view>
+        </view>
+      </swiper-item> -->
+      <block wx:for="{{items}}" wx:for-index="index" wx:key="id">
+        <swiper-item>
+          <view class='swiper_repor_title'>
+            <view wx:if="{{item.ques.type == 1}}" data-type="{{item.ques.type}}">单项选择题</view>
+            <view wx:if="{{item.ques.type == 2}}" data-type="{{item.ques.type}}">多项选择题</view>
+            <view wx:if="{{item.ques.type == 3}}" data-type="{{item.ques.type}}">判断题</view>
+            <view wx:if="{{item.ques.type == 4}}" data-type="{{item.ques.type}}">辨析题</view>
+            <view wx:if="{{item.ques.type == 5}}" data-type="{{item.ques.type}}">简答题</view>
+            <view wx:if="{{item.ques.type == 6}}" data-type="{{item.ques.type}}">作文题</view>
+            <view wx:if="{{item.ques.type == 7}}" data-type="{{item.ques.type}}">填空题</view>
+            <view wx:if="{{item.ques.type == 8}}" data-type="{{item.ques.type}}">不定项材料分析题</view>
+            <view wx:if="{{item.ques.type == 9}}" data-type="{{item.ques.type}}">活动设计题</view>
+            <view wx:if="{{item.ques.type == 10}}" data-type="{{item.ques.type}}">名词解释</view>
+            <view wx:if="{{item.ques.type == 11}}" data-type="{{item.ques.type}}">材料分析题</view>
+            <view wx:if="{{item.ques.type == 12}}" data-type="{{item.ques.type}}">论述题</view>
+            <view wx:if="{{item.ques.type == 13}}" data-type="{{item.ques.type}}">不定项选择题</view>
+            <view wx:if="{{item.ques.type == 14}}" data-type="{{item.ques.type}}">公文改错题</view>
+            <view wx:if="{{item.ques.type == 15}}" data-type="{{item.ques.type}}">教学设计题</view>
+            <view wx:if="{{item.ques.type == 16}}" data-type="{{item.ques.type}}">判断简析题</view>
+            <view wx:if="{{item.ques.type == 17}}" data-type="{{item.ques.type}}">结构化问答</view>
+            <view wx:if="{{item.ques.type == 18}}" data-type="{{item.ques.type}}">试讲答辩</view> 
+            <view wx:if="{{item.ques.type == 19}}" data-type="{{item.ques.type}}">说课答辩</view> 
+            <view wx:if="{{item.ques.type == 20}}" data-type="{{item.ques.type}}">专业技能测试</view>
+            <view class='page'><text class='page-activce'>{{index+1}}</text>/{{allpage}}</view>
+          </view>
+          <scroll-view class="question_cont_scroll" scroll-y>
+            <view class="question_cont" wx:if="{{item.ques && (item.ques.type == 1 || item.ques.type == 2 ||item.ques.type == 3 || item.ques.type == 5 || item.ques.type == 12 || item.ques.type == 11)}}">
+              <!-- 单选题 -->
+              <view class='question_title'>
+                <!-- <view>{{item.ques.title[0]['content']}}</view> -->
+                <rich-text nodes="{{item.ques.arr_title}}"></rich-text>
+              </view>
+              <view wx:if="{{item.ques.arr_item_a != null}}">
+                <view class='qu_answer_info' bindtap="swipclick" data-answer="A" data-anindex="0" data-index="{{index}}" data-type="{{item.ques.type}}">
+                  <text class='qu_answer_letter active_{{item.ans[0]}}'>A</text>
+                  <!-- <text class='qu_answer_content '>{{item.ques.item_a[0].content}}</text>   -->
+                  <rich-text nodes="{{item.ques.arr_item_a}}"></rich-text>
+                </view>
+                <view class='qu_answer_info' bindtap="swipclick" data-answer="B" data-anindex="1" data-index="{{index}}" data-type="{{item.ques.type}}">
+                  <text class='qu_answer_letter active_{{item.ans[1]}}'>B</text>
+                  <!-- <text class='qu_answer_content'>{{item.ques.item_b[0].content}}</text>   -->
+                  <rich-text nodes="{{item.ques.arr_item_b}}"></rich-text>
+                </view>
+                <view wx:if="{{item.ques.item_c.length > 0}}" class='qu_answer_info' bindtap="swipclick" data-answer="C" data-anindex="2" data-index="{{index}}" data-type="{{item.ques.type}}">
+                  <text class='qu_answer_letter active_{{item.ans[2]}}'>C</text>
+                  <!-- <text class='qu_answer_content'>{{item.ques.item_c[0].content}}</text>   -->
+                  <rich-text nodes="{{item.ques.arr_item_c}}"></rich-text>
+                </view>
+                <view wx:if="{{item.ques.item_d.length > 0}}" class='qu_answer_info' bindtap="swipclick" data-answer="D" data-anindex="3" data-index="{{index}}" data-type="{{item.ques.type}}">
+                  <text class='qu_answer_letter active_{{item.ans[3]}}'>D</text>
+                  <!-- <text class='qu_answer_content'>{{item.ques.item_d[0].content}}</text> -->
+                  <rich-text nodes="{{item.ques.arr_item_d}}" ></rich-text>  
+                </view>
+                <view class='qu_answer_info' wx:if="{{item.ques.item_e.length > 0}}" bindtap="swipclick" data-answer="E" data-anindex="4" data-index="{{index}}" data-type="{{item.ques.type}}">
+                  <text class='qu_answer_letter active_{{item.ans[4]}}'>E</text>
+                  <text class='qu_answer_content'>{{item.ques.item_e[0].content}}</text>  
+                </view>
+                <view class='qu_answer_info' wx:if="{{item.ques.item_f.length > 0}}" bindtap="swipclick" data-answer="F" data-anindex="5" data-index="{{index}}" data-type="{{item.ques.type}}">
+                  <text class='qu_answer_letter active_{{item.ans[5]}}'>F</text>
+                  <text class='qu_answer_content'>{{item.ques.item_f[0].content}}</text>  
+                </view>
+              </view>
+              <view wx:else class='read-only'>
+                本题暂不支持作答,请查看答案和解析
+              </view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </block>
+      <swiper-item>
+        <view class="question_cont" style="padding-top:50px;">
+          <image src="http://img02.exam8.com/img2017/minapp/config/wantiku/icon_zuihouyiti_wantiku@2x.png" mode="widthFix" style="width:97px;display:block;margin:20px auto;" />
+          <view style="text-align:center;font-size:14px;">
+            共{{allpage}}道题，
+            <text wx:if="{{answerpage < allpage}}">还有{{allpage-answerpage}}道未作答</text>
+            <text wx:else>已作答完毕</text>
+          </view>
+          <button class="btn_prim_full_52" bindtap='ckeckcard' style="margin-top:20px;margin-bottom:20px;">查看答题卡</button>
+          <button class="btn_prim_52" bindtap='submitresult'>提交</button>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="exam_bar">
+    <view class="exam_bar_item">
+      <image src="/images/exam/icon_time.png" mode="widthFix"/>
+      <text class="time_text">{{countDownMinute}}:{{countDownSecond}}</text>
+    </view>
+    <view class="exam_bar_item">
+      <image src="/images/exam/icon_answer_card.png" mode="widthFix" bindtap='ckeckcard' />
+    </view>
+    <view class="exam_bar_item">
+      <button open-type='share'><image src="/images/exam/icon_share_topic.png" mode="widthFix" /></button>
+    </view>
+  </view>
+</view>
+<view class="pagers-subject-cart {{cart_hide}}">
+  <scroll-view scroll-y style="position: absolute;top: 0;bottom: 52px;">
+    <view style="padding:14px 50rpx;">
+      <text wx:for="{{items}}" wx:key="id" class="show-answer-no {{item.ans[0] > 0 || item.ans[1] > 0 || item.ans[2] > 0 || item.ans[3] > 0 || item.ans[4] > 0 || item.ans[5] > 0 ? 'show-answer':''}}" data-index="{{[index+1]}}" bindtap='checkitem'>{{index+1}}</text>
+    </view>
+  </scroll-view>
+  <view class='exam_card_tabbtn'>
+    <view bindtap='hidecard'>继续答题</view>
+    <view class="sub" bindtap='submitresult'>查看结果</view>
+  </view>
+</view>

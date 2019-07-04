@@ -1,0 +1,108 @@
+<!--我的打卡-->
+<view class='container-card'>
+  <view class='userinfo'>
+    <image class='headimgurl' src='{{items.created_headimgurl}}' mode="widthFix"></image>
+    <view class='message'>
+      <text class='nickname'>{{items.created_name}}</text>
+      <view class='days'>{{items.created_time}} 已坚持{{items.dialy_num}}天</view>
+      <view class='like'>
+        <view class="d_c_i_h_up d_c_i_h_up_dz" catchtap='dianzanComment' data-index="-1" data-like="{{items.isliked}}" data-classid="{{items.class_id}}" data-likenum="{{items.like_num}}" data-id="{{items.id}}">
+          <image class="dianzan" src="{{items.isliked ? '/images/comment_dianzan_on.png' : '/images/comment_dianzan.png'}}" style="width:28rpx;" mode="widthFix" ></image>
+        </view>
+        <view class="d_c_i_h_up" catchtap='replycomment' data-cmtid="{{items.id}}" data-id="{{items.id}}" data-uname="{{items.created_name}}" data-pindex="-1"  data-index="-1" data-uid="{{items.created_by}}" data-classid="{{items.class_id}}">
+            <image class="comment" style="width:30rpx;" src="/images/comment_comment.png" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class='clock-content'>{{items.content}}</view>
+      <!--如果有音频-->
+      <view class='play_audio' wx:if="{{items.audio}}">
+          <view class='play_audio_left' 
+            bindtap='audioPlay' 
+            data-duration="{{items.audio_duration}}" 
+            data-playstate="{{items.playstate}}"
+            data-audio="{{items.audio}}"
+            >
+            <image src='{{items.play_img}}'></image>
+          </view>
+          <view class='play_audio_right'>
+            <slider bindchange="audiohandleTouchEnd" min="0" max="100" backgroundColor="#ccc" value='{{items.ap_progress}}' activeColor="#3eccb3" data-time="{{items.audio_duration}}" block-size="12" block-color="#3eccb3"/>
+            <view class='play_time'>
+              <text class='time_schedule'>{{items.process_time}}</text>
+              <text class='play_dura'>{{items.new_duration}}</text>
+            </view>
+          </view>
+      </view>
+      <!--如果有图片  -->
+      <view class="d_c_i_cont_img" wx:if="{{items.images.length > 0}}">
+          <image wx:for="{{items.images}}" wx:key="lt" wx:for-item="imgitem" wx:for-index="imgidx" src="{{imgitem.lt}}" data-src="{{imgitem.lt}}"
+          data-ori="{{imgitem.ori}}" mode="widthFix" bindtap='clickCmtImage' data-pindex="{{idx}}" data-index="{{imgidx}}" data-pid="{{item.id}}" style="width:{{imgitem.w}}px;" bindload="cmtImageLoad"  mode="widthFix" />
+      </view>
+      <navigator class='sectioninfo' url='../column/column?id={{items.column_info.id}}'>
+        <image src='{{items.column_info.img_mesne}}' mode="widthFix"></image>
+        <view class='info-right'>
+          <text class='title'>{{items.column_info.title}}</text>
+          <text class='num'>{{items.column_info.num}}人参加</text> 
+        </view>
+        <image src='../../images/icon_arrow_list.png' class='btn'></image>
+      </navigator>
+    </view>
+  </view>
+  <view class='comment-area'>
+    <view class='give-like' wx:if="{{items.like_users.length > 0}}">
+      <image src='/images/like.png' class='like-flag'></image>
+      <view class='like-num'>
+        <image wx:for="{{items.like_users}}" wx:key="id" wx:for-item="img" src='{{img.img}}'></image>
+      </view>
+    </view>
+    <view class='dyn_comment_item' wx:for="{{items.reply_list}}" wx:key="id" wx:for-item="item" wx:for-index="idx">
+      <view class="d_c_i_header">
+        <view class="d_c_i_h_avatar">
+          <image src="{{item.created_headimgurl}}" mode="aspectFill" alt="{{item.created_name}}" catchtap="viewUserDetail" data-type="1" data-userid="{{item.created_by}}"></image>
+        </view>
+        <view class="d_c_i_h_up" catchtap='replyreply' data-cmtid="{{items.id}}" data-id="{{item.id}}" data-uname="{{item.created_name}}" data-pindex="{{idx}}"  data-index="-1" data-uid="{{item.created_by}}" data-classid="{{items.class_id}}">
+          <image class="comment" style="width:30rpx;" src="/images/comment_comment.png" mode="widthFix"></image>
+        </view>
+        <view class="d_c_i_h_tit">
+          <view class="d_c_i_h_tit_name" catchtap="viewUserDetail" data-type="1" data-userid="{{item.created_by}}">{{item.created_name}}</view>
+          <view class="d_c_i_h_tit_time">{{item.created_time}} 已坚持{{item.dialy_num}}天</view>
+        </view>
+      </view>
+      <view class="d_c_i_cont">
+        <view class="d_c_i_cont_txt {{item.reply_list.length > 0 ? 'd_c_i_cont_txt-h' : ''}}">
+          <text>{{item.content}}</text>
+        </view>
+        <!--回复如果有语音  -->
+        <view class='reply_audio' wx:if="{{item.audio}}" 
+            catchtap='playraudio'
+            data-audio="{{item.audio}}"
+            data-pindex="{{0}}"
+            data-index="{{idx}}"
+            data-duradion="{{item.audio_duration}}"
+            data-playstate="{{item.reply_playstate}}"
+            >
+            <image src='{{item.reply_audio_btn}}' class='reply_audio_btn'>
+            </image>
+            <text class='reply_audio_duration'>{{item.new_duration}}</text>
+        </view>
+      </view>
+      <view class="d_c_i_reply" wx:if="{{item.items.length > 0}}">
+        <view wx:for="{{item.items}}" wx:key="id" wx:for-item="ritem" wx:for-index="ridx" class="d_c_i_reply_item" data-cmtid="{{items.id}}" data-id="{{ritem.id}}" data-index="{{ridx}}" data-pindex="{{idx}}" catchtap='replyreply' data-uname="{{ritem.created_name}}" data-uid="{{ritem.created_by}}" data-classid="{{items.class_id}}">
+          <text class="d_c_i_reply_from {{ritem.reply_type == 2 ? 'offical' : ''}}" catchtap="viewUserDetail" data-type="{{ritem.reply_type}}" data-userid="{{ritem.created_by}}">{{ritem.created_name}}</text>
+          <text class="d_c_i_reply_txt">回复</text>
+          <text class="d_c_i_reply_to" catchtap="viewUserDetail" data-type="1" data-userid="{{ritem.touid}}">{{ritem.reply_name}}</text>
+          <text class="d_c_i_reply_cnt">{{ritem.content}}</text>
+          
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+<block >
+  <!--评论  -->
+  <!-- <include src="../common/commentlist.wxml"/> -->
+  <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}</view>
+</block>
+<view class='footer'>
+  <button open-type='share' class='share'>发送给好友</button>
+  <button class='go-home' bindtap='home'>去首页</button>
+</view> 

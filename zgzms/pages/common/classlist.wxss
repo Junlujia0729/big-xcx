@@ -1,0 +1,142 @@
+.item{
+    background: #fff;
+    overflow: hidden;
+    padding: 40rpx 20rpx 36rpx 20rpx;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.item .live-stuta{
+  position: absolute;
+  right: 0;
+  top: 8rpx;
+  background: #E1d5b9;
+  color: #fff;
+  padding: 0 4rpx;
+  font-size: 24rpx;
+}
+
+.item .live-stuta .live-img{
+  width:30rpx;
+  height:22rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+
+.item .text{
+  padding-bottom: 42rpx;
+}
+
+.class-title{
+  line-height: 32rpx;
+}
+.class-title text{
+    text-align: left;
+    /* font-weight: bold;
+    font-size:32rpx; */
+    font-size:30rpx;
+    color: #333333;
+    line-height: 40rpx;
+}
+.class-title image{
+  width:82rpx;
+  height: 30rpx;
+  margin-right: 6rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.class-notice,.class-notice-fenxiao{
+  margin-top:20rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-size:20rpx;
+}
+.class-notice-fenxiao{
+  color:#ff6b49;
+}
+
+.describe {
+    width: 45%;
+    float: right;
+    padding-top: 8rpx;
+    text-align: right;
+}
+
+.teacher{
+  color: #999;
+  overflow: hidden;
+  margin-right: 45%;
+  font-size:20rpx; 
+}
+
+.introduce .class_sale_text_sale{
+  margin-top:-12rpx;
+}
+.introduce .price text{
+  font-size:48rpx;
+  color: #ff6b49;
+  padding:0;
+}
+.introduce .price text.price_yang{
+  font-size:24rpx;
+}
+.introduce .price .ori-price{
+    color: #cccccc;
+    font-size: 22rpx;
+    padding-right: 10rpx;
+}
+.introduce .price .ori-price .g-p{
+  color: #cccccc;
+  font-size: 24rpx;
+  text-decoration: line-through;
+}
+.introduce .price .ori-price .dyntext_1{
+  color: #ccc;
+  font-size: 24rpx;
+}
+.introduce .price .ori-price .dyntext_2{
+  color: #ff6b49;
+  font-size: 24rpx;
+}
+.introduce .class_sale_text_sale text {
+  font-size: 20rpx;
+}
+.dyntext_1{
+  color: #cccccc;
+}
+.dyntext_2{
+  color: #ff6b49;
+}
+
+.teacher .teacher-header{
+  float: left;
+  margin-left: 10rpx;
+  margin-right:20rpx;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size:20rpx;
+  color:#cccccc;
+}
+
+.teacher image{
+    width: 52rpx;
+    height: 52rpx;
+    display: block;
+    margin-bottom: 16rpx;
+    border-radius: 50%;
+}
+.live-img{
+  width: 38rpx;
+  height: 24rpx;
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+.group_price{
+  color:#ff6b49;
+  font-size:24rpx;
+}

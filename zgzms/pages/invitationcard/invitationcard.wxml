@@ -1,0 +1,22 @@
+
+
+<!--制作卡片  -->
+
+<view class='card'>
+  <image src='{{url}}' mode='widthFix' class='bag' bindload="imgload" bindtap="previewImage" data-src="{{url}}"></image>
+</view>
+<!-- <view class='tip'>收益须知</view> -->
+<view class='footer'>
+  <view class='tips'>
+    点击上图预览，长按并保存图片，分享到朋友圈
+  </view>
+  <view style='margin-right:30rpx;margin-left:30rpx;'>
+    <scroll-view scroll-x="true">
+      <view class="cardTemplate {{item.isactive == 1 ? 'active' : ''}}" bindtap='select' wx:for="{{cards}}" wx:key="key" wx:for-item="item" data-index="{{index}}" data-active="{{item.isactive}}" data-id="{{item.id}}" 
+      style="background-image:url({{item.image}})">
+        <view class='active-img'>
+        </view>
+      </view>
+    </scroll-view>
+  </view> 
+</view>

@@ -1,0 +1,28 @@
+<!--pages/mylogistic/mylogistic.wxml 我的物流-->
+<block wx:for="{{items}}" wx:key="id">
+  <navigator url="../logistics/logistics?orderid={{item.id}}">
+    <view class="item">
+      <view class="item_header">
+        <image class="car" src="/images/icon_me_logistics.png" mode="widthFix" style="width:15px;"></image>
+        <image class="right" src="/images/arrowright.png" mode="widthFix" style="width:15px;"></image>
+        <view>
+          <text wx:if="{{item.kd100_latest && item.kd100_latest.context}}">{{item.kd100_latest.context}}啊杀了打开房间啊了上课戴假发了上课对汾酒</text>
+          <text wx:elif="{{item.kuaidicode != '' && item.kuaiditype != ''}}">已通知快递取件</text>
+          <block wx:else>
+            <text class="zw">暂无物流信息</text>
+            <button catchtap='selectAddress' data-id="{{item.id}}" wx:if="{{item.isChangeAddress == 1}}">修改地址</button>
+          </block>
+        </view>
+      </view>
+      <view class="item_class">
+        <view class="classname">{{item.names}}</view>
+        <view class="classcont">
+          <text class="status">状态：{{item.kuaidi_describe}}</text>
+          <text class="price">￥{{item.prices}}</text>
+        </view>
+      </view>
+      <view class="paytime">支付时间：{{item.createtime}}</view>
+      <view class="ordercode">订单号：{{item.ordercode}}</view>
+    </view>
+  </navigator>
+</block>

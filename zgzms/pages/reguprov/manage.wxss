@@ -1,0 +1,32 @@
+page{
+  background-color: #f3f4f5;
+}
+
+.manage__hd{
+  padding:30rpx 30rpx 20rpx 30rpx;
+  font-size:24rpx;
+  color:#999999;
+}
+.manage__list{
+  padding:0 6rpx;
+}
+.manage__tag{
+  width:25%;
+  display: inline-block;
+}
+.manage__tag view{
+    margin:0 24rpx 10rpx 24rpx;
+    text-align: center;
+    height:70rpx;
+    line-height: 70rpx;
+    border: 1px solid #e5e5e5;
+    color:#333333;
+    font-size: 28rpx;
+    background: #fff;
+}
+
+.manage__tag.active view{
+  background: #3eccb3;
+  color:#fff;
+  border-color: #3eccb3;
+}

@@ -1,0 +1,85 @@
+<scroll-view>
+  <block wx:for="{{items}}" wx:key="key">
+    <navigator url="../play/play?id={{item.id}}">
+      <view class='class_pic'>
+        <view class='class_pic_bg_2'>
+          <image src='{{item.picurl}}' mode="widthFix"/>
+          <view class='class_pic_cont_box'>
+            <view>
+              <view class='class_pic_cont'>
+                {{item.length}}
+              </view>
+            </view>
+            <view class='playbutton'>
+              <image src='/images/anniu.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class='teacher'>
+          <view class='T-left'>
+            <image src='{{item.headimg}}' mode="aspectFill" />
+            <text>{{item.nickname}}</text>
+          </view>
+          <view class='play-num' wx:if="{{item.playcount > 0}}">
+            {{item.playcount}}人播放
+          </view>
+        </view>  
+      </view>
+    </navigator>
+  </block>
+
+
+  <navigator url="../play/play?id=0">
+      <view class='class_pic'>
+        <view class='class_pic_bg_2'>
+          <image src='' mode="widthFix"/>
+          <view class='class_pic_cont_box'>
+            <view>
+              <view class='class_pic_cont'>
+                111
+              </view>
+            </view>
+            <view class='playbutton'>
+              <image src='/images/anniu.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class='teacher'>
+          <view class='T-left'>
+            <image src='{{item.headimg}}' mode="aspectFill" />
+            <text>种cookie</text>
+          </view>
+          <view class='play-num' wx:if="{{item.playcount > 0}}">
+            1人播放
+          </view>
+        </view>  
+      </view>
+    </navigator>
+
+    <navigator url="../play/play?id=1">
+      <view class='class_pic'>
+        <view class='class_pic_bg_2'>
+          <image src='' mode="widthFix"/>
+          <view class='class_pic_cont_box'>
+            <view>
+              <view class='class_pic_cont'>
+                111
+              </view>
+            </view>
+            <view class='playbutton'>
+              <image src='/images/anniu.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class='teacher'>
+          <view class='T-left'>
+            <image src='{{item.headimg}}' mode="aspectFill" />
+            <text>移除cookie</text>
+          </view>
+          <view class='play-num' wx:if="{{item.playcount > 0}}">
+            1人播放
+          </view>
+        </view>  
+      </view>
+    </navigator>
+</scroll-view>

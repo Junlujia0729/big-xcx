@@ -1,0 +1,64 @@
+<!--展示富文本 -->
+<import src="../../../../wxParse/wxParse.wxml" />
+<!--图片  -->
+<view class='container' style='padding:60rpx 20rpx 0;' wx:if="{{items.record !='' && items.record && items.type == 1}}">
+  <view class='title'>学生试讲图片</view>
+  <view class='content'>
+       <image src='{{images[index]}}' wx:for="{{images}}" wx:for-item="item" wx:key="key" bindtap="previewImage" data-src="{{images[index]}}"></image> 
+  </view>
+</view>
+<!--视频 -->
+<view class='container' style='padding:20rpx;' wx:if="{{items.record !='' && items.record && items.type == 2}}">
+  <video src='{{items.record.result}}'></video>
+</view>
+
+<!--音频 -->
+<view class='container' style='padding:20rpx;' wx:if="{{items.record !='' && items.record && items.type == 3}}">
+  <view class='audio-icon'>
+    <image src='http://imgs.52jiaoshi.com/1520215808.png' class='btn_prev'></image>
+    <image src='{{play}}' class='btn_play' bindtap='audioPlay'></image>
+    <image src='http://imgs.52jiaoshi.com/1520215848.png' class='btn_next'></image>
+  </view>
+  <slider bindchange="handleTouchEnd" min="0" max="100" backgroundColor="#eee" value='{{ap_progress}}' activeColor="#3eccb3" data-time="{{duration}}" block-size="12" block-color="#3eccb3"/>
+  <view class='duration' >
+    {{process_time}}
+  </view>
+</view>
+<view class='container' wx:if="{{items.record.comment}}">
+  <view class='review'>
+    <view style='float:right'>
+      <view class='review_teacher'>{{items.teachername}}</view>
+      <view class='review_data'>{{update_time}}</view>
+    </view>
+    <view class='review_title' style='width:60%;'>老师点评</view>  
+  </view>
+  <view class='review_comment'>
+    {{items.record.comment}}
+  </view>
+</view>
+<view class="container_1 {{items.record ? 'margin0' : ''}}" >
+  <view class='title'>{{items.title}}</view>
+  <view class='message'>
+    <text class='data'>{{items.publish_time}}</text><text class='teachername'>{{items.teachername}}</text>
+  </view>
+  <view class='content-ac'>
+    <!-- <view>请录制一个试讲问题请录制一个试讲问题请录制一个试讲问题请录制一个试讲问题
+    请录制一个试讲问题请录制一个试讲问题请录制一个试讲问题</view>
+    <image src='http://imgs.52jiaoshi.com/15202332275a9ceb0b3a381.png' mode='widthFix'></image>
+    <view>请录制一个试讲问题请录制一个试讲问题请录制一个试讲问题请录制一个试讲问题</view> -->
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class='tips' wx:if="{{items.record == '' || items.record == null}}">
+    请在{{items.deadline}}前提交
+  </view>
+</view>
+<view class='bottom_fixed_buttons' wx:if="{{items.record == '' || items.record == null}}">
+  <view class='w11' wx:if="{{items.is_expired == 2}}">
+    <button style='background:#3eccb3;font-size:32rpx;' wx:if="{{items.type == '2'}}" bindtap='complete'>录制试讲视频</button>
+    <button style='background:#3eccb3;font-size:32rpx;' wx:if="{{items.type == '3'}}" bindtap='complete'>录制试讲音频</button>
+    <button style='background:#3eccb3;font-size:32rpx;' wx:if="{{items.type == '1'}}" bindtap='complete'>上传图片</button>
+  </view>
+  <view class='w11' wx:else>
+    <button style='background:#eee;font-size:32rpx;color:#666;' >已过期</button>
+  </view>
+</view>

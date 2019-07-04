@@ -1,0 +1,72 @@
+
+.container{
+  width: 100%;
+  height: 300rpx;
+  background: linear-gradient(to bottom, #33edb4 0%,#33cce5 100%);
+}
+.countent{
+  width: 100%;
+  position: fixed;
+  bottom:320rpx;
+  left: 0;
+}
+.countdown{
+  font-size: 90rpx;
+  color: #fff;
+  margin-bottom: 100rpx;
+  text-align: center;
+}
+slider{
+  width: 630rpx;
+  height: 10rpx;
+  margin: 0 auto;
+}
+.countent .wx-slider-handle{
+  width:30rpx;
+  height:30rpx;
+  top:8px;
+}
+.start{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 222rpx auto 70rpx;
+  display: block;
+}
+.again{
+  width: 180rpx;
+  height: 60rpx;
+  border:1px solid #fff;
+  text-align: center;
+  color: #fff;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  margin: 0 auto;
+  border-radius: 30rpx;
+}
+.play{
+  width: 172rpx;
+  height: 172rpx;
+  margin:0 auto 180rpx; 
+  display: block;
+}
+.duration{
+  position: relative;
+  font-size: 50rpx;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.btn{
+  text-align: center;
+  margin-top: 110rpx;
+}
+.btn image{
+  width: 112rpx;
+  height: 112rpx;
+  display: inline-block;
+  margin:0 50rpx;
+}
+.btn .submitaudio{
+  width: 147rpx;
+  height: 147rpx;
+}

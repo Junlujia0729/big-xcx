@@ -1,0 +1,80 @@
+page{
+  background: #eee;
+}
+.title{
+  text-align: center;
+}
+.class_pic{
+  padding: 24rpx;
+  margin-bottom: 36rpx;
+  background: #fff;
+}
+.class_pic_bg_2{
+  height: 450rpx;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5rpx;
+}
+.class_pic_bg_2 image{
+  width: 100%;
+}
+.class_pic_cont_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.5);
+}
+
+.class_pic_cont{
+  position: absolute;
+  right: 20rpx;
+  bottom: 10rpx;
+  z-index: 98;
+  color: #fff;
+}
+.playbutton {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 100rpx;
+    height: 100rpx;
+    z-index: 99;
+}
+.playbutton image{
+    width: 100rpx;
+    height: 100rpx;
+}
+.teacher{
+  margin-top: 24rpx;
+  overflow: hidden;
+  height: 50rpx;
+}
+.T-left{
+  float:left;  
+}
+.T-left image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.T-left text
+{
+text-align:left;
+font-weight:bold;
+color:#333;
+display:inline-block;
+font-size:24rpx; 
+}
+.play-num{
+  float: right; 
+  font-size: 24rpx;
+  color: #999;
+  line-height: 50rpx;
+}

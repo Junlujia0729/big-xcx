@@ -1,0 +1,128 @@
+<view class='container' wx:if="{{groupid == 0}}">
+  <view wx:if="{{items.discountprice > 0}}">
+    <view class='state'>
+      <image src='http://imgs.52jiaoshi.com/1525339933.png' class='success'></image>
+      <text wx:if="{{!platform_ios}}">支付成功 !</text>
+    </view>
+    <navigator url='../class/class?id={{items.discountclassid}}' open-type='redirect' class='coupon'>
+      <view class='coupon-icon'>
+        <image  src='../../images/pay_coupon@2x.png'></image>
+        <view class='price'><text>￥</text>{{items.discountprice}}</view>
+      </view>
+      <view class='class'>
+        <view class='quota'>送您{{items.discountprice}}元优惠券</view>
+        <view class='classname'><text>用于</text>{{items.discountclassname}}</view>
+        <view class='go-class'>快去查看课程吧 ！</view>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{items.discountprice == 0}}">
+    <view class='state'>
+      <image src='http://imgs.52jiaoshi.com/1525339933.png' class='success' style='margin-right:0;'></image>  
+    </view>
+    <view style='text-align: center;'>
+      <text  wx:if="{{!platform_ios}}" style='color:#3eccb3;'>支付成功 !</text>
+    </view> 
+  </view> 
+  <view class='tips'>
+      {{items.desc}}
+  </view>
+  <view class='concern'>
+    <button class='concern-btn' bindtap='returnclass'>我知道了</button>
+  </view>  
+  <view class='qq' wx:if="{{items.atatus > 1}}">
+    <image src='../../images/qq_group.png'></image>
+    <view class='join-qq'>加入学员群{{items.qqgroup}}</view>
+  </view> 
+</view>
+<view class='cargo'  wx:if="{{items.handout > 0 && groupid == 0}}">
+  <view class='cargo-tit'>
+    关于发货
+  </view>
+  <view class='cargo-con'>
+    我们将尽快安排发货,请保持手机畅通。
+  </view>
+</view>
+<!--拼课  -->
+<view wx:if="{{groupid > 0}}">
+  <view>
+    <view class='lesson-info'>
+      <view class='classinfo'>
+        <view class='classname'>{{datas.classname}}</view>  
+        <view class="teacher" >
+          <view class='teacher-header' wx:for="{{datas.teacherlist}}" wx:key="key" wx:for-item="item">
+            <image src='{{item.headimg}}'></image>
+            <text>{{item.teacher}}</text>
+          </view>
+        </view>
+      </view>
+      
+      <view class='gruop-price'>
+        <view style='color:#333;font-weight:bold;'>限时拼课</view>
+        <view class='groupprice'>￥{{datas.group_price}}</view>
+        <view class='ori-price'> 原价￥{{datas.price}}</view>
+      </view>
+
+      <!--状态  -->
+      <image src='http://imgs.52jiaoshi.com/1513391194.png' class='success state-img' wx:if="{{datas.state == 2 }}"></image>
+      <image src='http://imgs.52jiaoshi.com/1513391867.png' class='fail state-img' wx:if="{{datas.state == 3}}"></image> 
+      <image src='http://imgs.52jiaoshi.com/1513391935.png' class='end  state-img' wx:if="{{datas.state == 4}}"></image> 
+      <image src='http://imgs.52jiaoshi.com/1513391962.png' class='normal state-img' wx:if="{{datas.state == 1 && datas.left_number != 0}}"></image> 
+    </view>
+    <view class='line'></view> 
+    <view class='spell-lesson'>
+      <view class='user-header user-header-{{datas.group_number}}'>
+        <view class='header' wx:for="{{arr}}" wx:key="key">
+          <view class='header-list'>
+            <image src='{{datas.items[index].img}}'></image>
+          </view>
+          <text class='Leader' wx:if="{{index == 0}}">团长</text>
+        </view>
+        <view class='header' wx:for="{{arr1}}" wx:key="key">
+          <view class='header-list'>
+            <image src='http://imgs.52jiaoshi.com/1513393208.png'></image>
+          </view>
+        </view>  
+      </view> 
+      <view class='places' wx:if="{{datas.left_number > 0}}">
+          仅剩<text>{{datas.left_number}}</text>个名额
+          <text class='time' wx:if="{{datas.state == 1 && datas.left_number > 0}}">
+            <text class='num'>{{countDownHour}}</text><text class='mark'>:</text>
+            <text class='num'>{{countDownMinute}}</text><text class='mark'>:</text>
+            <text class='num'>{{countDownSecond}}</text><text class='mark'></text>
+          </text>
+      </view>
+      <view class='places' wx:else>
+          拼课成功
+      </view>
+      <button class='share' open-type="share" wx:if="{{datas.state == 1 && datas.left_number > 0}}">
+        邀请好友拼课
+      </button>
+      <button class='share' wx:if="{{datas.state == 3}}" bindtap='spell'>
+        拼课失败，点击重新开团
+      </button>
+      <button class='share' wx:if="{{datas.state == 2}}" open-type="share">
+        拼课成功，分享给好友
+      </button>
+      <view class='guide' wx:if="{{items.length > 0}}">为你推荐</view>
+      <include src="../common/classlist.wxml"/>
+    </view>
+    <view class="contact_btn" bindtap='retuen'>
+      <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+    </view>
+  </view>
+</view>
+<!-- <view class='mask' wx:if="{{dialog}}">
+  <view class='dialog'>
+    <image src='http://imgs.52jiaoshi.com/1525487594.png' class='close' bindtap='close'></image>  
+    <view class='dia-title'>我爱教师APP下载</view>
+    <view style='padding-left:40rpx;'>
+      <text class='type'>应用市场下载</text>
+      <view class='dia-tips'>打开应用商店，搜索“我爱教师”下载</view>
+      <text class='type'>浏览器打开链接下载</text>
+      <view class='dia-tips'>复制下载链接，在浏览器打开</view>
+    </view>
+    <view class='copy' bindtap='copy' data-url="http://www.52jiaoshi.com/appdownloads">一键复制下载链接</view>
+    <view class='know' bindtap='close'>我知道了</view>
+  </view>  
+</view> -->

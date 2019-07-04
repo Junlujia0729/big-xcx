@@ -1,0 +1,75 @@
+/* pages/mylogistic/mylogistic.wxss */
+page{
+  background: #F2F3F4;
+}
+.item{
+  margin-bottom: 20rpx;
+  padding:30rpx 20rpx;
+  background: #fff;
+}
+.item_header image{
+  vertical-align: middle;
+}
+.item_header image.car{
+  float:left;
+}
+.item_header image.right{
+  float: right;
+}
+.item_header view{
+  margin-right:40rpx;
+  margin-left:50rpx;
+  height:30rpx;
+  line-height: 30rpx;
+}
+.item_header text{
+  color:#3eccb3;
+  font-size:28rpx;
+  display: block;
+  width:100%;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.item_header text.zw{
+  width:auto;
+  display: inline-block;
+}
+.item_header button{
+  border:1px solid #1aad19;
+  color:#1aad19;
+  background: #fff;
+  font-size:26rpx;
+  line-height: 2;
+  float:right;
+  margin-right:20rpx;
+  margin-top:-10rpx;
+}
+
+.item_class{
+  background: #F7F8F9;
+  margin:30rpx 0;
+  padding:30rpx 20rpx;
+}
+.classname{
+  color:#333333;
+  font-size:26rpx;
+  margin-bottom: 30rpx;
+}
+.classcont .price{
+  text-align: left;
+  color:#999999;
+  font-size:30rpx;
+}
+.classcont .status{
+  float: right;
+  color:#999999;
+  font-size:24rpx;
+}
+.paytime,.ordercode{
+  color:#999999;
+  font-size:24rpx;
+}
+.paytime{
+  margin-bottom: 20rpx;
+}

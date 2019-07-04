@@ -1,0 +1,18 @@
+<view class="container">
+  <view class='tips'>请您下载我爱教师APP，微信登录后看课。</view>
+  <view style='padding-top:40rpx;'>
+      <text class='type'>应用市场下载</text>
+      <view class='dia-tips'>打开应用商店，搜索“我爱教师”下载</view>
+      <text class='type'>浏览器打开链接下载</text>
+      <view class='dia-tips'>复制下载链接，在浏览器打开</view>
+    </view>
+    <view class='copy' bindtap='copy' data-url="http://www.52jiaoshi.com/appdownloads">
+    一键复制下载链接 
+    </view>
+</view>
+<button class="contact_btn" session-from="sobot|{{userInfo.nickname}}_我的课程|{{userInfo.headimgurl}}" style="bottom:90rpx;" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>
+
+<!--返回首页  -->
+<view class="contact_btn" bindtap='retuen' wx:if="{{gohome}}">
+  <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+</view>

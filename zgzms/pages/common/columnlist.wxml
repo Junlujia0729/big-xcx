@@ -1,0 +1,17 @@
+<view class='column_list'>
+  <view class='column_item' wx:for="{{items}}" wx:key="key" wx:item-for="item" data-id="{{item.id}}" catchtap='selectcolumn'>
+    <image src='{{item.img_mesne}}'></image>
+    <view class='list-right'>
+      <view class='clumn-name'>{{item.title}}<text>{{item.price_text}}</text></view>
+      <view class='number'>{{item.sub_title}}</view>
+      <view class='desc' wx:if="{{item.newclass_title}}">
+        <text class='new'>最新</text>
+        <text class="ctitle">{{item.newclass_title}}</text>
+        <text class='date'>{{item.created_time}}</text>
+      </view>
+      <view class='desc' wx:else>
+        <text class='date'>{{item.created_time}}</text>
+      </view>
+    </view>
+  </view>
+</view>

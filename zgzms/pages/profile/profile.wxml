@@ -1,0 +1,9 @@
+<view id='video-box'>  
+    <button type="primary" bindtap="takePhoto">录制</button>
+    <button type="primary" bindtap="StopPhoto">停止</button>
+ </view>
+
+ <common-view
+  show="abc"
+ >
+ </common-view>

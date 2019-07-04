@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "common-view": "../../components/common-view/common-view"
+  }
+}

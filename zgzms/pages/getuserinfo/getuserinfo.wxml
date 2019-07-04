@@ -1,0 +1,6 @@
+<view class="login">
+  <image src="http://imgs.52jiaoshi.com/logo/52logo.png" style="width:144rpx;" mode="widthFix"></image>
+  <view>我们只为教师</view>
+
+  <button type="primary" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">获取头像昵称</button>
+</view>

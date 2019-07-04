@@ -1,0 +1,2 @@
+<include src="../common/columnlist.wxml"/>
+<button class="contact_btn" style="bottom:90rpx;" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>

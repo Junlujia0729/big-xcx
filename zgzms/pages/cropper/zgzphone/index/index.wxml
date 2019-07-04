@@ -1,0 +1,21 @@
+<view class="container flex">
+  <view class='pcture'>
+    <image src='http://imgs.52jiaoshi.com/1515748709.png'></image>
+    <view class='choose-pic' bindtap="upload">选择照片</view>
+  </view>
+  <view class='tips'>
+    <view>
+      1、本人近6个月以内的免冠正面彩色证件照（白色背景为宜）
+    </view>
+    <view>
+      2、照片中显示考生头部和肩的上部，不允许戴帽子、头巾、发带、墨镜
+    </view>
+    <view>
+      3、照片文件不大于200K（裁剪后），格式为jpg/jpeg
+    </view>
+  </view>
+    <!-- <view>
+        <image src="{{src}}" class="avatar" bindtap="upload"></image>
+        <view class="item flex" bindtap="upload">click me</view>
+    </view>  -->
+</view>

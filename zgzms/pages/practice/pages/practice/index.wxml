@@ -1,0 +1,79 @@
+<!--pages/practice/practice/index.wxml-->
+<view class='contioner'>
+  <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}" bindchange="listenSwiper" >
+     <block wx:for="{{items}}" wx:key="key" wx:for-item="item">
+      <swiper-item>
+        <view class='swiper_repor_title'>
+          <view class='knowleage'>{{edu_title}}</view>
+          <text class='page'>{{index+1}}/10</text>
+        </view>
+        <view class='title' wx:if="{{item.type == 1}}">
+          <text class='title_type' data-type="{{item.type}}" wx:if="{{item.type == 1}}">（单项选择题）</text>
+          <view>{{item.title[0].content}}</view>
+          <text class='year' wx:if="{{item.province.length > 0 && item.year.length > 0}}">({{item.year}},{{item.province}})</text>
+          <text class='year' wx:elif="{{item.province.length}}">({{item.province}})</text>
+          <text class='year' wx:elif="{{item.year.length}}">({{item.year}})</text>
+        </view>
+        <view wx:if="{{item.type == 1}}">
+          <view class='qu_answer_info' bindtap="swipclick" data-answer="A" data-anindex="0" data-param="{{item.id}}" data-current="{{current}}" >
+            <text class='qu_answer_letter active_{{itemsSelected[index][0]}}'>A</text>
+            <text class='qu_answer_content '>{{item.item_a[0].content}}</text>  
+          </view>
+          <view class='qu_answer_info' bindtap="swipclick" data-answer="B" data-anindex="1" data-param="{{item.id}}" data-current="{{current}}">
+            <text class='qu_answer_letter active_{{itemsSelected[index][1]}}'>B</text>
+            <text class='qu_answer_content'>{{item.item_b[0].content}}</text>  
+          </view>
+          <view class='qu_answer_info' bindtap="swipclick" data-answer="C" data-anindex="2" data-param="{{item.id}}" data-current="{{current}}">
+            <text class='qu_answer_letter active_{{itemsSelected[index][2]}}'>C</text>
+            <text class='qu_answer_content'>{{item.item_c[0].content}}</text>  
+          </view>
+          <view class='qu_answer_info' bindtap="swipclick" data-answer="D" data-anindex="3" data-param="{{item.id}}" data-current="{{current}}">
+            <text class='qu_answer_letter active_{{itemsSelected[index][3]}}'>D</text>
+            <text class='qu_answer_content'>{{item.item_d[0].content}}</text>  
+          </view>
+          <view class='qu_answer_info' wx:if="{{item.item_e.length > 0}}" bindtap="swipclick" data-answer="E">
+            <text class='qu_answer_letter'>E</text>
+            <text class='qu_answer_content'>{{item.item_e[0].content}}</text>  
+          </view>
+          <view class='qu_answer_info' wx:if="{{item.item_f.length > 0}}" bindtap="swipclick" data-answer="F">
+            <text class='qu_answer_letter'>F</text>
+            <text class='qu_answer_content'>{{item.item_f[0].content}}</text>  
+          </view>
+        </view>
+        <view class='btn-show' bindtap="actionshow" >答案和解析</view>
+        <view class='analysis' wx:if="{{actionSheetHidden}}">
+          <view class='btn-hide' bindtap="actionhide" >答案和解析</view>
+          <view class='analysis-content'>
+            <view class='answer-true'><text>答案:</text>{{item.answer}}</view>
+            <view class='analysis-info'>
+              <text style='color:#666;'>解析:</text>
+              <view >
+                <text wx:for="{{item.questionanalysis}}" wx:key="key"
+                 wx:for-item="item" wx:if="{{item.content}}">
+                  {{item.content}}
+                </text>
+              </view>
+              
+            </view>
+          </view>
+          
+        </view>    
+
+      </swiper-item>
+    </block>   
+    <swiper-item>
+      <view class='swiper_repor_title'>
+        <view class='knowleage'>{{edu_title}}</view>
+      </view>
+      <view style='width:110%;'>
+        <text wx:for="{{itemsSelected}}" wx:key="key" wx:for-item="item" 
+        class="{{item[0] > 0 || item[1] > 0 || item[2] > 0 || item[2] > 0?'show-answer':'show-answer-no'}}">{{index+1}}</text>
+      </view>
+      
+    </swiper-item>
+  </swiper> 
+</view>
+<view class='submit-btn' wx:if="{{current == 10}}" bindtap='submitresult'>
+  提交并查看结果
+</view> 

@@ -1,0 +1,54 @@
+/* pages/practice/interface/index.wxss */
+page{
+  background: #f1f4f7;
+}
+.interface{
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.info{
+  height: 85rpx;
+  padding: 30rpx 40rpx 30rpx 30rpx;
+  border-bottom:1px solid #eee;
+}
+.interface image{
+  width: 85rpx;
+  height: 85rpx;
+  display: block;
+}
+.item-left{
+  width: 85rpx;
+  height: 85rpx;
+  
+  float:left;
+}
+.item-right{
+  margin-left: 145rpx;
+}
+.item-right progress{
+  width: 380rpx;
+  display: inline-block;
+}
+.item-right text{
+  font-size: 28rpx;
+  color: #999;
+}
+.item-right .complate{
+  color: #3eccb3;
+  display: inline-block;
+  margin-left: 60rpx;
+}
+.nav{
+  padding: 30rpx 0; 
+  overflow: hidden;
+}
+.chapter,.practice{
+  color: #3eccb3;
+  font-size: 32rpx;
+  width: 49%;
+  text-align: center;
+  float: left;
+}
+.chapter{
+  border-right:1px solid #d4dde8;
+}

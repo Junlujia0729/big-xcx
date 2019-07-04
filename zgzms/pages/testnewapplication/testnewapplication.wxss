@@ -1,0 +1,20 @@
+/* pages/login/login.wxss */
+page{
+  font-size: 24rpx;
+}
+.container{
+  height: 100%;
+  padding: 30px;
+}
+.know{float: right;}
+.words{font-size: 24rpx;width: 480rpx;margin: 0 auto;height: 600rpx;border:1px solid #ddd;
+padding: 30rpx;margin-top: 100rpx;}
+.words span{color: red;}
+.recite{position: absolute;bottom:50rpx;left:50%;width: 100rpx;height: 100rpx;
+background: #3eccb3;color: #fff;text-align: center;line-height: 100rpx;border-radius: 50%;
+margin-left: -40rpx;box-shadow: 0 10rpx 5px #000;font-size: 34rpx;}
+.recite1{position: absolute;bottom:50rpx;left:50%;width: 80rpx;height: 80rpx;
+background: #000;color: #fff;text-align: center;line-height: 80rpx;border-radius: 50%;
+margin-left: -40rpx;box-shadow: 0 10rpx 5px #000;font-size: 34rpx;}
+
+.animation-button{width: 120rpx;height: 50rpx;line-height: 50rpx;position: absolute;left: 100rpx;bottom:50rpx;font-size: 26rpx;}

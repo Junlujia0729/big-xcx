@@ -1,0 +1,69 @@
+<view class="{{per >= 90 ? 'header' : per >= 60 && per > 90 ? 'header-1' : 'header-2'}}">
+  <view >
+    <text class='exam-name'>{{title}}</text>
+    <text class='time'>用时 {{time}}</text> 
+  </view>
+  <!--考神  -->
+  <view class='face' wx:if="{{per >= 90}}">
+    <image src='http://imgs.52jiaoshi.com/1517217356.png' class='crown-img'></image>
+    <image src='http://imgs.52jiaoshi.com/1517215990.png' class='face-img'></image>
+    <image src='http://imgs.52jiaoshi.com/1517306322.png' class='report-img'></image>
+  </view>
+  <!--学霸  -->
+  <view class='face face-1' wx:if="{{per >= 60 && per > 90}}">
+    <image src='http://imgs.52jiaoshi.com/1517306180.png' class='face-img'></image>
+    <image src='http://imgs.52jiaoshi.com/1517306247.png' class='report-img'></image>
+  </view>
+  <!--学渣  -->
+  <view class='face face-2' wx:if="{{per < 60}}">
+    <image src='http://imgs.52jiaoshi.com/1517306148.png' class='face-img'></image>
+    <image src='http://imgs.52jiaoshi.com/1517306215.png' class='report-img'></image>
+  </view>
+  <view class='exam-datas'>
+    <view class='section'>
+      <view class='top'>排名</view>
+      <view>{{examresult.paiming}}/{{examresult.total}}</view>
+    </view>
+    <view class='section'>
+      <view class='top'>战胜</view>
+      <view>{{examresult.total - examresult.paiming}}人</view>
+    </view>
+    <view class='section'>
+      <view class='top'>最低分 <text>{{examresult.minscore}}</text></view>
+      <view class='score'>最高分 <text>{{examresult.maxscore}}</text></view>
+    </view>
+  </view>
+</view>
+<view class='exam-message'>
+  <view class='last'>
+    <text>分数：</text><text class='last-data'>{{examresult.personalscore}}分</text>
+    <text>满分：</text><text class='last-data'>{{examresult.totalscore}}分</text>
+  </view>
+  <text class='tips'>该对错情况统计只能针对客观题</text>
+</view>
+<view class='line'></view>
+<view class='card'>
+   <!-- <image src='http://imgs.52jiaoshi.com/1517223414.png'></image>  -->
+  <text>题目错误率</text>
+</view>
+<view class='answers'>
+  <view class='answers-item' wx:for="{{questions}}" wx:key="key" wx:item-for="item" data-index="{{[index]}}" bindtap='checkitem'>
+    <view class="{{item.result == 1 ? 'true-answer' : 'false-answer'}}">{{index +1}}</view>
+    <text wx:if="{{item.glbstats.count > 0}}">{{item.glbstats.parent}}</text>
+    <text wx:if="{{item.glbstats.count == 0}}">0%</text>
+  </view>
+</view>
+<view class='footer'>
+  <view data-key="1" bindtap='check'>
+    <image src='http://imgs.52jiaoshi.com/1517278326.png'></image>
+    <text>错题解析</text>
+  </view>
+  <view data-key="2" bindtap='check'>
+    <image src='http://imgs.52jiaoshi.com/1517278297.png'></image>
+    <text>全部解析</text>
+  </view>
+  <view data-key="3" bindtap='check'>
+    <image src='http://imgs.52jiaoshi.com/1517278922.png'></image>
+    <text>错题排行</text>
+  </view>
+</view>

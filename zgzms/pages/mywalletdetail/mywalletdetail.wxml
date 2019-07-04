@@ -1,0 +1,20 @@
+
+<view class='container'>
+  <view class='Total'>总计金额{{datas.total}}，共{{datas.count}}条</view>
+  <view class='info' wx:for="{{datas.list}}" wx:key="key" wx:item-for="item">
+    <view class='info-item'>
+      <view class='left'>
+        <view class='classname'>{{item.desc}}</view>
+        <view class='time'>{{item.create_time}}</view>
+      </view>
+      <view class="right add" wx:if="{{item.type == 1}}">
+        <view class="amount">+{{item.amount}}</view>
+        <view class="ifsure">{{item.demo}}</view>
+      </view>
+      <view class="right" wx:if="{{item.type == 2}}">
+        <view class="amount">-{{item.amount}}</view>
+        <view class="ifsure">{{item.demo}}</view>
+      </view>
+    </view>
+  </view>
+</view>

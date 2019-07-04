@@ -1,0 +1,57 @@
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="banner" wx:if="{{item.exam_img}}">
+    <image src="{{item.exam_img}}" mode="widthFix"></image>
+</view>
+<view class="examheader" wx:else >
+    <view >{{item.title}}</view>
+    <view class="fromtime">{{item.subtitle}}</view>
+    <view class="examinfo">
+        <text>{{item.subject}}</text>
+        <text>{{item.date}}</text>
+    </view>
+</view>
+<view class="people_num">
+    已有<text>{{item.num}}</text>人报名
+</view>
+<view class='container'>
+  <!-- <navigator class='info'> 
+    <view class='info-left'>报考信息：<text>青岛</text><text>综合素质</text></view>
+    <view class='info-right'>修改</view>
+  </navigator> -->
+  <navigator wx:if="{{item.class.classid}}" class='info' url="../../../classx/classx?id={{item.class.classid}}">
+    <view class='info-left'>{{item.class.classname}}</view>
+    <view class='info-right'>查看</view>
+  </navigator>   
+</view>
+<view class='content'>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<view class='bottom_fixed_buttons'>
+  <block wx:if="{{clock}}">
+    <view class='w1 {{btnoper > 0 ? "" : "gray"}}'>
+      <view>{{clocktext}}<text class='days' wx:if="{{countDownDay > 0}}"> {{countDownDay}} 天</text></view>  
+      <view class='countDown'>
+        <text class='time'>{{countDownHour}}</text><text class='colon'>:</text>
+        <text class='time'>{{countDownMinute}}</text><text class='colon'>:</text>
+        <text class='time'>{{countDownSecond}}</text>
+      </view>
+    </view>
+    <view class='w2 {{btnoper > 0 ? "" : "gray"}}' style='flex:1'>
+      <form report-submit="true" bindsubmit="submitMokao">
+        <button form-type="submit">{{btntext}}</button>
+      </form>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='w11'>
+      <form report-submit="true" bindsubmit="submitMokao">
+        <button form-type="submit">{{btntext}}</button>
+      </form>
+    </view>
+  </block>
+</view>
+
+<!--返回首页  -->
+<view class="contact_btn" bindtap='retuen' wx:if="{{gohome}}">
+  <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+</view>

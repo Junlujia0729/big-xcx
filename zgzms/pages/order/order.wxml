@@ -1,0 +1,81 @@
+<view class='M_logistic_info '>
+  <view wx:if="{{payinfo.handout > 0}}" class='address'>
+    <view url='' class='M_logistic_div'>
+      <view class='logistic_address'><image src='/images/icon_adress.png'></image>收货地址</view>
+      <view class='edit-address' bindtap='gotoAddress'>更改收货地址 <image src='/images/icon_arrow_list.png'></image></view>
+      
+    </view>
+    <view class='line'></view>
+    <view class='user_info' wx:if="{{address && address.id}}">
+      <view class='dresslist'>收货人：<text class='nickname'>{{address.linkname}}</text></view>
+      <view class='phone'>{{address.linkphone}}</view>  
+    </view>
+    <view class='address addressshow'>收货地址：<text class='address'>{{address.postprovince + address.postcity + address.postdist + address.postaddress}}</text></view>
+  </view>
+  <image src='http://imgs.52jiaoshi.com/1519354789.png' class='illustration' wx:if="{{payinfo.handout > 0}}"></image>
+  <view class='box'>
+    订单信息
+  </view>
+  <view class='class_info'>
+    <view class='classname'>{{classname}}</view>
+    <view class='price' wx:if="{{ifgroup == 0}}"> <text>￥</text>{{payinfo.price}}</view>
+    <view class='price' wx:else> <text>￥</text>{{payinfo.group_price}}</view>
+  </view>
+  <view class='line' wx:if="{{payinfo.examlevel > 0}}"></view>
+  <view class='period' wx:if="{{payinfo.examlevel > 0}}">
+    <text class='lable'>学段</text>
+    <!-- <text class='examlevel'>选择学段</text> -->
+    <!-- wx:for="{{items}}" wx:for-item="item" wx:key="key"  -->
+    <picker bindchange="bindPickerChange" value="{{selectlevel}}" range="{{levelArray}}">
+         <view class="examlevel">{{levelArray[selectlevel]}}</view>
+    </picker>
+    <image src="/images/icon_arrow_list.png" class='icon' ></image>
+  </view>
+  <view class='line' wx:if="{{payinfo.examlevel <= 0 && payinfo.discount.length > 0}}"></view>
+  <view class='period' wx:if="{{payinfo.discount.length > 0}}">
+    <view class='logistic_address'>
+      优惠券
+    </view>
+    <view class='coupon'>
+      -￥{{payinfo.discount[0].fee}}
+    </view>
+    <!-- <image src="/images/icon_arrow_list.png" class='icon' ></image> -->
+  </view>
+</view>
+<view wx:if="{{payinfo.idcard_desc && payinfo.idcard_desc.length > 0}}">
+  <view class='box'>
+      个人信息
+      <text>(信息收集用于{{payinfo.idcard_desc}})</text>
+  </view>
+  <view class='userinfo'>
+    <view>
+      <text>姓名</text><input type='text' placeholder='请填写' placeholder-style="color:#999;" bindblur='name'></input>
+    </view>
+    <view>
+      <text>身份证号</text><input type='idcard' placeholder='请填写' placeholder-style="color:#999;" bindblur='idcard'></input>
+    </view>
+</view>
+</view>
+
+<view class='footer'>
+  <view wx:if="{{ifgroup==0}}" class='total'>合计：<text class='price'>￥{{payinfo.discount.length ? payinfo.price - payinfo.discount[0].fee : payinfo.price }}</text></view>
+  <view wx:else>合计：<text class='price'>￥{{payinfo.discount.length ? payinfo.group_price - payinfo.discount[0].fee : payinfo.group_price }}</text></view>
+  <button bindtap="confirmOrder">确认支付</button>
+</view>
+
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+
+<!--IOS支付  -->
+<view class='mask' wx:if="{{isios == 1}}">
+  <view class='mask-content'>
+    <view class='mask-tip'>点击 好的</view>
+    <view class='mask-tip2'>打开新页面后<text class='mask-tip2-r'> 直接回复“1”</text></view>
+    <view class='mask-tip'>完成支付</view>
+    <view class='clickok'>
+      <button session-from="class|{{userInfo.nickname}}|{{orderid}}|{{classid}}|{{groupid}}" open-type="contact" show-message-card="true">好的
+  </button>
+    </view>
+  </view>
+</view>

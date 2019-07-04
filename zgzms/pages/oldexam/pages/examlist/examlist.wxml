@@ -1,0 +1,15 @@
+
+<view wx:for="{{datas.papers}}" wx:key="key" wx:item-for="item" class='content'>
+  <view class='year'>{{item.year}}</view>  
+  <view class='list'>
+    <navigator class='list-item' url='../examindex/examindex?id={{item.id}}' wx:for="{{item.list}}" wx:key="key" wx:item-for="item">
+      <view class='bottom'>
+        <view class='exam-name'>{{item.title}}</view>
+        <view >
+          <text >{{item.hand_in}}人作答</text>
+           <text class='did' wx:if="{{item.status}}">已做过</text> 
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

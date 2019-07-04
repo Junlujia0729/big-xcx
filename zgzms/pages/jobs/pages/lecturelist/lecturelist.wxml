@@ -1,0 +1,24 @@
+
+
+<view>
+  <view  wx:if="{{items.length > 0}}" style="width:100%;">
+    <view class='curriculum_list' wx:for="{{items}}" wx:for-item="item" wx:key="key" bindtap='chapt' data-id="{{item.id}}" data-chaptertype="{{item.type}}"> 
+        <view class='curriculum_list_info '>
+          <view class='class_names'>{{item.title}}</view>
+        </view>
+        <view class='start_time'>{{item.subtitle}}</view>
+      <!--submit_state  0 未提交 1 已提交 2 已点评  -->
+      <!--is_expired  1 未过期 2 已过期  -->
+      <view class='state' wx:if="{{item.is_expired == 1}}">
+        <image src='http://imgs.52jiaoshi.com/1520493235.png' class='clock'></image>
+        <text>{{item.deadline}} 前提交</text>
+        <button class='share' wx:if="{{item.submit_state == 1}}">已提交</button> 
+        <button class='share' wx:if="{{item.submit_state == 2}}">已点评</button> 
+      </view>
+      <view class='state'  style='color:#ccc;' wx:if="{{item.is_expired == 2}}">
+        <text>{{item.deadline}} 前提交</text>
+        <button class='share overdue'>已过期</button>
+      </view>
+    </view>
+  </view> 
+</view>

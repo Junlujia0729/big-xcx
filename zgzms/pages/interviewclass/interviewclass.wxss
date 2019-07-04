@@ -1,0 +1,224 @@
+page{
+  background: #fff;
+}
+
+.class_pic{
+  background: #fff;
+}
+.class_pic_bg_2{
+  height: 422rpx;
+  overflow: hidden;
+  position: relative;
+}
+.class_pic_bg_2 image{
+  width: 100%;
+  height: 422rpx;
+  display: block;
+}
+.class_pic_cont_box{
+  position: absolute;
+  top:24rpx;
+  left:24rpx;
+  width:100%;
+  color: #fff;
+  z-index: 999;
+  font-size:36rpx;
+}
+
+.class_pic_cont{
+  position: absolute;
+  right: 30rpx;
+  bottom: 26rpx;
+  z-index: 98;
+  color: #fff;
+  font-size: 20rpx;
+  display: inline-block;
+  background: rgba(0,0,0,0.2);
+  width: 80rpx;
+  height: 34rpx;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 34rpx;
+}
+.classname{
+  position: absolute;
+  bottom: 70rpx;
+  left:30rpx;
+  color: #fff;
+  font-size: 34rpx;
+}
+.time{
+  position: absolute;
+  bottom: 20rpx;
+  left:30rpx;
+  color: #ddd;  
+  font-size: 22rpx;
+}
+.playbutton {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 100rpx;
+    height: 100rpx;
+    z-index: 99;
+}
+.playbutton image{
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.T-left{
+  float:left;  
+}
+.T-left image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.T-left text
+{
+text-align:left;
+font-weight:bold;
+color:#333;
+display:inline-block;
+font-size:24rpx; 
+}
+.play-num{
+  float: right; 
+  font-size: 24rpx;
+  color: #999;
+  line-height: 50rpx;
+}
+.class_sale {
+    padding: 0 24rpx;
+    background: #fff;
+}
+.class_sale_price {
+    width: 350rpx;
+    font-size: 32rpx;
+    color: #ff6b49;
+    height: 50rpx;
+    line-height: 50rpx;
+    padding-top: 25rpx;
+    overflow: hidden;
+}
+.class_sale_price .price {
+    font-size: 40rpx;
+}
+.class_sale_price .orgprice {
+    font-size: 24rpx;
+    color: #ccc;
+    text-decoration: line-through;
+    display: inline-block;
+    padding-left: 6rpx;
+}
+.class_sale .class_sale_text {
+    text-align: left;
+    padding-bottom: 16rpx;
+}
+.class_sale .class_sale_text text {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    height: 24rpx;
+    color: #666666;
+}
+/* .class_sale .class_sale_text text.dyntext_2 {
+    color: #ff6b49;
+} */
+
+
+video {
+width:100%;
+height:100%;
+display:inline-block;
+line-height:0;
+overflow:hidden;
+position:relative;
+}
+.vodie-time{
+  position:absolute;
+  bottom:40rpx;
+  left:30rpx;
+  color:#ddd;
+  font-size:22rpx; 
+}
+.vodie-classname{
+  position:absolute;
+  bottom:90rpx;
+  left:30rpx;
+  color:#fff;
+  font-size:34rpx;   
+}
+.classlevel-line{
+  border-bottom: 1px solid #ddd;
+}
+.classlevel .period{
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #666;
+  font-size: 30rpx;
+  padding-left:30rpx; 
+  position: relative;
+
+}
+.classlevel-b{
+    background: #f3f4f5;
+}
+.classlevel .period:last-child{
+   border-bottom: none;
+}
+.classlevel .box{
+  display: inline-block;
+  width: 10rpx;
+  height: 10rpx;
+  background: #3eccb3;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.classlevel .icon{
+  width: 20rpx;
+  height: 12rpx;
+  position: absolute;
+  right:30rpx;
+  top:40rpx;
+  
+}
+
+.class_pic_bg_2 .play-icon{
+  position: absolute;
+  left:50%;
+  top:50%;
+  width:90rpx;
+  height:90rpx;
+  margin-left: -45rpx;
+  margin-top: -45rpx;
+}
+
+@import "../common/classlist.wxss";
+/*返回首页  */
+view.contact_btn{
+  position: fixed;
+  right:40rpx;
+  bottom:280rpx;
+  padding:0 0 0 0;
+  background-color:transparent;
+  width:118rpx;
+  height:118rpx;
+  border:none;
+}
+view.contact_btn::after{
+  border:none;
+}
+.contact_btn image{
+  width:118rpx;
+  height: 118rpx;
+}
+.contact_btn image{
+  width:118rpx;
+  height: 118rpx;
+}
+

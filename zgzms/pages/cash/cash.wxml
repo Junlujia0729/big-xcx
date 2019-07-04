@@ -1,0 +1,33 @@
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+<view class='container'>
+  <view class='header'>
+    <view>当前可提金额</view>
+    <view class='price'>{{datas.can_extract}}<text>元</text></view>
+  </view>
+  <view class='line'></view>
+  <view class='content'>
+    <form bindsubmit="formSubmit">
+      <view class='tip'>提现金额</view>
+      <input placeholder="最小提现金额为2元" id="limit" value='{{limit}}' type='digit' name="limit"></input>
+      <view class='tip'>收款方实名</view>
+      <input placeholder="请输入真实姓名" id="name" value='{{name}}' type='text' name="name"></input>
+      <view class='tips'>
+        <view>1.微信官方收取0.6%手续费，具体参考<text bindtap="cashrate" style="margin-left:10rpx;text-decoration:underline;">费用说明</text></view>  
+        <view>2.每笔提现金额至少2元，每日提现上限为2万元</view> 
+        <view>3.为保证您的资金安全，提现申请需实名验证</view> 
+        <view>4.提交提现申请后，资金5个工作日内到账</view> 
+      </view>
+      <button class='btn' formType="submit">
+        提现申请
+      </button>
+    </form>
+  </view> 
+</view>
+<!-- <view class='mask'>
+  <view class='mask-content'>
+    <view class='mask-title'>已经</view>
+    <view class='mask-btn'></view>
+  </view>
+</view> -->

@@ -1,0 +1,179 @@
+page {
+  font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-top:1rpx solid rgba(0,0,0,0.1);
+}
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.page-header-text {
+  padding: 20rpx 40rpx;
+  color: #999;
+  font-size: 38rpx;
+  text-align: center;
+}
+
+.page-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+button.contact_btn{
+  position: fixed;
+  right:40rpx;
+  bottom:150rpx;
+  padding:0 0 0 0;
+  background-color:transparent;
+  width:118rpx;
+  height:118rpx;
+  border:none;
+}
+
+.bottom_fixed_buttons view.w1 button.buy{
+  width: 230rpx;
+  display: inline-block;
+  margin-left: 120rpx;
+  padding-left:0;
+  padding-right: 0;
+  font-size: 28rpx; 
+}
+view.contact_btn_new{
+  position:fixed;
+  left:10rpx;
+  bottom:0;
+  width: 80rpx;
+  height: 100rpx;
+  display: inline-block;
+  margin-left: 30rpx;
+  background:none !important;
+  z-index: 999;
+  padding:0 0 0 0;
+  background-color:transparent;
+  border:none;
+}
+view.contact_btn_new button{
+  width: 60rpx;
+  height: 60rpx;
+  padding: 0;
+  margin: 0;
+  background-color:transparent;
+  border:none;
+}
+view.contact_btn_new button::after{
+  border:none;
+}
+view.contact_btn_new text{
+  font-size: 22rpx;
+  position: relative;
+  top:-5px;
+  color: #666;
+  display: inline-block;
+  padding-left: 7rpx;
+}
+view.contact_btn_new image{
+  width: 48rpx;
+  height: 48rpx;
+}
+button.contact_btn::after{
+  border:none;
+}
+.contact_btn image{
+  width:118rpx;
+}
+
+.bottom_fixed_buttons{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:16rpx;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+}
+.bottom_fixed_buttons .bt_content{
+  position: fixed;
+  bottom:98rpx;
+  left:0;
+  right:0;
+  padding:16rpx;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  color: #333;
+  font-size: 30rpx;
+}
+.bottom_fixed_buttons view.w1,.bottom_fixed_buttons view.w11{
+  flex: 1;
+  height:70rpx;
+}
+.bottom_fixed_buttons view.w2{
+  flex: 2;
+  height:70rpx;
+}
+.bottom_fixed_buttons view button{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size:28rpx;
+  border-radius:8rpx;
+  margin:0 10rpx;
+  background: #fff;
+  border:none;
+}
+.bottom_fixed_buttons view button.btn-flag{
+  width: 580rpx;
+  display: inline-block;
+  margin-left: 105rpx;
+}
+.bottom_fixed_buttons view .btn-flag{
+  width: 580rpx;
+  display: inline-block;
+  margin-left: 105rpx;
+}
+.bottom_fixed_buttons view.w1 button{
+  color: #ff6b49;
+  border: 1px solid #ff6b49;
+}
+
+.bottom_fixed_buttons view.w2 button,.bottom_fixed_buttons view.w11 button{
+  background:#ff6b49;
+  color:#fff;
+}
+.bottom_fixed_buttons view.gray button{
+  background:#ccc;
+  color:#fff;
+}
+.bottom_fixed_buttons button::after{
+  border:none;
+}
+.loadingmore{
+  font-size:24rpx;
+  padding:24rpx;
+  text-align: center;
+  color:#999999;
+  display: none;
+}
+.loadingmore.active{
+  display: block;
+}
+.btn_prim_52{
+  border:1px solid #3eccb3;
+  background: #3eccb3;
+  color:#fff;
+}
+.btn_prim_full_52{
+  border:1px solid #3eccb3;
+  background: #fff;
+  color:#3eccb3;
+}

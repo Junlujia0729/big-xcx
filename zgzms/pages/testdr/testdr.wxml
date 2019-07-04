@@ -1,0 +1,3 @@
+<!--pages/testdr/testdr.wxml-->
+<button bindtap='selectImg'>选择图片</button>
+<canvas canvas-id="myOutputCanvas" style="border: 1px solid red; width:150px;height:100px;"></canvas>

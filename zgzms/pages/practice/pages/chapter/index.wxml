@@ -1,0 +1,25 @@
+<!--pages/practice/chapter/index.wxml-->
+<view class='title'>
+    <view class='item'>
+        <view class='item-name'><image src='../../../../images/icon_practice_complete@2x.png'></image>已完成联系</view>
+        <view><text>{{items.num}}</text><text class='total'>/{{items.ticount}}</text></view>
+    </view>
+    <view class='item'>
+        <view class='item-name'><image src='../../../../images/icon_practice_place@2x.png'></image>本科目排名</view>
+        <view><text>{{items.paiming}}</text><text class='total'>/{{items.total}}</text></view>  
+    </view>
+    <view data-edu_id="{{id}}" data-edu_flag="{{edu_flag}}" bindtap="practice" class='item' data-edu_title="{{title}}">
+      <view class='item-num'>先来10题</view>
+    </view>
+</view>
+<view wx:for="{{items.fs}}" wx:for-item="item" wx:key="key" class='message' data-edu_id="{{item.id}}" data-edu_flag="1" data-edu_title="{{item.name}}" bindtap="practice">
+    <view class='message-name'>{{item.name}}</view>
+    <view class='message-data'>
+        <view class='important'>
+          <image src='../../../../images/icon_evaluate_star_small.png' wx:for="{{arr[index]}}" wx:for-item="item" wx:key="key"></image>
+          <image src='../../../../images/icon_evaluate_graystar_small.png' wx:for="{{arr1[index]}}" wx:for-item="item" wx:key="key"></image>
+        </view>
+      <progress percent="{{proportion[index] * 100}}" color="#3eccb3" stroke-width="8"></progress>
+      <text class='complate'>{{item.completecount}}</text><text >/{{item.totalcount}}</text>
+    </view>
+</view>

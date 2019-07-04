@@ -1,0 +1,11 @@
+<view id="content_slide1">
+  <view class='teacher' wx:for="{{teacherlist}}" data-key="{{item.auser}}" wx:for-item="item" wx:key="key">
+    <view class='teacherinfo'>
+      <image src='{{item.headimg}}'></image>
+      <text class='teachername'>{{item.teacher}}</text>
+    </view> 
+    <view class='teacher_intro'>
+      {{item.intros}}                                
+    </view>  
+  </view>
+</view>

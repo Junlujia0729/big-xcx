@@ -1,0 +1,18 @@
+
+
+<view class='container' style='height:{{screenHeight}}px'>
+  <view class='countent'>
+    <view class='countdown'>
+      {{countDownMinute}}:{{countDownSecond}}
+    </view>
+    <slider bindchange="handleTouchEnd" min="0" max="100" backgroundColor="#f5f5f5" value='{{ap_progress}}' activeColor="#3eccb3" data-time="{{duration}}" block-size="12" block-color="#fff"/>
+    <image src='{{img}}' class='start' bindtap='start' data-state="{{state}}"></image>
+    <view class='again' bindtap='again'>
+      重新开始
+    </view>
+    <view class='tips'>
+      注意：录制时请保持手机处于未锁屏状态，否则录音会停止。
+    </view>
+  </view>
+</view>
+

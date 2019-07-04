@@ -1,0 +1,46 @@
+
+
+<!--我的打卡-->
+<view class='container-card'>
+  <view class='card-item '>
+    <text class='info'>注册手机号</text>
+    <text class='mobile'>{{mobile}}</text>
+  </view>
+  <view class='card-item'>
+    <image src='http://imgs.52jiaoshi.com/1516326405.png' class='clock'></image>
+    <text>每日打卡提醒</text>
+  </view>
+  <view class='card-item item-100'>
+    <text>提醒状态开启</text>
+    <view class="body-view">
+        <switch checked="{{flag}}" bindchange="switch1Change" color="#3eccb3"/>
+    </view>
+  </view>
+  <view class='card-item item-100'>
+    <text>微信推送时间</text>
+    <!-- <view >
+      <text >08:00</text>
+      <image src='../../images/icon_arrow_list.png' class='set-tiem'></image>
+    </view> -->
+    <picker mode="selector" bindchange="bindTimeChange" class='time' value="{{selecttime}}" range="{{timeArray}}">
+      <view class="picker">
+        {{time}}
+        <image src='../../images/icon_arrow_list.png' class='set-tiem'></image>
+      </view>
+    </picker>
+  </view>
+</view>
+<view class='container-card' style='margin-top:20rpx;'>
+  <view class='card-item'>
+    <image src='http://imgs.52jiaoshi.com/1516355796.png' class='clock'></image>
+    <text>回复我、点赞我的通知</text>
+  </view>
+  <view class='card-item item-100'>
+    <text>开启通知</text>
+    <view class="body-view">
+        <switch checked="{{con_flag}}" bindchange="switch2Change" color="#3eccb3"/>
+    </view>
+  </view>
+</view>
+
+

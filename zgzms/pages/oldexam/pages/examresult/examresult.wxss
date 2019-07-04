@@ -1,0 +1,136 @@
+
+page{
+  background: #fff;
+  font-size: 28rpx;
+}
+.header{
+  height: 590rpx;
+  padding: 20rpx;
+  background: linear-gradient(#fe5549, #ff875a); 
+}
+.header-1{
+  height: 590rpx;
+  padding: 20rpx;
+  background: linear-gradient(#11ab8d, #7ce19b); 
+}
+.header-2{
+  height: 590rpx;
+  padding: 20rpx;
+  background: linear-gradient(#626262, #979797); 
+}
+.exam-name,.time{
+  float: left;
+  background: rgba(240, 238, 238, .2);
+  padding: 5rpx 20rpx;
+  border-radius: 20rpx;
+  color: rgba(255, 255, 255, .6);
+  font-size: 26rpx;
+}
+.time{
+  float: right;
+}
+.face{
+  width: 238rpx;
+  height: 238rpx;
+  margin: 120rpx auto 30rpx;
+  position: relative;
+  border-radius: 50%;
+  border:5px solid #fce504;
+}
+.face-1{
+  border:8px solid rgba(17,171,141,.6);
+}
+.face-2{
+  border:8px solid rgba(98,98,98,.6);
+}
+.face-img{
+  width: 238rpx;
+  height: 238rpx;
+  position: absolute;
+  left:0;
+  top:0;
+}
+
+.crown-img{
+  width: 115rpx;
+  height: 112rpx;
+  position: absolute;
+  left: -30rpx;
+  top:-30rpx;
+}
+.report-img{
+  width: 465rpx;
+  height: 121rpx;
+  position: absolute;
+  left:-115rpx;
+  bottom:-60rpx;
+}
+.exam-datas{
+  display: flex;
+  margin-top:100rpx;
+  color: #fff;
+  height:100rpx;
+  font-size: 30rpx;
+}
+.exam-datas .section{
+  flex: 1;
+  text-align: center;
+  border-right: 1px dashed rgba(255, 255, 255, .5);
+}
+.exam-datas .section:last-child{
+  border-right: none;
+}
+.exam-datas .section:last-child text{display: inline-block;padding-left: 10rpx;}
+.exam-datas .section view{
+  line-height: 30rpx;
+}
+.exam-datas .section .top{padding-bottom: 40rpx;line-height: 30rpx;color: rgba(255, 255, 255, .5);}
+.exam-datas .section view text{color:#fff;}
+.exam-datas .section .score{color:rgba(255, 255, 255, .5) }
+.exam-message{
+  padding: 25rpx 0;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+.last{line-height: 28rpx;padding-bottom: 15rpx;}
+.last-data{color: #3eccb3;padding: 0 30rpx 0 10rpx;}
+.last .last-data:last-child{padding-right: 0;}
+.tips{font-size: 24rpx;color: #999;}
+.line{height: 20rpx;background: #f5f5f5; }
+.card{height: 90rpx;line-height: 90rpx;border-bottom: 1px solid #eee;font-size: 28rpx;color: #666;padding-left: 30rpx;}
+.card image{width: 36rpx;height: 36rpx;display: inline-block;vertical-align: middle;margin-left: 25rpx;
+margin-right: 20rpx; }
+.answers{padding:30rpx 25rpx;margin-bottom: 100rpx;overflow: hidden;}
+.answers-item{width:100rpx;height: 120rpx;text-align: center;float: left;padding: 20rpx; }
+.answers-item text{color: #333;display: inline-block;padding-top: 10rpx;font-size: 24rpx;}
+.true-answer,.false-answer,.no-answer{
+  width: 70rpx;
+  height: 70rpx;
+  background: #3eccb3;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70rpx;
+  margin-left: 17.5rpx;
+}
+.no-answer{
+  background: none;
+  border:1px solid #3eccb3;
+  color: #3eccb3;
+}
+.false-answer{
+  background: #ff5a5a;  
+}
+.footer{
+  height: 94rpx;
+  border-top: 1px solid #f5f5f5;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  background: #fff;
+  width: 100%;
+}
+.footer view{flex: 1;text-align: center;border-right: 1px solid #eee;color: #666;}
+.footer view text{font-size: 24rpx;display: inline-block;padding-top: 5rpx;}
+.footer view image{width: 29rpx;height: 27rpx;display: block;margin: 20rpx 0 0 110rpx;}

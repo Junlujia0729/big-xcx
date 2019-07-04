@@ -1,0 +1,13 @@
+<view class="box">
+  <text>您可以：</text>
+  <text>直接在线打开查看</text>
+  <form report-submit='{{true}}' bindsubmit="viewFile" >
+    <button class="prim_button" form-type="submit">打开文件</button>
+  </form>
+</view>
+
+<view class="box">
+  <text>还可以：</text>
+  <text>各大应用市场搜索“我爱教师”下载APP，缓存课件离线查看！</text>
+  <image src="http://imgs.52jiaoshi.com/handout_download_pic.png" mode="widthFix" style="display:block;width:216px;margin:32px auto;" />
+</view>

@@ -1,0 +1,69 @@
+.column_list{
+  padding:0 20rpx; 
+}
+.title{
+  font-size: 30rpx;
+  color: #333;
+  padding: 30rpx 0;
+  font-weight: bold;
+}
+.column_item{
+  padding: 30rpx 0;
+  font-size: 30rpx;
+  border-bottom:1px solid #eee;
+}
+.column_item .list-right{
+  margin-left: 160rpx;
+}
+.column_item .clumn-name{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  line-height: 30rpx;
+  padding-bottom: 20rpx;
+}
+.column_item .clumn-name text{
+  float:right;
+  font-size: 26rpx;
+  color: #ff6b49;
+}
+.column_item .number{
+  font-size: 24rpx;
+  color: #999;
+  padding-bottom: 45rpx;
+
+}
+.column_item .desc{
+  font-size: 24rpx;
+  line-height: 32rpx;
+  height: 32rpx;
+  color: #666;  
+}
+.column_item .new{
+  font-size: 20rpx;
+  height:20rpx;
+  line-height:20rpx;
+  color: #ff6b49;
+  padding:5rpx 8rpx;
+  border:1rpx solid #ff6b49;
+  border-radius: 10rpx;
+  margin-right:8rpx;
+  float: left;
+}
+.column_item .date{
+  float: right;
+  color: #999;
+}
+.column_item image{
+  width: 130rpx;
+  height: 160rpx;
+  float: left;
+}
+
+.ctitle{
+  display: inline-block;
+  width: 360rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,216 @@
+
+@import "../common/dynamic.wxss";
+
+page{
+  background: #fff;
+}
+
+/*打卡  */
+.container-card{
+  position: relative;
+  background: #f5f5f5;
+}
+.container-card .header{
+  position: relative;
+}
+.headerpic{
+  width: 100%;
+}
+.container-card .columntitle{
+  padding-bottom: 20rpx;
+  font-size: 32rpx; 
+}
+.container-card .total{
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: rgba(255, 255, 255, .8)
+}
+.container-card .total .line{
+  padding: 0 30rpx;
+  font-size: 32rpx;
+}
+.container-card .userinfo{
+  width: 690rpx;
+  height: 180rpx;
+  background: #fff;
+  position: absolute;
+  bottom:-90rpx;
+  left:30rpx;
+  margin:0 auto;
+  text-align: center;
+  border-radius: 15rpx;
+}
+.container-card .hearder-img {
+  position: absolute;
+  left:50%;
+  top:-60rpx;
+  border:6rpx solid #fff;
+  border-radius: 50%;
+  width: 108rpx;
+  height: 108rpx;
+  z-index: 1001;
+  margin-left: -60rpx;
+}
+.container-card .hearder-img image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.container-card .user-data text{
+  font-size: 24rpx;
+  color: #666;
+}
+.container-card .user-data .line{
+  padding: 0 30rpx;
+}
+
+
+.container-card .linkname{
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold; 
+  margin-top: 70rpx;
+}
+.container-card .user-data{
+  padding-top: 15rpx;
+  font-size: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #999;
+}
+.container-card .calendar{
+  float: right;
+  font-size: 30rpx;
+  padding-top: 30rpx;
+}
+.container-card .calendar text{
+  color: #3eccb3;
+  font-size: 24rpx;
+}
+.container-card .calendar image{
+  width: 13rpx;
+  height: 23rpx;
+  vertical-align: middle;
+  padding-left: 10rpx;
+  margin-top: -2rpx; 
+}
+.container-card .section{
+  background: #fff;
+  padding: 30rpx 30rpx;
+  font-size: 30rpx;
+  height: 160rpx;
+  position: relative;
+}
+.container-card .section image{
+  width: 130rpx;
+  height: 160rpx;
+  float: left;
+}
+.container-card .section-msg {
+  padding: 10rpx 0;
+}
+.container-card .section-msg text{
+  width: 390rpx;
+  display: block;
+  padding-bottom: 10rpx;
+  font-size: 32rpx;
+}
+.container-card .section .section-msg{
+  margin-left: 150rpx;
+}
+.container-card .section-msg .date{
+  color: #999;
+  font-size: 24rpx;
+}
+.container-card .btn{
+  position: absolute;
+  right:30rpx;
+  top:85rpx;
+  width: 100rpx;
+  height: 54rpx;
+  background: #3eccb3;
+  color: #fff;
+  text-align: center;
+  line-height: 54rpx;
+  border-radius: 5rpx;
+}
+.container-card .btn-ready{
+  position: absolute;
+  right:30rpx;
+  top:85rpx;
+  color: #3eccb3;
+  font-size: 26rpx;
+}
+.container-card .btn-ready image{
+  width: 31rpx;
+  height: 31rpx;
+  vertical-align: middle;
+ display: inline-block;
+ padding-right: 12rpx;
+}
+.container-card .more{
+  margin-top: 90rpx;
+  background: #fff;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  position: relative;
+}
+.container-card .more image{
+  width: 15rpx;
+  height: 25rpx;
+  position: absolute;
+  right:30rpx;
+  top:33rpx;
+}
+.container-card .jump-more{
+  float: right;
+  margin-right: 40rpx;
+  color: #999;
+  font-size: 26rpx;
+}
+.myjoin{
+  margin-top: 120rpx;
+  background: #fff;
+}
+.joininfo{
+  font-size: 30rpx;
+  padding: 30rpx 0 0 30rpx;
+  color: #333;
+}
+swiper{
+  height: 230rpx !important;
+  padding-left: 30rpx;
+}
+ swiper-item{
+  width: 300rpx !important;
+  padding: 30rpx 30rpx 30rpx 0;
+} 
+.item-info{
+  width: 300rpx !important;
+  height: 170rpx !important;
+  background: #ed7281;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.section-title{
+  padding-top: 30rpx;
+}
+.section-days{
+  position: absolute;
+  left: 0;
+  bottom: 30rpx;
+  text-align: center;
+  width: 100%;
+}
+.section-days .line{
+  padding: 0 30rpx;
+}

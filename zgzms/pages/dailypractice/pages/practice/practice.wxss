@@ -1,0 +1,330 @@
+/* pages/practice/practice/index.wxss */
+page{
+  height:100%;
+}
+/* .contioner{
+  padding:0 24rpx;  
+  height: 100%;
+} */
+/* swiper{
+  height: 100%;
+}
+.swiper-item{
+  display: block;
+  height: 100%;
+} */
+swiper{
+  width:100%;
+  height:100%;
+}
+.swiper_repor_title {
+    height: 48px;
+    line-height: 48px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-grow: row nowarp;
+    flex-grow: row nowarp;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #999999;
+    background: #fff;
+}
+.swiper_repor_title .page-activce{
+  color: #3eccb3;
+  font-size:26px;
+}
+.qu_answer_info{
+  font-size: 28rpx;
+  color: #333;
+  line-height: 50rpx;
+  padding: 20rpx 0;
+}
+.qu_answer_letter {
+    display: inline-block;
+    border: 1px solid #3eccb3;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 50rpx;
+    width: 50rpx;
+    height: 50rpx;
+    font-size: 30rpx;
+    vertical-align: top;
+    margin-right: 10rpx;
+    color: #3eccb3;
+}
+.qu_answer_content{
+    display: inline-block;
+    font-size: 30rpx;
+    color: #333;
+    padding-left: 27rpx;
+    overflow: hidden;
+    vertical-align: middle;
+    width:85%;
+
+}
+.btn-show{
+  position: fixed;
+  bottom:0;
+  left:50%;
+  width: 220rpx;
+  background: #3eccb3;
+  color: #fff;
+  margin-left: -110rpx;
+  text-align: center;
+  border-radius: 5rpx;
+}
+.btn-hide{
+  width: 220rpx;
+  background: #3eccb3;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 5rpx;
+}
+.analysis{
+  position: fixed;
+  bottom:0;
+  left:0;
+  z-index: 999;
+  background: #fff;
+}
+.analysis-content{
+  height: 500rpx;
+  overflow-y: auto;
+
+}
+.answer-true{
+  color: #3eccb3;
+  font-size: 28rpx;
+  padding: 10rpx 0;
+}
+.answer-true text{
+  color: #666;
+  display: inline-block;
+  padding-right: 10rpx;
+}
+.analysis-info{
+  font-size: 28rpx;
+  color: #333;
+
+}
+.question_cont .active_1{
+  background: #3eccb3;
+  color: #fff;
+  border:1px solid #3eccb3;
+}
+.show-answer-no{
+  display: inline-block;
+  margin: 30rpx;
+  width: 64rpx;
+  height: 64rpx;
+  border:1px solid #3eccb3;
+  background:#fff;
+  color: #3eccb3;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 64rpx;  
+}
+.show-answer-no.show-answer{
+  background: #3eccb3;
+  color: #fff;
+}
+.submit-btn{
+  height: 80rpx;
+  background: #3eccb3;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 80rpx;
+  width: 100%;
+  border-radius: 5rpx;
+}
+.exam-title{
+  font-size:36rpx;
+  padding-bottom:34rpx;
+  padding-top:96rpx;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  text-align:center;
+}
+.exam-desc{
+  padding: 28rpx;
+}
+.exam-desc view{
+  padding-bottom: 20rpx;
+  color:#999999;
+  font-size:24rpx;
+}
+.exam-desc view text{
+  color:#333333;
+  font-size: 28rpx;
+}
+.exam-desc view text.exam-info{
+  color: #666666;
+  margin-right:30rpx;
+}
+.ques_item{
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 5rpx;
+  margin-left: 20rpx;
+}
+
+.pagers-subject-cart {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    transition: all 0.3s ease;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.pagers-subject-cart.cart_hide {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+/*题目**/
+.exam_cont{
+  display: -webkit-flex;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 48px;
+}
+
+.exam_finger{
+  position: fixed;
+  bottom:46px;
+  left:0;
+  width:100%;
+}
+/**底部操作栏*/
+.exam_bar{
+    position: fixed;
+    bottom: 0;
+    height: 48px;
+    width: 100%;
+    border-top: 1px solid #ebebeb;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-grow: row nowrap;
+    flex-grow: row nowrap;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.exam_bar .exam_bar_item {
+    text-align: center;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+    position: relative;
+}
+.exam_bar_item button{
+  padding:0;
+  margin:0;
+  background: transparent;
+  border:none;
+  display: inline;
+}
+.exam_bar_item image{
+  width:21px;
+  display:block;
+  margin:0 auto;
+}
+.exam_bar_item .time_text {
+    position: absolute;
+    font-size: 12px;
+    color: #666666;
+    width: 100%;
+    text-align: center;
+    top: 4px;
+    left:0;
+}
+.question_cont_scroll{
+  width: 100%;
+  position: absolute;
+  top: 48px;
+  bottom: 0;
+  background: #fff;
+}
+.question_cont{
+  padding:14px;
+}
+.question_title{
+  font-size:14px;
+  color:#333;
+  margin-bottom: 14px;
+}
+
+
+
+
+
+/**底部按钮*/
+.exam_card_tabbtn {
+    position: absolute;
+    bottom: 0;
+    height: 52px;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    line-height: 52px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+    border-top: 1px solid #ebebeb;
+}
+.exam_card_tabbtn view{
+  background: #fff;
+  width: 156px;
+  height: 33px;
+  line-height: 33px;
+  border-radius: 4px;
+  color:#3eccb3;
+  border:1px solid #3eccb3;
+  font-size:14px;
+}
+.exam_card_tabbtn view.sub{
+  background: #3eccb3;
+  color:#fff;
+}
+rich-text{
+  display: inline-block;
+  position: relative;
+  bottom:-3rpx;
+}
+.qu_answer_info rich-text{
+  width: 90%;
+}
+.read-only{
+  color: #999;
+  font-size: 30rpx;
+  margin:50rpx auto 0;
+  border-top: 1px solid #eee;
+  text-align: center;
+  padding-top: 20rpx;
+}
+.data-analyse,.question_title{
+  line-height: 1.7;
+}

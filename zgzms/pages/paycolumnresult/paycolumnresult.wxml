@@ -1,0 +1,23 @@
+<view class='container'>
+  <view>
+    <view class='state'>
+      <image src='../../images/icon_choose_s.png' class='success' style='margin-right:0;'></image>  
+    </view>
+    <view style='text-align: center;'>
+      <text  wx:if="{{!platform_ios}}">支付成功 !</text>
+    </view>
+  </view> 
+  <view class='watch' wx:if="{{items.is_dialy_class == 0}}">
+    <navigator class='oneself' url='../columndetail/columndetail?id={{columnid}}' open-type='redirect'>
+      查看本专栏
+    </navigator>
+    <navigator class='myclass' url='../mycolumn/mycolumn' open-type='redirect'>
+      我的订阅
+    </navigator> 
+  </view>
+  <view wx:if="{{items.is_dialy_class == 1}}" class='watch'>
+    <navigator class='oneself center' url='../column/column?id={{columnid}}' open-type='redirect'>
+      查看本专栏
+    </navigator>
+  </view>
+</view>

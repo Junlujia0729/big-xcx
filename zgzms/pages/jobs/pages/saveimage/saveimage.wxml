@@ -1,0 +1,14 @@
+
+
+<view class='container'>
+  <view class='content'>
+    <image src='{{images[index]}}' wx:for="{{images}}" wx:for-item="item" wx:key="key" bindtap="previewImage" data-src="{{images[index]}}"></image>
+    <image src='http://imgs.52jiaoshi.com/1520580600.png' bindtap='choose' wx:if="{{show == 1}}"></image>
+  </view>
+</view>
+
+<view class='bottom_fixed_buttons'>
+  <view class='w11'>
+    <button style='background:#3eccb3;font-size:32rpx;' bindtap='submitimages'>提交图片</button>
+  </view>
+</view>

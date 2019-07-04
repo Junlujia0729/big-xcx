@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "专栏详情",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "common-view": "../../components/common-view/common-view"
+  }
+}

@@ -1,0 +1,18 @@
+<!--pages/uploadpic/uploadpic.wxml-->
+<text>pages/uploadpic/uploadpic.wxml</text>
+
+<button bindtap='uploadpic'>上传图片</button>
+
+<view class="picture_list">
+  <image src="http://imgs.52jiaoshi.com/1513567297.png"  mode="aspectFill" bindtap='clickImage'></image>
+  <view wx:for="{{upload_picture_list}}" wx:key="{{key}}" class="picture_item">
+    <image wx:if="{{item.upload_percent < 100}}" src="{{item.path_server}}"  mode="aspectFill"></image>
+    <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}"  mode="aspectFill" bindtap='clickImage'></image>
+    <view class="upload_progress" wx:if="{{item.upload_percent < 100}}">
+       {{item.upload_percent}}%
+    </view>
+  </view>
+  <view class="picture_item">
+  
+  </view>
+</view>

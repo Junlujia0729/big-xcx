@@ -1,0 +1,62 @@
+
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.Total{
+  height: 80rpx;
+  text-align: center;
+  background: #f3f4f5;
+  color: #999;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+.info-item{
+  height: 100rpx;
+  padding: 30rpx;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.left{
+  width: 480rpx;
+  float:left;
+}
+.classname{
+  font-size: 26rpx;
+  color: #333;
+  line-height: 34rpx;
+  height: 80rpx;
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
+  width: 100%;
+}
+.time{
+  color: #999;
+  font-size: 24rpx
+}
+.right{
+  margin-left: 500rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: relative;
+}
+.add{
+  color: #3eccb3;
+}
+.right .amount{
+  text-align: right;
+  font-size: 40rpx;
+  font-weight:600;
+}
+.right .ifsure{
+  font-size:20rpx;
+  position: absolute;
+  top: 90rpx;
+  right:0;
+  line-height: 20rpx;
+  height:20rpx;
+}

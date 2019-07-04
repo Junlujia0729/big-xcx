@@ -1,0 +1,14 @@
+/* pages/fxclasslist/fxclasslist.wxss */
+@import "../classlist/classlist.wxss";
+.tips{
+  color: #a9a9a9;
+  margin: 40rpx auto;
+  text-align: center;
+  font-size: 28rpx;
+}
+.no-discount image{
+  width: 310rpx;
+  height: 280rpx;
+  margin: 200rpx auto 20rpx;
+  display: block;
+}

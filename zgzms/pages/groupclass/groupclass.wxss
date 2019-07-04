@@ -1,0 +1,296 @@
+ /* @import "../payresult/payresult.wxss";  */
+@import "../common/classlist.wxss";
+/*拼课  */
+.user-header{
+  width:100%;
+  overflow: hidden;
+  padding: 30rpx 0 20rpx 0;
+  text-align: center;
+}
+.header {
+  display:inline-block;
+  position:relative;
+  margin:0 30rpx;
+}
+
+.header-list{
+  width: 100rpx;
+  height: 100rpx;
+  border:1px dashed #ff6b49;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.header-list image{
+  width: 100%;
+  height: 100%;
+}
+.share{
+  width: 90%;
+  height: 94rpx;
+  margin: 30rpx auto;
+  background: #ff6b49;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 94rpx;
+  border-radius: 10rpx;
+}
+.message {
+  padding:0 30rpx; 
+}
+
+.message .list{
+  border-bottom:1px solid #eee;
+  line-height: 90rpx;
+  font-size: 26rpx;
+  color: #666;
+  position: relative;
+}
+.message .list-last{
+  border-bottom:none;
+}
+.message .list:first-child{
+  border-top: none;
+}
+.state-img{
+  width: 116rpx;
+  height: 100rpx;
+  position: absolute;
+  right:20rpx;
+  bottom:0;
+}
+.list image{
+  width: 116rpx;
+  height: 100rpx;
+  float:right;
+}
+.message .list .nav{
+  float:left;
+  width:120rpx;
+}
+.message .list .nav-info{
+  margin-left:120rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: right;
+  display:block;
+}
+.places{
+  margin:15rpx 0 15rpx 0;
+  font-size: 36rpx;
+  text-align: center;
+}
+.places text{
+  display: inline-block;
+  color: #ff6b49;
+  padding: 0 10rpx;
+}
+.line{
+  height: 20rpx;
+  background:#f3f4f5;
+}
+
+.Leader{
+  position: absolute;
+  width: 60rpx;
+  left: 25%;
+  bottom:-15rpx;
+  background: #ff6b49;
+  color: #fff;
+  font-size: 22rpx;
+  z-index: 999;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.lesson-info{
+  width: 100%;
+  padding:60rpx 0;
+  overflow: hidden;
+  position: relative;
+}
+.classinfo{
+  width: 360rpx;
+  float:left;
+  padding: 0 40rpx;
+  border-right:1px solid #e5e5e5;
+}
+.classname{
+  font-size: 28rpx;
+}
+.groupprice{
+  position: absolute;
+  bottom: 115rpx;
+  left:510rpx;
+  font-size: 42rpx;
+  line-height: 44rpx;
+  color: #ff6b49;
+}
+.gruop-price{
+  margin-left: 445rpx;
+  font-size: 36rpx;
+  color: #ea2d19;
+  padding: 0 70rpx;
+}
+.gruop-price .ori-price{
+  position: absolute;
+  bottom: 60rpx;
+  color: #999;
+  font-size: 22rpx;
+  text-decoration:line-through;
+}
+.buy-now{
+  padding: 5rpx;
+  border:1px solid #ff6b49;
+  width: 200rpx;
+  font-size: 26rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin: 20rpx auto 0;
+}
+.time{
+  text-align: center;
+}
+.time .num{
+  display: inline-block;
+  padding: 5rpx 5rpx;
+  background: #ff6b49;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 10rpx;
+}
+.time .mark{
+  display: inline-block;
+  padding: 5rpx 10rpx;
+  font-size: 30rpx;
+}
+
+view.contact_btn{
+  position: fixed;
+  right:40rpx;
+  bottom:60rpx;
+  padding:0 0 0 0;
+  background-color:transparent;
+  width:118rpx;
+  height:118rpx;
+  border:none;
+}
+view.contact_btn::after{
+  border:none;
+}
+.contact_btn image{
+  width:118rpx;
+  height: 118rpx;
+}
+
+.user-header-5 .header-list{
+  width: 80rpx;
+  height: 80rpx;
+  border:1px dashed #ff6b49;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-header-5 .header {
+  display:inline-block;
+  position:relative;
+  margin:0 30rpx;
+}
+.user-header-6 .header-list{
+  width: 75rpx;
+  height: 75rpx;
+  border:1px dashed #ff6b49;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-header-6 .header {
+  display:inline-block;
+  position:relative;
+  margin:0 20rpx;
+}
+.user-header-7 .header-list{
+  width: 70rpx;
+  height: 70rpx;
+  border:1px dashed #ff6b49;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-header-7 .header {
+  display:inline-block;
+  position:relative;
+  margin:0 15rpx;
+}
+.user-header-8 .header-list{
+  width: 60rpx;
+  height: 60rpx;
+  border:1px dashed #ff6b49;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-header-8 .header {
+  display:inline-block;
+  position:relative;
+  margin:0 15rpx;
+}
+.user-header-9 .header-list{
+  width: 55rpx;
+  height: 55rpx;
+  border:1px dashed #ff6b49;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-header-9 .header {
+  display:inline-block;
+  position:relative;
+  margin:0 10rpx;
+}
+.user-header-10 .header-list{
+  width: 50rpx;
+  height: 50rpx;
+  border:1px dashed #ff6b49;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user-header-10 .header {
+  display:inline-block;
+  position:relative;
+  margin:0 10rpx;
+}
+
+.lesson-info .teacher{
+  overflow: hidden;
+  margin-top: 34rpx;
+  margin-right:0;
+}
+.lesson-info .teacher .teacher-header{
+  float: left;
+  margin-left: 10rpx;
+  margin-right:20rpx;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size:20rpx;
+  color:#999;
+}
+.lesson-info .teacher image{
+    width: 52rpx;
+    height: 52rpx;
+    display: block;
+    margin-bottom: 16rpx;
+    border-radius: 50%;
+}
+.lesson-info .live-img{
+  width: 38rpx;
+  height: 24rpx;
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+.guide{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: #333;
+  background:#f3f4f5;
+  text-align: center;
+  font-weight: bold;
+}

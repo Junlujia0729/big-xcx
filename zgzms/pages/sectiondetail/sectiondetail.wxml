@@ -1,0 +1,120 @@
+<import src="../../wxParse/wxParse.wxml" />
+<block wx:if="{{loading === true}}">
+  <loading>加载中</loading>
+</block>
+<view id="section_content_box" class="container" style='padding-bottom:80rpx;'>
+  <view class='header'>
+    <view class='message'>
+      <view class='title'>{{classinfo.title}}</view>
+      <view class='data'>
+        <text class="reading">{{classinfo.author}}</text>
+        <text class="time" style='float:right;'>{{classinfo.created_time}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!--音频播放  -->
+   <!-- <audio src="{{src}}" author="{{author}}" poster="{{poster}}" bindplay="started" bindended="ended" bindtimeupdate="timeupdate" controls id="myAudio"></audio>  -->
+  <view class="footer">
+    <view class="aplayer_box">
+      <view class="aplayer_controls">
+        <view class="btn_box">
+          <image class="btn_prev" mode="aspectFit" bindtap="prev" src="/images/aplayer/prev.png" />
+          <image class="btn_play" mode="aspectFit" bindtap="play_pause" src="/images/aplayer/{{status}}.png" />
+          <image class="btn_next" mode="aspectFit" bindtap="next" src="/images/aplayer/next.png" />
+        </view>
+        <image class="btn_mode" mode="aspectFit" src="/images/aplayer/{{mode}}.png" />
+      </view>
+      <view class="aplayer_progress__bar">
+        <text class="ap_progress_time">{{process_time}}</text>
+        <text class="ap_all_time right">{{total_time}}</text>
+        <slider bindchange="handleTouchEnd" min="0" max="100" backgroundColor="#f5f5f5" value='{{ap_progress}}' activeColor="#3eccb3" data-time="{{duration}}"/>
+      </view>
+    </view>
+  </view>
+  <view class='classdetail'>
+    <image class='notice-icon' src='{{classinfo.column_img}}'></image>  
+    <text>{{classinfo.column_title}}</text>  
+  </view> 
+  <view class='content'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+</view>
+
+<!-- 打卡 -->
+<form wx:if="{{classinfo.is_buy > 0 && classinfo.is_dialy_class == 1 && clock_type == 0}}" bindsubmit="commentClass" report-submit="true">
+  <view id="clock_btn_now" class='clock-btn'>  
+    <button form-type='submit'>打卡</button>
+  </view>
+</form>
+
+<view class='clock-btn-al' wx:if="{{classinfo.is_buy > 0 && classinfo.is_dialy_class == 1 && clock_type == 2}}">  
+<!-- <view class='clock-btn-al' wx:if="{{classinfo.is_buy > 0 && classinfo.is_dialy_class == 1 && clock_type == 0}}"> -->
+  <view>
+    <image src='http://imgs.52jiaoshi.com/yidakalala.png' mode='widthFix'></image>
+    <text>此任务已打卡</text>
+  </view>
+</view>
+
+<!--评论  -->
+<include src="../common/commentlist.wxml"/>
+<view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}</view>
+
+<view class="sub_reply_mask {{((1 == 1) || (replay_to_user == '')) ? '' : 'active'}}" bindtap='cancelReplayMask'></view>
+<view class="sub_reply_box {{((1 == 1) || (replay_to_user == '')) ? '' : 'active'}}">
+  <form report-submit="true" bindsubmit="submitReply">
+    <view class="sub_c_b_input_box">
+      <view class="textarea_box">
+        <input bindconfirm='confirmReply' type="text" placeholder="回复{{replay_to_user}}..." name="reply_text" confirm-type='send' bindinput="textAreaInput" value="{{const_reply_text}}" maxlength="300" cursor-spacing="15" />
+      </view>
+      <button form-type="submit" class="{{replay_words_count ? 'active' : ''}}">发送</button>
+    </view>
+  </form>
+</view>
+
+<view wx:if="{{classinfo.is_buy == 0}}" class="bottom_fixed_buttons">
+  <view class='w11'>
+    <button bindtap='buy'>订阅栏目{{classinfo.price_text}}</button>
+  </view> 
+</view> 
+
+<!--打卡完成图片  -->
+<view class='mask' wx:if="{{clock_state && classinfo.is_dialy_class == 1}}" bindtap='close'>
+  <view class='card'>
+    <image src='{{clock_dialy_picture}}' mode='widthFix' class='bag'></image>
+    <view class='card-header'>
+      <view class='headerimg'>
+        <image src='{{clock_headimgurl}}'></image>
+      </view>
+      <view class='linkname'>{{clock_nickname}}</view>
+      <view class='desc'>坚持打卡</view>
+      <view class='clock-days'>第<text class="days"> {{clock_dialy_num}}</text>天</view>
+      <view class='clock-time'>{{clock_day}}</view>
+    </view>  
+    <view class='join'>
+      <view class='card-title'>{{clock_title}}</view>
+      <view class='number'>已有{{clock_num}}人参与打卡</view>
+    </view> 
+    <button class='share' open-type="share">
+      分享给好友
+    </button>
+    <view class='save' catchtap='imageDown'>保存至相册</view> 
+    <image class='close' src='http://imgs.52jiaoshi.com/1515226620.png' bindtap='close'></image>
+  </view> 
+</view> 
+ <view wx:if="{{classinfo.is_buy > 0 && classinfo.is_dialy_class == 0}}" class="dyn_item_oper">
+   <button class="dyn_oper_it dyn_oper_share" open-type='share'>
+    <image src="/images/item_share.png" mode="widthFix" style="width:42rpx;vertical-align: middle;margin-right:14rpx;" />
+    <text>分享</text>
+  </button>
+  <view class="dyn_oper_it dyn_oper_comment" catchtap='commentClass'>
+    <view>
+      <image src="/images/item_comment.png" mode="widthFix" style="width:42rpx;vertical-align: middle;margin-right:14rpx;" />
+      <text>{{classinfo.comment_num}}</text>
+    </view>
+  </view>
+  <view class="dyn_oper_it dyn_oper_up" catchtap='dianzanClass'>
+    <image src="{{classinfo.like_status > 0 ? '/images/item_dianzan_on.png' : '/images/item_dianzan.png'}}" mode="widthFix" style="width:42rpx;vertical-align: middle;margin-right:14rpx;" />
+    <text>{{classinfo.like_num}}</text>
+  </view> 
+</view> 

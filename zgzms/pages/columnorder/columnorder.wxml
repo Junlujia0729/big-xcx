@@ -1,0 +1,19 @@
+<!--pages/columnorder/columnorder.wxml-->
+<view class='M_logistic_info '>
+  <view class='box'></view>
+  <view class='class_info'>
+    <view class='classname'>{{payinfo.title}}</view>
+    <view class='price'> <text>￥</text>{{payinfo.price}}</view>
+  </view>
+  <view class='line'></view>
+</view>
+
+<view class='footer'>
+  <view>合计：<text class='price'>{{payinfo.price }}</text></view>
+  <button bindtap="confirmOrder">确认</button>
+</view>
+
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+

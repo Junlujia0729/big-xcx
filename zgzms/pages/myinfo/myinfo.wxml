@@ -1,0 +1,26 @@
+<view class="container">
+  <view class='userinfo' wx:if="{{headimgurl}}">
+    <image src='{{headimgurl}}' class='userheader'></image>
+    <view class='nickname'>{{nickname}}</view>
+  </view> 
+  <view style='text-align:center;margin:50rpx 0;' >
+    <button wx:if="{{!headimgurl}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" withCredentials="false" class='getinfo'>授权登录</button>
+  </view>
+  
+  <!-- <view class='line'></view> -->
+  <view class="body">
+    <scroll-view scroll-y="true" height="100%">
+      <block wx:for="{{boards}}" wx:key="key">
+        <navigator url="../{{item.route}}">
+          <view class="item">
+            <image src='{{item.icon}}' class='item-icon'></image>
+            <view class="item-info">
+              <text class="item-name">{{item.name}}</text>
+              <image class="item-img" src="/images/arrowright.png" mode="aspectFill" />
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+</view>

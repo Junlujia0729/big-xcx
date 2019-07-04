@@ -1,0 +1,61 @@
+<!--pages/reguprov/reguprov.wxml-->
+<!-- 头部导航 -->
+<view class="header">
+  <view class="sv-manager">
+    <image bindtap="manageTabs" mode="widthFix" src="/images/regu/switch_prov.png"></image>
+  </view>
+  <view class="sv__container">
+    <scroll-view scroll-x="true">
+        <block wx:for="{{areas[0].items}}" wx:key="id">
+            <view 
+                id="cvi_{{item.id}}"
+                class="sv__item {{ item.id == selectCity ? 'active':'' }}" 
+                bindtap="selectCity" 
+                data-id="{{ item.id }}"
+            >
+                {{ item.name }}
+            </view>
+        </block>
+    </scroll-view>
+  </view>
+</view>
+<!-- 滚动banner -->
+<swiper class="swiper__container" wx:if="{{ imgUrls.length }}" indicator-dots="true" autoplay="true" interval="3000" style="height:{{swiperHeight}};">
+    <swiper-item wx:for="{{imgUrls}}" wx:key="id" wx:for-index="idx">
+        <view class="swiper__content">
+            <image src="{{item.banner}}" class="swiper__item" mode="widthFix"  bindload="swiperImageLoad" bindtap='clickBanner'data-index="{{idx}}" />
+        </view>
+    </swiper-item>
+</swiper>
+
+<view class="regu_list">
+  <block wx:for="{{regulist}}" wx:key="id" wx:for-index="idx1">
+    <block wx:if="{{item.items && item.items.length}}">
+      <view class="regu_item">
+        <view class="regu_item_area">{{item.name}}</view>
+        <view class="regu_item_2" wx:for="{{item.items}}" wx:key="id" wx:for-item="ritem" wx:for-index="idx2"  bindtap='gotoDetail' data-areaid="{{ritem.areaid}}" data-cityid="{{ritem.cityid}}" data-id="{{ritem.id}}">
+          <view class="regu_item_title">{{ritem.title}}</view>
+          <view class="regu_item_stat">
+            <text class="left">{{ritem.liulan ? ritem.liulan + '浏览' : ''}}</text>
+            <text class="right">{{ritem.publish_time}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:else class="regu_item">
+      <view class="regu_item_area">{{item.name}}</view>
+        <view class="regu_item_title">暂未发布
+        </view>
+        <view class="regu_item_tixing">
+          <form report-submit bindsubmit='setTixing' data-areaid="{{item.id}}">
+            <block wx:if="{{item.yuyue}}">
+            <button>已设置提醒</button>
+            </block>
+            <block wx:else>
+            <button form-type='submit'>发布提醒</button>
+            </block>
+          </form>
+        </view>
+    </view>
+  </block>
+</view>

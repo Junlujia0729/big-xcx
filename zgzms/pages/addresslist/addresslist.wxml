@@ -1,0 +1,16 @@
+<view class='M_logistic_info '>
+  <view wx:for="{{addresslist}}" wx:for-item="item" wx:for-index="idx" wx:key="key">
+    <view class='addressinfo'  data-index="{{idx}}"  bindtap="bindViewTap">
+      <view class='user_info'>
+        <view class='dresslist'>收货人：<text class='nickname'>{{item.linkname}}</text></view>
+        <view class='phone'>{{item.linkphone}}</view>  
+      </view>
+      <view class='address'>收货地址：<text class='address'>{{item.postprovince + item.postcity + item.postdist + item.postaddress}}</text></view>
+    </view>
+    <view class='box'></view>
+  </view>
+  
+</view>
+<navigator url='../selectarea/selectarea?orderid={{orderid}}' class='footer' open-type='redirect'>
+  添加新地址
+</navigator>

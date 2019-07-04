@@ -1,0 +1,181 @@
+<view>
+  <view class='lesson-info' bindtap='jumpdetail'>
+    <view class='classinfo'>
+      <view class='classname'>{{datas.classname}}</view>  
+      <view class="teacher" >
+        <view class='teacher-header' wx:for="{{datas.teacherlist}}" wx:key="key" wx:for-item="item">
+          <image src='{{item.headimg}}'></image>
+          <text>{{item.teacher}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <view class='gruop-price'>
+      <view style='color:#333;font-weight:bold;'>限时拼课</view>
+      <view class='groupprice'>￥{{datas.group_rule.price}}</view>
+      <view class='ori-price'> 原价￥{{datas.price}}</view>
+    </view>
+
+    <!--状态  1 立即参与 2 拼团中 3 团已满 4 拼团已结束 5 拼团活动已结束-->
+    <view wx:if="{{datas.ispay != 1 && datas.classstate == 2}}">
+      <image src='http://imgs.52jiaoshi.com/1513391194.png' class='success state-img' wx:if="{{datas.group_rule.state == 3 }}"></image>
+    <image src='http://imgs.52jiaoshi.com/1513391867.png' class='fail state-img' wx:if="{{datas.group_rule.state == 4}}"></image> 
+    <image src='http://imgs.52jiaoshi.com/1513391935.png' class='end  state-img' wx:if="{{datas.group_rule.state == 5}}"></image> 
+    <image src='http://imgs.52jiaoshi.com/1513391962.png' class='normal state-img' 
+    wx:if="{{(datas.group_rule.state == 1 || datas.group_rule.state == 2) && datas.group_rule.left != 0}}"></image>   
+    </view>
+    
+  </view>
+  <view class='line'></view> 
+  <view class='spell-lesson'>
+    <view class='user-header user-header-{{datas.group_rule.number}}'>
+      <view class='header' wx:for="{{arr}}" wx:key="key">
+        <view class='header-list'>
+          <image src='{{datas.group_rule.items[index].img}}'></image>
+        </view>
+        <text class='Leader' wx:if="{{index == 0}}">团长</text>
+      </view>
+      <view class='header' wx:for="{{arr1}}" wx:key="key">
+        <view class='header-list'>
+          <image src='http://imgs.52jiaoshi.com/1513393208.png'></image>
+        </view>
+      </view>  
+    </view> 
+    <view class='places' wx:if="{{(datas.group_rule.state == 1 || datas.group_rule.state == 2) && datas.group_rule.countdown > 0}}">
+        仅剩<text>{{datas.group_rule.left}}</text>个名额
+        <text class='time'>
+          <text class='num'>{{countDownHour}}</text><text class='mark'>:</text>
+          <text class='num'>{{countDownMinute}}</text><text class='mark'>:</text>
+          <text class='num'>{{countDownSecond}}</text><text class='mark'></text>
+        </text>
+    </view>
+    <!-- <view class='places' wx:else>
+        团以满
+    </view> -->
+    <view wx:if="{{datas.ispay == 1}}">
+      <button class='share' open-type="share">
+        分享给好友
+      </button>  
+    </view>
+    <view wx:else>
+      <view wx:if="{{datas.classstate == 1}}">
+        <button class='share' >
+          尚未开售
+        </button>  
+      </view>
+      <view wx:if="{{datas.classstate == 2}}">
+        <!--ios  -->
+        <block wx:if="{{platform == 'ios'}}">
+          <view>
+            <button class='share' bindtap='guideApp' >
+              了解更多
+            </button>  
+          </view>  
+        </block>
+        <block wx:else>
+          <!--非ios  -->
+          <view wx:if="{{datas.group_rule.partake != 0}}">
+            <button class='share' bindtap='partake' data-partake="{{datas.group_rule.partake}}">
+                已参加其他团，查看详情  
+            </button> 
+          </view>
+          <view wx:else>
+            <!--状态  1 立即参与 2 拼团中 3 团已满 4 拼团已结束 5 拼团活动已结束-->
+            <button class='share' wx:if="{{datas.group_rule.state == 1}}" bindtap='spell'>
+              立即参与
+            </button>
+            <view wx:if="{{datas.group_rule.state == 3}}">
+              <view wx:if="{{datas.group_rule.include == 1}}">
+                <button  open-type="share" class='share'>
+                  拼课成功，分享给好友 
+                </button>
+              </view>
+              <view wx:else>
+                <button  open-type="share" class='share'>
+                  团已满，分享给好友 
+                </button>  
+              </view>
+            </view>
+            <view  wx:if="{{datas.group_rule.state == 4}}">
+              <view wx:if="{{datas.group_rule.include == 1}}">
+                <button bindtap='spell_new' class='share'>
+                  拼课失败，重新发起拼课
+                </button>
+              </view>
+              <view wx:else>
+                <button  bindtap='spell_new' class='share'>
+                  拼课以结束，重新发起拼课 
+                </button>  
+              </view>
+            </view>
+            <view wx:if="{{datas.group_rule.state == 2}}">
+              <button open-type="share" class='share'>
+                拼课进行中，邀请好友参与   
+              </button> 
+            </view>
+            <button class='share' wx:if="{{datas.group_rule.state == 5}}" >
+              拼课活动已结束
+            </button>   
+          </view>
+        </block>
+        
+      </view>
+      <view wx:if="{{datas.classstate == 3}}">
+        <button class='share' >
+          已停售
+        </button>  
+      </view>
+      <view wx:if="{{datas.classstate == 4}}">
+        <button class='share' >
+          已售罄
+        </button>  
+      </view>
+    </view>
+    <view class='guide' wx:if="{{items.length > 0}}">为你推荐</view>
+    <include src="../common/classlist.wxml"/>
+  </view>
+  <view class="contact_btn" bindtap='retuen'>
+    <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+  </view>
+</view>
+
+<!--绑定手机号  -->
+<view class="fix_mask" wx:if="{{mobile}}"></view>
+<view class="content-pop" wx:if="{{mobile}}">
+    <view class="father">
+      <view style="" class='title-pop'>请绑定手机号</view>
+      <view style="padding: 0 .3rem .3rem;" class='explain'>
+          <view>1.请填写手机号以便我们更好的服务</view>
+          <view>2.已在我爱教师APP注册请输入注册手机号</view>
+          <view>3.未注册APP用户将自动注册我爱教师APP</view>
+      </view>
+      <form bindsubmit="checkmobile" report-submit="true">
+        <view class="resets_line code_line">
+          <input placeholder="请输入手机号" id="mobile" value='' type='number' name="mobile" bindblur="bindphone"/>
+          <button class='' open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>获取本机号</button> 
+        </view>
+        <view class="resets_line code_line">
+            <input placeholder="请输入短信验证码" type="number" id="verifycode" name="verifycode"/>
+          <button placeholder="" class="HuoQuX" bindtap="get_mobile_code" id="zphone"  name="verifycode" class="{{is_show?'show':'hide'}}" >获取验证码</button>
+          <button placeholder="" class="HuoQuX" style="border: none" class="{{is_show?'hide':'show'}} yzm-btn">{{last_time}}秒</button>
+        </view>
+        <button class='footer-pop' formType="submit">
+          绑定
+        </button>
+      </form>
+    
+    </view>
+    <image src='http://imgs.52jiaoshi.com/zhjs/btn_close.png' class='close' bindtap='cancle'></image>
+</view>
+
+<!--IOS支付  -->
+<view class='mask' wx:if="{{guideApp == 1}}">
+  <view class='mask-content'>
+    <view class='mask-tip' style='text-align:center;font-size:32rpx;font-weight: bold;'>打开我爱教师APP了解更多</view>
+    <view class='mask-tip2'>基于微信小程序平台的运营规范，请打开我爱教师APP了解更多关于课程内容。</view>
+    <view class='mask-tip'>您可在应用市场搜索 “我爱教师” 下载安装</view>
+    <view class='clickok'>
+      <button bindtap='closeguideApp'>知道了</button>
+    </view>
+  </view>
+</view>

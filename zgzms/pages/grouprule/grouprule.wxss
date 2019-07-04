@@ -1,0 +1,11 @@
+/* pages/grouprule/grouprule.wxss */
+view{
+  font-size:32rpx;
+  padding:20rpx;
+}
+view text{
+  display: block;
+  font-size:24rpx;
+  line-height:36rpx;
+  margin:16rpx 0;
+}

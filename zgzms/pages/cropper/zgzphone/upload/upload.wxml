@@ -1,0 +1,18 @@
+<import src="../../we-cropper/we-cropper.wxml"/>
+
+<view class="cropper-wrapper">
+    <template is="we-cropper" data="{{...cropperOpt}}"/>
+    <view class="cropper-buttons">
+        <view
+                class="upload"
+                bindtap="uploadTap">
+            重新选择
+        </view>
+        <view
+                class="getCropperImage"
+                bindtap="getCropperImage">
+            保存图片
+        </view>
+    </view>
+</view>
+<canvas canvas-id="myOutputCanvas" style="position:absolute;border: 1px solid red; width:412px;height:531px;top:-9999px;left:-9999px;"></canvas>

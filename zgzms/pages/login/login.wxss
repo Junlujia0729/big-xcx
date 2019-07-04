@@ -1,0 +1,145 @@
+/* pages/login/login.wxss */
+.login{
+  padding:100rpx 40rpx;
+}
+.login image{
+  display: block;
+  margin: 0 auto;
+}
+.login view{
+  text-align: center;
+  margin:20rpx auto 200rpx auto;
+  font-size:28rpx;
+  color:#3eccb3;
+}
+
+.content-pop{
+    position: fixed;
+    width: 580rpx;
+    height: 620rpx;
+    left:50%;
+    top:50%;
+    margin-left: -290rpx;
+    margin-top: -410rpx;
+    z-index: 9999;
+    /* display: none; */
+}
+.father{position: absolute;left:0;width: 580rpx;height: 760rpx;background: #fff;z-index: 9999;}
+.father .ninhao{
+    position: absolute;
+    font-size:16px;
+    color:#fff;
+    top:40rpx;
+    left:130rpx;
+    z-index:9999;
+}
+.father ul li{font-size: 24rpx;line-height: 40rpx;color: #333;}
+
+.error{font-size: 24rpx;color: #3eccb3;padding: 20rpx 0 20rpx 55rpx;display: none;}
+
+/*输入手机号  */
+.fix_mask{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.father {
+  position: absolute;
+  left: 0;
+  width: 580rpx;
+  height: 660rpx;
+  background: #fff3e8;
+  z-index: 9999;
+}
+.coup-tit{
+  font-size: 36rpx;
+  color: #ff830e;
+  margin: 40rpx 0 25rpx;
+  text-align: center;
+}
+.coup-con{
+  padding: 0 30rpx 30rpx;
+}
+.coup-con view{
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+
+.resets_line {
+  margin: 20rpx 30rpx 0;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: none;
+  border-radius: 10rpx;
+  padding: 0;
+  position: relative;
+  background: #fff;
+  border: 1px solid #ff830e;
+}
+.resets_line input {
+  border: none;
+  padding-left: 20rpx;
+  display: inline-block;
+  width:300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+
+}
+.resets_line button {
+    height: 100%;
+    width: 170rpx;
+    background: #ff830e;
+    color: #fff;
+    border-radius: 10rpx;
+    float: right;
+    font-size: 30rpx;
+    line-height: 80rpx;
+    padding: 0;
+}
+.explain{
+  margin-bottom: 10rpx;
+}
+.explain view{
+  font-size: 26rpx;
+  line-height: 48rpx;
+  color: #333;
+  padding-left: 30rpx;
+}
+.title-pop{
+  font-size: 36rpx;color: #3eccb3;margin:40rpx 0 25rpx; text-align:center;
+}
+.close {
+    position: absolute;
+    width: 50rpx;
+    height: 50rpx;
+    right:-5rpx;
+    top:-65rpx;
+    z-index: 1001;  
+}
+.hide{
+ display: none;
+}
+.show{
+ display: block;
+}
+.footer-pop{
+  background: #3eccb3;
+  display: block;
+  margin: 40rpx auto 0;
+  width: 400rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 10rpx;
+}

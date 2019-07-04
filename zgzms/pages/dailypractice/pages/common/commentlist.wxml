@@ -1,0 +1,44 @@
+<view id="common_comment_list_header" class="dyn_comment_header">
+打卡日记
+</view>
+<view class='dyn_comment_item' wx:for="{{common_comment_list}}" wx:key="id" wx:for-item="item" wx:for-index="idx">
+  <view class="d_c_i_header">
+    <view class="d_c_i_h_avatar">
+      <image src="{{item.created_avatar}}" mode="aspectFill" alt="{{item.created_name}}" catchtap="viewUserDetail" data-type="1" data-userid="{{item.created_by}}"></image>
+    </view>
+    <view class="d_c_i_h_up d_c_i_h_up_dz" catchtap='dianzanComment' data-index="{{idx}}" data-like="{{item.isliked}}" data-classid="{{item.jobid}}" data-likenum="{{item.like_count}}" data-id="{{item.id}}">
+      <image class="dianzan" src="{{item.isliked ? '/images/comment_dianzan_on.png' : '/images/comment_dianzan.png'}}" style="width:28rpx;" mode="widthFix" ></image>
+      <text>{{item.like_count}}</text>
+    </view>
+    <view class="d_c_i_h_up" catchtap='replycomment' data-cmtid="{{item.id}}" data-id="{{item.id}}" data-uname="{{item.created_name}}" data-index="{{idx}}" data-uid="{{item.created_by}}" data-classid="{{item.jobid}}">
+      <image class="comment" style="width:30rpx;" src="/images/comment_comment.png" mode="widthFix"></image>
+    </view>
+    <view class="d_c_i_h_tit">
+      <view class="d_c_i_h_tit_name" catchtap="viewUserDetail" data-type="1" data-userid="{{item.created_by}}">{{item.created_name}}</view>
+      <view class="d_c_i_h_tit_time">{{item.created_time}} 已坚持{{item.daily_num}}天</view>
+    </view>
+  </view>
+  <view class="d_c_i_cont">
+    <view class="d_c_i_cont_txt">
+      <text>{{item.content}}</text>
+    </view>
+    <view class="d_c_i_cont_img" wx:if="{{item.images.length > 0}}">
+      <image wx:for="{{item.images}}" wx:key="lt" wx:for-item="imgitem" wx:for-index="imgidx" src="{{imgitem.lt}}" data-src="{{imgitem.lt}}"
+      data-ori="{{imgitem.ori}}" mode="widthFix" bindtap='clickCmtImage' data-pindex="{{idx}}" data-index="{{imgidx}}" data-pid="{{item.id}}" style="width:{{imgitem.w}}px;" bindload="cmtImageLoad"  mode="widthFix" />
+    </view>
+  </view>
+  <view class="d_c_i_reply d_c_i_like_1 {{item.reply_list.length > 0 ? 'd_c_i_like' : ''}}" wx:if="{{item.like_users.length > 0}}">
+    <view class="d_c_i_reply_item">
+      <image src="/images/like.png" style="width:24rpx;vertical-align: middle;margin-right:10rpx;" mode='widthFix'></image>
+      <text wx:for="{{item.like_users}}" wx:key="id" wx:for-item="litem" wx:for-index="lidx" class="d_c_i_reply_to" catchtap="viewUserDetail" data-type="1" data-userid="{{litem.id}}">{{litem.nk + (lidx == item.like_users.length - 1 ? '' : ',')}}</text>
+    </view>
+  </view>
+  <view class="d_c_i_reply" wx:if="{{item.reply_list.length > 0}}">
+    <view wx:for="{{item.reply_list}}" wx:key="id" wx:for-item="ritem" wx:for-index="ridx" class="d_c_i_reply_item" data-cmtid="{{item.id}}" data-id="{{ritem.id}}" data-index="{{ridx}}" data-pindex="{{idx}}" catchtap='replyreply' data-uname="{{ritem.created_name}}" data-uid="{{ritem.created_by}}" data-classid="{{item.jobid}}">
+      <text class="d_c_i_reply_from {{ritem.is_offcial == 1 ? 'offical' : ''}}" catchtap="viewUserDetail" data-type="{{ritem.reply_type}}" data-userid="{{ritem.created_by}}">{{ritem.created_name}}</text>
+      <text class="d_c_i_reply_txt">回复</text>
+      <text class="d_c_i_reply_to" catchtap="viewUserDetail" data-type="1" data-userid="{{ritem.touid}}">{{ritem.reply_name}}</text>
+      <text class="d_c_i_reply_cnt">{{ritem.content}}</text>
+    </view>
+  </view>
+</view>

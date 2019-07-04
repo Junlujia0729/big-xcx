@@ -1,0 +1,62 @@
+<view class="item" wx:for="{{items}}" wx:for-item="item" wx:key="ckey">
+  <view data-id='{{item.classid}}' data-viewtype='{{item.viewtype}}' bindtap='gotoClass'>
+    <!-- <view wx:if="{{item.live_type == 1}}" class='live-stuta'>回放课</view>
+    <view wx:if="{{item.live_type == 2}}" class='live-stuta'><image class="live-img" src="/images/icon_course_live@2x.png" mode="aspectFill" />直播中</view>
+    <view wx:if="{{item.live_type > 2}}" class='live-stuta'><image class="live-img" src="/images/icon_course_live@2x.png" mode="aspectFill" />{{item.live_text}}</view> -->
+    <view class="text">
+      <view class="class-title">
+        <image wx:if="{{item.appbanner != ''}}" src='{{item.appbanner}}'></image>
+        <text>{{item.classname}}</text>  
+      </view>
+      <view wx:if="{{item.tips_fenxiao && item.tips_fenxiao != ''}}" class="class-notice-fenxiao">{{item.tips_fenxiao}}</view>
+      <block wx:else>
+        <view wx:if="{{item.tips != ''}}" class="class-notice">{{item.tips}}</view>
+      </block>
+    </view>
+    <view class="introduce">
+      <view class='describe'>
+        <view wx:if="{{item.group_number > 0 && item.group_price > 0}}">
+          <view wx:if="{{!platform_ios}}" class='price'>
+              <view class="group_price" >{{item.group_number}}人拼 ￥<text>{{item.group_price}}</text></view>
+              <view class='ori-price' >
+                <text class='dyntext_1'>已购</text>
+                <text class='dyntext_2'> {{item.salescount}} </text>
+                单独购买:￥<text class='g-p'>{{item.price}}</text>
+              </view>
+          </view>
+        </view>
+        <view wx:else>
+          <view wx:if="{{!platform_ios}}" class='price'>
+              <block wx:if="{{item.viewtype == 2}}">
+                <text class="price_yang">￥</text><text>{{item.bag_price}}</text>
+              </block>
+              <block wx:else>
+                <text class="price_yang">￥</text><text>{{item.price}}</text>
+              </block>
+          </view>
+          <block wx:if="{{item.labels && item.labels.length && !platform_ios}}">
+            <view class='class_sale_text_sale'>
+              <block wx:for="{{item.labels}}" wx:for-item="item3" wx:key="key3">
+                <text space="emsp" class='dyntext_{{item3.color}}'>{{item3.content}}</text>
+              </block>
+            </view>
+          </block>
+          <block wx:else>
+            <view wx:if="{{!platform_ios}}" class='class_sale_text_sale'>
+              <text class='dyntext_1'>已购</text>
+              <text class='dyntext_2'> {{item.salescount}} </text>
+              <text class='dyntext_1'>限购</text>
+              <text class='dyntext_1'> {{item.stock}}</text>
+            </view>
+          </block>   
+        </view>
+      </view>  
+      <view wx:if="{{item.teacherlist}}" class="teacher">
+        <view wx:for="{{item.teacherlist}}" wx:for-item="item4" wx:key="key4" class='teacher-header'>
+          <image src='{{item4.headimg}}'></image>
+          <text>{{item4.teacher}}</text>
+        </view>
+      </view>
+    </view> 
+  </view>  
+</view>

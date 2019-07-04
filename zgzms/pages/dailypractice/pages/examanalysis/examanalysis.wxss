@@ -1,0 +1,25 @@
+
+@import"../practice/practice.wxss";
+
+.exam_cont{
+  bottom: 0;
+}
+/*解析部分  */
+.true_answer{font-size: 28rpx;padding: 30rpx 0;}
+.color-ff{color: #ff5a5a;}
+.color-3e{color: #3eccb3;}
+.data-title{padding: 30rpx 0;font-size:28rpx;}
+.data-analyse{font-size:28rpx;}
+.data-form{border:1px solid #eee;font-size:28rpx;}
+.form-item{height: 80rpx;border-bottom:1px solid #eee;display: flex;line-height: 80rpx;}
+.form-item view{flex: 1;text-align: center;border-right:1px solid #eee;}
+.form-item view:last-child{border-right:none;}
+.from-bottom{border-bottom: none;}
+::-webkit-scrollbar{
+  display:none;
+}
+.active_2{
+  background: #ff5a5a;
+  color: #fff;
+  border: 1px solid #ff5a5a;
+}

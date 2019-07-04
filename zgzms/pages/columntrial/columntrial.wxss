@@ -1,0 +1,19 @@
+/* pages/columntrial/columntrial.wxss */
+@import "../columndetail/columndetail.wxss";
+page{
+  background: #fff;
+  padding-bottom: 104rpx;
+}
+.container{
+  margin-top:0;
+}
+.list{
+  border-bottom: 1rpx solid #ccc;
+}
+.update{
+  display: inline-block;
+  height: 30rpx;
+  background: url(http://imgs.52jiaoshi.com/1514880701.png) no-repeat;
+  background-size:30rpx 30rpx; 
+  padding:0 45rpx; 
+}

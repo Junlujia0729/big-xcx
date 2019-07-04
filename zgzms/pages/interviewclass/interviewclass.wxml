@@ -1,0 +1,24 @@
+<!-- <view class="container" >
+  <view class='class_pic'>
+      <view class='class_pic_bg_2'>
+        <video id="myVideo"  wx:if="{{play}}" src='{{video.src}}' controls='true'></video>
+        <view wx:if="{{!play}}" bindtap="play">
+            <image src='../../images/bg_video.jpg'></image> 
+            <view class='class_pic_cont_box'>
+              {{video.title}}
+            </view> 
+             <view class='class_pic_cont'>
+             {{video.dur}}
+            </view>
+            <image src='../../images/icon_course_video.png' class='play-icon'></image>   
+           </view>
+      </view>     
+  </view>
+</view> -->
+<include src="../common/classlist.wxml"/>
+<button class="contact_btn" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>
+
+<!--返回首页  -->
+<view class="contact_btn" bindtap='retuen' wx:if="{{gohome}}">
+  <image src='http://imgs.52jiaoshi.com/1513932025.png'></image>
+</view>

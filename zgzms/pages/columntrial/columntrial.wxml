@@ -1,0 +1,21 @@
+<!--pages/columntrial/columntrial.wxml-->
+<view class='container' wx:for="{{column_info.free_class}}" wx:key="key" wx:item-for="item" catchtap='selectclass' data-id="{{item.id}}" >
+    <view class='list'>
+      <image src='{{item.module_img}}'></image>
+      <view class='list-right'>
+        <view class='clumn-name'>{{item.title}}</view>
+        <view class='number'>{{item.module_title + ' - ' + item.author}}</view>
+        <view class='desc'>
+          <text class='update'>{{item.created_time}}</text>
+          <text class='read'>{{item.view_num}}人阅读</text>
+          <text class='like-num'>{{item.like_num}}</text>
+        </view>
+      </view>
+    </view>
+</view> 
+
+<!-- <view class="bottom_fixed_buttons">
+  <view class="w11">
+    <button bindtap='buy'>订阅栏目{{column_info.price_text}}</button> 
+  </view>
+</view> -->

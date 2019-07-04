@@ -1,0 +1,34 @@
+<view class='M_logistic_info '>
+  <view class='address'>
+    <view class='M_logistic_div'>
+      <view style='overflow: hidden'>
+        <view class='logistic_address'>收货人：{{items.linkname ? items.linkname : '暂无' }}</view>
+        <view class='edit-address' bindtap='gotoAddress'>{{items.linkphone ? items.linkphone : '暂无'}}</view>
+      </view>
+      <view class='address addressshow' style='padding-left:0;'>收货地址：
+      <text class='address'>{{items.postaddress}}</text></view>
+    </view>
+    <view class='line'></view>
+    <view class='user_info'>
+      <view class='dresslist'>快递公司：<text class='nickname'>{{items.kuaiditype}}</text></view> 
+    </view>
+    <view class='addressshow dresslist' style='font-size:26rpx;color:#666;'>快递单号：{{items.kuaidicode}}</view>
+  </view>
+  <view class='box'></view>
+  <view class='class_info'>
+    <view class='left'>
+      <view class='state-icon' wx:for="{{items.kd100_data.lastResult.data}}" wx:key="key" wx:for-item="item">
+        <text class="{{index == 0 ? 'round-noe' : 'round'}}"></text>
+        <text class='state-line'></text> 
+      </view>
+
+    </view> 
+    <view class='right'>
+      <view class='state' wx:for="{{items.kd100_data.lastResult.data}}" wx:key="key" wx:for-item="item">
+        <view class='state-con'>{{item.context}}</view>
+        <view class='state-con'>{{item.time}}</view>
+      </view>
+    </view> 
+     
+  </view>  
+</view>

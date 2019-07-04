@@ -1,0 +1,44 @@
+
+
+<!--我的打卡-->
+<view class='container-card'>
+  
+  <view class='header'>
+    <image src='http://imgs.52jiaoshi.com/1515405049.png' class='headerpic' mode='widthFix'></image>
+    <view class='userinfo'>
+      <view class='hearder-img'>
+        <image src='{{items.headimgurl}}'></image> 
+      </view>
+      <text class='linkname'>{{items.nickname}}</text>
+      <view class='user-data'>
+        <text class='date-num'>已坚持{{items.count}}天</text>
+        <text class='line'>|</text>
+        <text>日记{{items.times}}条</text>
+      </view>
+    </view>
+  </view>
+  <view class='myjoin'>
+    <view class='joininfo'>
+      我参加的打卡
+    </view>
+    <view >
+      <swiper wx:if="{{dialylist.length > 0}}" indicator-dots="{{indicatorDots}}"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+        <block wx:for="{{dialylist}}" wx:key="key" wx:for-index="idx" wx:for-item="item">  
+          <swiper-item>
+              <view class='item-info' data-id="{{item.id}}" bindtap='clock'>
+                <view class='section-title'>{{item.title}}</view>
+                <view class='section-days'>
+                  <text>打卡{{item.dialy_num}}天</text>
+                </view>
+              </view>
+          </swiper-item>
+        </block>   
+      </swiper>  
+    </view>
+  </view>
+</view>
+<block >
+  <!--评论  -->
+  <include src="../common/commentlist.wxml"/>
+  <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}</view>
+</block>

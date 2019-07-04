@@ -1,0 +1,89 @@
+
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" style='    margin-right: 200rpx;'>轻松学</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">连续听</view>  
+</view> 
+<!--轻松学  --> 
+<view style="height:{{winHeight - 31}}px" wx:if="{{currentTab==0}}">
+  <view class='container' wx:for="{{items}}" wx:key="key" wx:for-item="item">
+      <view class='list'>
+        <image src='{{item.module_img}}'></image>
+        <view class='list-right'>
+          <view class='clumn-name'>{{item.module_title}}</view>
+          <view class='number'>{{item.author[0]}}</view>
+          <view class='desc'>
+            <text class='read'>{{item.view_num}}人阅读</text>
+            <text class='like-num'>{{item.like_num}}</text>
+            <text class='open' bindtap='open' data-index="{{index}}" wx:if="{{item.show == 0}}">点击展开</text>
+            <text class='open' bindtap='close' data-index="{{index}}" wx:if="{{item.show == 1}}">点击收起</text>
+          </view>
+        </view>
+      </view>
+      <view class='section-list' wx:if="{{item.show == 1}}">
+        <navigator url='../sectiondetail/sectiondetail?id={{list.id}}' wx:for="{{item.class_list}}" wx:key="key1" wx:for-item="list" class='section' hover-class="none">
+        <text>● {{list.title}}</text><text class='section-date'>{{list.created_time}}</text></navigator>
+      </view>
+  </view> 
+</view>
+
+<view style="height:{{winHeight - 31}}px" wx:if="{{currentTab==1}}"> 
+  <!--音频播放  -->
+   <!-- <audio src="{{real_src}}" author="{{author}}" poster="{{poster}}" bindplay="started" bindended="ended" bindtimeupdate="timeupdate" controls id="myAudio"></audio>    -->
+  <view class="footer">
+    <view class="aplayer_box">
+      <view class="aplayer_controls">
+        <view class="btn_box">
+          <image class="btn_prev" mode="aspectFit" bindtap="prev" src="/images/aplayer/prev.png" />
+          <image class="btn_play" mode="aspectFit" bindtap="play_pause" src="/images/aplayer/{{status}}.png" />
+          <image class="btn_next" mode="aspectFit" bindtap="next" src="/images/aplayer/next.png" />
+        </view>
+        <image class="btn_mode" mode="aspectFit" bindtap="switchMode" src="/images/aplayer/{{mode}}.png" />
+        <!-- <text class='' bindtap=''>倍速</text> -->
+      </view>
+      <view class="aplayer_progress__bar">
+        <text class="ap_progress_time">{{process_time}}</text>
+        <text class="ap_all_time right">{{total_time}}</text>
+        <!-- <view class="process">
+          <progress percent="{{ap_progress}}" stroke-width="4" color='#3eccb3' bindtap='seek'/>
+        </view>
+        <view class="dragbar" style='left:{{124+4.2*ap_progress}}rpx' catchtouchmove="ballMoveEvent" catchtouchend="handleTouchEnd"></view> -->
+        <slider bindchange="handleTouchEnd" min="0" max="100" backgroundColor="#f5f5f5" value='{{ap_progress}}' activeColor="#3eccb3" data-time="{{duration}}"/>
+      </view>
+    </view>
+    
+  </view>
+  <view class='container-1' wx:for="{{items}}" wx:key="key" wx:for-item="item">
+      <view class='module_title' bindtap='closeall' data-index="{{index}}" wx:if="{{item.show1 == 1}}">
+        <text>{{item.module_title}}</text>
+        <image src='http://imgs.52jiaoshi.com/1514881379.png' ></image>
+      </view>
+      <view class='module_title1' bindtap='openall' data-index="{{index}}" wx:if="{{item.show1 == 0}}">
+        <text>{{item.module_title}}</text>
+        <image src='http://imgs.52jiaoshi.com/1514884840.png' ></image>
+      </view>
+      <view class='section-list-1' wx:if="{{item.show1 == 1}}">
+        <view class='left'>
+          <view class='state-icon' wx:for="{{item.class_list}}" wx:key="key" wx:for-item="item1">
+            <text class="{{index == 0 ? 'round-noe' : 'round'}}"></text>
+            <text class='state-line'></text> 
+          </view>
+        </view> 
+        <view class='right' wx:if="{{item.show1 == 1}}">
+          <view class='state' wx:for="{{item.class_list}}" wx:key="key" wx:for-item="item2">
+            <view class="state-con-1" bindtap='pause_1' data-name="{{item2.title}}" wx:if="{{item2.play_flag == 1}}">{{item2.title}}</view>
+            <view class="state-con" bindtap='player' data-name="{{item2.title}}" wx:else>{{item2.title}}</view>
+            <view class='section-msg'>
+              <text>{{item2.created_time}}</text>
+              <text>时长{{item2.time_long}}</text>
+              <text>{{item2.size}}MB</text>
+              <text class='playing' wx:if="{{playing_src == item2.source_path && status == 'pause'}}">正在播放</text>
+            </view>
+          </view>
+        </view> 
+      </view>
+  </view> 
+</view>
+
+
+
+

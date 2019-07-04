@@ -1,0 +1,163 @@
+{
+  "pages": [
+    
+    "pages/home/home",
+    "pages/cropper/zgzphone/index/index",
+    "pages/cropper/zgzphone/upload/upload",
+    "pages/profile/profile",
+    "pages/classx/classx",
+    "pages/invitationcard/invitationcard",
+    "pages/interviewclass/interviewclass",
+    "pages/cash/cash",
+    "pages/cashrate/cashrate",
+    "pages/mywallet/mywallet",
+    "pages/mywalletdetail/mywalletdetail",
+    "pages/more/more",
+    "pages/columnlist/columnlist",
+    "pages/sectiondetail/sectiondetail",
+    "pages/column/column",
+    "pages/column/moreteacher",
+    "pages/user/user",
+    "pages/clockdiaries/clockdiaries",
+    "pages/clockset/clockset",
+    "pages/clockdiaries/diariescomment",
+    "pages/datepicker/datepicker",
+    "pages/clocklist/clocklist",
+    "pages/commentdetail/commentdetail",
+    "pages/columntrial/columntrial",
+    "pages/columndetail/columndetail",
+    "pages/columnorder/columnorder",
+    "pages/paycolumnresult/paycolumnresult",
+    "pages/mycolumn/mycolumn",
+    "pages/reguprov/reguprov",
+    "pages/reguprov/manage",
+    "pages/regudetail/regudetail",
+    "pages/myinfo/myinfo",
+    "pages/mine/mine",
+    "pages/newmine/newmine",
+    "pages/mineclass/mineclass",
+    "pages/mineclass/viewfile",
+    "pages/aplayer/aplayer",
+    "pages/addcomment/addcomment",
+    "pages/zgzclasslist/zgzclasslist",
+    "pages/zpclasslist/zpclasslist",
+    "pages/classlist/classlist",
+    "pages/fxclasslist/fxclasslist",
+    "pages/classlistqpas/classlistqpas",
+    "pages/classlistqfld/classlistqfld",
+    "pages/classx/moreclass",
+    "pages/classx/moreteacher",
+    "pages/childlist/childlist",
+    "pages/order/order",
+    "pages/addresslist/addresslist",
+    "pages/selectarea/selectarea",
+    "pages/logistics/logistics",
+    "pages/mylogistic/mylogistic",
+    "pages/payresult/payresult",
+    "pages/activity/activity",
+    "pages/discount/discount",
+    "pages/grouprule/grouprule",
+    "pages/guide/guide",
+    "pages/article/article",
+    "pages/playlist/playlist",
+    "pages/play/play",
+    "pages/download/score",
+    "pages/bind/bind",
+    "pages/uploadpic/uploadpic",
+    "pages/minegroup/minegroup",
+    "pages/sharegroup/sharegroup",
+    "pages/groupclass/groupclass",
+    "pages/queryscore/queryscore",
+    "pages/queryscoreresult/queryscoreresult",
+    "pages/login/login",
+    "pages/getphone/getphone",
+    "pages/getuserinfo/getuserinfo"
+    
+  ],
+  "subPackages": [
+    {
+      "root": "pages/exam/",
+      "pages": [
+        "pages/examdetail/examdetail",
+        "pages/examindex/examindex",
+        "pages/examresult/examresult",
+        "pages/examanalysis/examanalysis",
+        "pages/examlist/examlist"
+      ]
+    },
+    {
+      "root": "pages/practice/",
+      "pages": [
+        "pages/interface/index",
+        "pages/chapter/index",
+        "pages/practice/index",
+        "pages/record/index"
+      ]
+    },
+    {
+      "root": "pages/jobs/",
+      "pages": [
+        "pages/lecturelist/lecturelist",
+        "pages/lecturedetail/lecturedetail",
+        "pages/createaudio/createaudio",
+        "pages/saveaudio/saveaudio",
+        "pages/saveimage/saveimage",
+        "pages/createvideo/createvideo",
+        "pages/savevideo/savevideo"
+      ]
+    },
+    {
+      "root": "pages/dailypractice/",
+      "pages": [
+        "pages/index/index",
+        "pages/practice/practice",
+        "pages/result/result",
+        "pages/examanalysis/examanalysis",
+        "pages/addcomment/addcomment"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "我爱教师网",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#3eccb3",
+    "borderStyle": "white",
+    "backgroundColor": "#fbfbfb",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/tab_home_gray.png",
+        "selectedIconPath": "images/tab_home_green.png"
+      },
+      {
+        "text": "简章",
+        "pagePath": "pages/reguprov/reguprov",
+        "iconPath": "images/tab_general_regulations_gray.png",
+        "selectedIconPath": "images/tab_general_regulations_green.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/myinfo/myinfo",
+        "iconPath": "images/tab_mine_gray.png",
+        "selectedIconPath": "images/tab_mine_green.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
+}

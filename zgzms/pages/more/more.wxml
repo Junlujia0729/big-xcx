@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="head">
+    <text class="title">题库、模考、直播课...</text>
+    <text class="title">尽在“我爱教师”APP</text>
+    <text class="description">应用市场搜索"我爱教师"下载安装</text>
+  </view>
+  <view class="body">
+    <scroll-view scroll-y="true" height="100%">
+      <block wx:for="{{boards}}" wx:key="key">
+        <navigator wx:if="{{item.tp == 2}}" url="../{{item.route}}?id={{item.id}}&title={{item.name}}">
+          <view class="item">
+            <view class="item-info">
+              <text class="item-name">{{item.name}}</text>
+              <image class="item-img" src="/images/arrowright.png" mode="aspectFill" />
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="switchTab" wx:else url="../{{item.route}}">
+          <view class="item">
+            <view class="item-info">
+              <text class="item-name">{{item.name}}</text>
+              <image class="item-img" src="/images/arrowright.png" mode="aspectFill" />
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+<navigator url='../selectarea/selectarea' class='footer'>
+  添加新地址
+</navigator>

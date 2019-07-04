@@ -1,0 +1,45 @@
+<!--pages/bind/bind.wxml-->
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+<view style='background:#fff;'>
+  <view class='explain'>
+    <view class='explain-tit'>绑定说明</view>
+    <view class='explain-info'>1.请绑定手机号以便为您提供更好的服务；</view>
+    <view class='explain-info'>2.已注册我爱教师APP请输入注册手机号；</view>
+    <view class='explain-info'>3.未注册将自动注册我爱教师APP账号。</view>
+  </view>
+</view>
+
+<view class='title'>
+  <text class='line'></text>
+  <text class='word'>绑定手机号</text>
+  <text class='line'></text>
+</view>
+<form bindsubmit="checkmobile" report-submit="true">
+  <view class="container">
+    <view class='userinfo'>
+      <view class='nickname'>
+        <text class='name'>手机号</text>
+        <input placeholder="请输入手机号" id="mobile" value='' type='number' 
+      name="mobile" bindblur="bindphone"/>
+      </view>
+      
+      <view class='nickname area resets_line'>
+        <text class='name'>验证码</text>
+        <input placeholder="请输入短信验证码" id="verifycode" name="verifycode" type='number'/>
+        <button placeholder="" class="HuoQuX" bindtap="get_mobile_code" id="zphone" style="border: none" name="verifycode" class="{{is_show?'show':'hide'}}">获取验证码</button>
+        <button placeholder="" class="HuoQuX" style="border: none" class="{{is_show?'hide':'show'}}">{{last_time}}</button>
+        
+      </view>
+      <!-- <button class='footer' bindtap="queryScore">
+        查询
+      </button> -->  
+    </view>
+  </view>
+  <button class='footer' formType="submit">
+    绑定
+  </button>
+</form>
+
+<button class="contact_btn" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>

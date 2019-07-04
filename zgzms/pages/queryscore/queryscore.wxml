@@ -1,0 +1,40 @@
+<!--pages/queryscore/queryscore.wxml-->
+<view style='background:#fff;'>
+  <view class='explain'>
+    <view class='explain-tit'>查询说明</view>
+    <view class='explain-info' wx:for="{{items.desc}}" wx:key="key" wx:for-item="item" wx:for-index="index">{{index+1}}.{{item[index+1]}}</view>
+  </view>
+</view>
+
+<view class='title'>
+  <text class='line'></text>
+  <text class='word'>{{items.title}}</text>
+  <text class='line'></text>
+</view>
+<form bindsubmit="queryScore" report-submit="true">
+  <view class="container">
+    <view class='userinfo'>
+      <!--普通输入框  -->
+      <view class='nickname' wx:for="{{items.fileds}}" wx:key="key" wx:for-item="item" wx:for-index="index" wx:if="{{item.type != 4}}">
+        <text class='name'>{{item.title}}</text>
+        <input placeholder="{{item.tip}}" id="{{item.code}}" value='{{info}}' type='{{item.inpupttype}}' name="{{item.code}}"/>
+      </view>
+      <!--验证码  -->
+      <view class='nickname area' wx:if="{{item.type == 4}}" wx:for="{{items.fileds}}" wx:key="key" wx:for-item="item" wx:for-index="index">
+        <text class='name'>{{item.title}}</text>
+        <input placeholder="{{item.tip}}" id="{{item.code}}" value='{{d_yzm}}'  name="{{item.code}}"/>
+        <image src="{{imgurl}}" />
+        <view class='refresh' bindtap='refresh'>
+          <image src='../../images/icon_load.png' mode="aspectFill" ></image>
+        </view>  
+      </view>
+    </view>
+  </view>
+  <button class='footer' formType="submit">
+    查询
+  </button>
+</form>
+<view class='Logo'>
+  <image src='../../images/52logo.png' mode="aspectFit"></image>
+</view>
+<button class="contact_btn" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>

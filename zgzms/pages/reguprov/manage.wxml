@@ -1,0 +1,12 @@
+<view class="container">
+   <view class="manage">
+        <view class="manage__hd">
+            选择省
+        </view>
+        <view class="manage__list">
+          <view wx:for="{{ provs }}" wx:key="id" catchtap="selectPro" data-id="{{ item.id }}" class="manage__tag  {{ item.id == provid ? 'active':'' }} ">
+              <view>{{ item.name }}</view>
+          </view>
+        </view>
+   </view>
+</view>

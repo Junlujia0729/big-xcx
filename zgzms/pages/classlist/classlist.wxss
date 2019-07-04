@@ -1,0 +1,2 @@
+/* pages/zgzclasslist/zgzclasslist.wxss */
+@import "../common/classlist.wxss";

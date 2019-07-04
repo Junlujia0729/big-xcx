@@ -1,0 +1,42 @@
+
+<!--每日一练-->
+<view class="{{datas.status == 1 ? 'header_zgz' : 'header_zp'}} header">
+  <view><span class="left">已坚持天数</span><span class="right">{{datas.days}}</span></view>
+  <view><span class="left">已做题数</span><span class="right">{{datas.quantity}}</span></view>
+  <view style='padding-bottom:0;'><span class="left">正确率</span><span class="right">{{datas.correct_rate}}</span>%</view>
+</view>
+
+<view class='nav'>
+  <navigator url='' class='Rankings' hover-class="none">
+    <image src='http://imgs.52jiaoshi.com/1527057059.png'></image> 
+    <text>排行榜</text>
+  </navigator>
+  <navigator url='../../../datepicker/datepicker?id=36' class='calendar' hover-class="none">
+    <image src='http://imgs.52jiaoshi.com/1527057578.png'></image> 
+    <text>做题日历</text>
+  </navigator>
+</view>
+<view class='line'></view>
+
+<view style="margin-bottom:100rpx;">
+  <!--评论  -->
+  <include src="../common/commentlist.wxml"/>
+  <view class="loadingmore {{is_loadingmore ? 'active' : ''}}">{{loadingmore_text}}</view>
+</view>
+
+<!-- 底部按钮 -->
+
+<view class='bottom_fixed_buttons'>
+  <view class='w11'>
+    <form bindsubmit="commentClass" report-submit="true">
+      <button class='clock' form-type='submit'>打卡</button>
+    </form>    
+  </view>
+  <view class='w11'>
+    <button class='practice' bindtap='practice'>开始练习</button>   
+  </view>
+</view>
+
+
+
+

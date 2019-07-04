@@ -1,0 +1,113 @@
+<view class='contioner'>
+  <view class="exam_cont">
+    <swiper duration="100" current="{{current}}" bindchange="listenSwiper" >
+      <swiper-item wx:for="{{items}}" wx:for-index="index" wx:key="id">
+        <view class='swiper_repor_title'>
+          <view wx:if="{{item.ques.type == 1}}" data-type="{{item.ques.type}}">单项选择题</view>
+          <view wx:if="{{item.ques.type == 2}}" data-type="{{item.ques.type}}">多项选择题</view>
+          <view wx:if="{{item.ques.type == 3}}" data-type="{{item.ques.type}}">判断题</view>
+          <view wx:if="{{item.ques.type == 4}}" data-type="{{item.ques.type}}">辨析题</view>
+          <view wx:if="{{item.ques.type == 5}}" data-type="{{item.ques.type}}">简答题</view>
+          <view wx:if="{{item.ques.type == 6}}" data-type="{{item.ques.type}}">作文题</view>
+          <view wx:if="{{item.ques.type == 7}}" data-type="{{item.ques.type}}">填空题</view>
+          <view wx:if="{{item.ques.type == 8}}" data-type="{{item.ques.type}}">不定项材料分析题</view>
+          <view wx:if="{{item.ques.type == 9}}" data-type="{{item.ques.type}}">活动设计题</view>
+          <view wx:if="{{item.ques.type == 10}}" data-type="{{item.ques.type}}">名词解释</view>
+          <view wx:if="{{item.ques.type == 11}}" data-type="{{item.ques.type}}">材料分析题</view>
+          <view wx:if="{{item.ques.type == 12}}" data-type="{{item.ques.type}}">论述题</view>
+          <view wx:if="{{item.ques.type == 13}}" data-type="{{item.ques.type}}">不定项选择题</view>
+          <view wx:if="{{item.ques.type == 14}}" data-type="{{item.ques.type}}">公文改错题</view>
+          <view wx:if="{{item.ques.type == 15}}" data-type="{{item.ques.type}}">教学设计题</view>
+          <view wx:if="{{item.ques.type == 16}}" data-type="{{item.ques.type}}">判断简析题</view>
+          <view wx:if="{{item.ques.type == 17}}" data-type="{{item.ques.type}}">结构化问答</view>
+          <view wx:if="{{item.ques.type == 18}}" data-type="{{item.ques.type}}">试讲答辩</view> 
+          <view wx:if="{{item.ques.type == 19}}" data-type="{{item.ques.type}}">说课答辩</view> 
+          <view wx:if="{{item.ques.type == 20}}" data-type="{{item.ques.type}}">专业技能测试</view>
+          <view class='page'><text class='page-activce'>{{index+1}}</text>/{{allpage}}</view>
+        </view>
+        <scroll-view class="question_cont_scroll" scroll-y>
+          <view class="question_cont" wx:if="{{item.ques && (item.ques.type == 1 || item.ques.type == 2 ||item.ques.type == 3 || item.ques.type == 5 || item.ques.type == 12 || item.ques.type == 11)}}">
+            <!-- 单选题 -->
+            <view class='question_title'>
+              <rich-text nodes="{{item.ques.arr_title}}"></rich-text>
+            </view>
+            <!--答案  -->
+            <view wx:if="{{item.ques.type == 1 || item.ques.type == 2 || item.ques.type == 3}}">
+              <view class='qu_answer_info' data-answer="A" data-anindex="0" data-index="{{index}}" >
+                <text class="qu_answer_letter {{item.ques.allanswer[0] == '1' ? 'active_1' : ''}} {{item.perdata.allanswer[0] == '1' ? 'active_2' : ''}}">A</text>
+                <rich-text nodes="{{item.ques.arr_item_a}}"></rich-text> 
+              </view>
+              <view class='qu_answer_info' data-answer="B" data-anindex="1" data-index="{{index}}">
+                <text class="qu_answer_letter {{item.ques.allanswer[1] == '1' ? 'active_1' : ''}} {{item.perdata.allanswer[1] == '1' ? 'active_2' : ''}}">B</text>
+                <rich-text nodes="{{item.ques.arr_item_b}}"></rich-text> 
+              </view>
+              <view wx:if="{{item.ques.item_c.length > 0}}" class='qu_answer_info' data-answer="C" data-anindex="2" data-index="{{index}}">
+                <text class="qu_answer_letter {{item.ques.allanswer[2] == '1' ? 'active_1' : ''}} {{item.perdata.allanswer[2] == '1' ? 'active_2' : ''}}">C</text>
+                <rich-text nodes="{{item.ques.arr_item_c}}"></rich-text>   
+              </view>
+              <view wx:if="{{item.ques.item_d.length > 0}}" class='qu_answer_info' data-answer="D" data-anindex="3" data-index="{{index}}">
+                <text class="qu_answer_letter {{item.ques.allanswer[3] == '1' ? 'active_1' : ''}} {{item.perdata.allanswer[3] == '1' ? 'active_2' : ''}}">D</text>
+                <rich-text nodes="{{item.ques.arr_item_d}}"></rich-text>    
+              </view>
+              <view class='qu_answer_info' wx:if="{{item.ques.item_e.length > 0}}" data-answer="E" data-anindex="4" data-index="{{index}}">
+                <text class="qu_answer_letter {{item.ques.allanswer[4] == '1' ? 'active_1' : ''}} {{item.perdata.allanswer[4] == '1' ? 'active_2' : ''}}">E</text>
+                <rich-text nodes="{{item.ques.arr_item_e}}"></rich-text> 
+              </view>
+              <view class='qu_answer_info' wx:if="{{item.ques.item_f.length > 0}}" data-answer="F" data-anindex="5" data-index="{{index}}">
+                <text class="qu_answer_letter {{item.ques.allanswer[5] == '1' ? 'active_1' : ''}} {{item.perdata.allanswer[5] == '1' ? 'active_2' : ''}}">F</text>
+                <rich-text nodes="{{item.ques.arr_item_f}}"></rich-text>  
+              </view>
+            </view>
+            <!--解析  -->
+            <view class='true_answer' wx:if="{{item.perresult == 1 && (item.ques.type == 1 || item.ques.type == 2 || item.ques.type == 3)}}">
+              正确答案是<text class='color-3e'>{{item.ques.answer}}</text>，
+              你的答案是<text class='color-3e'>{{item.perdata.answer}}</text>，
+              回答:正确
+            </view>
+            <view class='true_answer' wx:if="{{item.perresult == 2 && (item.ques.type == 1 || item.ques.type == 2 || item.ques.type == 3)}}">
+              正确答案是<text class='color-3e'>{{item.ques.answer}}</text>，
+              你的答案是<text class='color-ff'>{{item.perdata.answer}}</text>，
+              回答:错误
+            </view>
+            <view class='data-title' wx:if="{{item.ques.type == 1 || item.ques.type == 2 || item.ques.type == 3}}">
+              个人数据：
+            </view>
+            <view class='data-form' wx:if="{{item.ques.type == 1 || item.ques.type == 2 || item.ques.type == 3}}">
+              <view class='form-item'>
+                <view>作答本题</view>
+                <view>回答正确</view>
+                <view>回答错误</view>
+              </view>
+              <view class='form-item from-bottom'>
+                <view class='color-ff'>{{item.perdata.pslstats.count}}次</view>
+                <view class='color-3e'>{{item.perdata.pslstats.count - item.perdata.pslstats.error}}次</view>
+                <view class='color-ff'>{{item.perdata.pslstats.error}}次</view>
+              </view>
+            </view>
+            <view class='data-title' wx:if="{{item.ques.type == 1 || item.ques.type == 2 || item.ques.type == 3}}">
+              全站数据：
+            </view>
+            <view class='data-form' wx:if="{{item.ques.type == 1 || item.ques.type == 2 || item.ques.type == 3}}">
+              <view class='form-item'>
+                <view>被作答</view>
+                <view>错误率</view>
+              </view>
+              <view class='form-item from-bottom'>
+                <view class='color-ff'>{{item.perdata.glbstats.count}}次</view>
+                <view class='color-3e'>{{item.peritem}}%</view>
+              </view>
+            </view>
+            <view class='data-title'>
+              答案解析：
+            </view>
+            <view class="data-analyse">
+              <rich-text nodes="{{item.ques.arr_questionanalysis}}"></rich-text>  
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper> 
+  </view>
+</view>
+
+

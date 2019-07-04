@@ -1,0 +1,33 @@
+<!--pages/jobs/pages/createvideo/createvideo.wxml-->
+<view style="width:100%;height: 100%; background-color: black;">
+  <video
+    style="width:100%; height: 100%;"
+    id="video"
+    controls="{{false}}"
+    src="{{src}}"
+    autoplay="{{true}}"
+    bindtimeupdate="update"
+    bindwaiting="waiting"
+    bindended="end"
+    >
+
+    <cover-view class="process-box">
+      <cover-view class="process">
+        <cover-view class="process-bar"></cover-view>
+        <cover-view class="process-bar-done" style="width:{{process}}rpx;"></cover-view>
+        <cover-view class="process-slider" style="left:{{process+45}}rpx;"></cover-view>
+      </cover-view>
+    </cover-view>
+
+    <cover-view class="oper-box" style="width:100%; height: 240rpx; position:absolute;bottom:0px;" >
+      <cover-view class="oper">
+        <cover-view class="oper-flex">
+          <cover-image src="../../images/video_delete.png" mode="scaleToFill" style="width:112rpx;height:112rpx;margin:20rpx auto 0 auto;" catchtap='back'></cover-image>
+        </cover-view>
+        <cover-view class="oper-flex oper-button">
+          <cover-image src="../../images/video_submit.png" mode="scaleToFill" style="width:147rpx;height:147rpx;margin:0 auto;" catchtap='avconcatVideoes'></cover-image>
+        </cover-view>  
+      </cover-view>
+    </cover-view>
+  </video> 
+</view>

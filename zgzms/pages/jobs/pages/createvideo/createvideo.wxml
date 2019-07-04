@@ -1,0 +1,36 @@
+<!--pages/jobs/pages/createvideo/createvideo.wxml-->
+<view style="width:100%;height: 100%; background-color: black;">
+  <camera
+    style="width:100%; height: 100%;"
+    id="camera"
+    device-position="{{position}}"
+    flash="{{flash}}"
+    bindstop="stop"
+    >
+    <cover-view class="flash-box">
+      <cover-image src="../../images/flash_{{flash}}.png" mode="widthFix" style="width:46rpx;height:58rpx;margin-right:64rpx;" catchtap='flash_change'></cover-image>
+      <cover-image src="../../images/position.png" mode="widthFix" style="width:58rpx;height:50rpx;" catchtap='position_change'></cover-image>
+    </cover-view>
+    <cover-view class="process-box">
+      <cover-view class="process">
+        <cover-view class="process-bar"></cover-view>
+        <cover-view class="process-bar-done" style="width:{{process}}rpx;"></cover-view>
+        <cover-view class="process-slider" style="left:{{process+45}}rpx;"></cover-view>
+      </cover-view>
+    </cover-view>
+
+    <cover-view class="oper-box" style="width:100%; height: 240rpx; position:absolute;bottom:0px;" >
+      <cover-view class="oper">
+        <cover-view class="oper-flex">
+          <cover-view class="oper-time">{{time}}</cover-view>
+        </cover-view>
+        <cover-view class="oper-flex oper-button">
+          <cover-image class="button_bottom" src="{{taping?'../../images/video_pause.png':'../../images/video_start.png'}}" mode="scaleToFill" style="width:140rpx;height:140rpx;margin:0 auto;" catchtap='start_pause'></cover-image>
+        </cover-view>
+        <cover-view class="oper-flex oper-redo">
+          <cover-view class="redo" catchtap='restart'>重新开始</cover-view>
+        </cover-view>  
+      </cover-view>
+    </cover-view>
+  </camera> 
+</view>

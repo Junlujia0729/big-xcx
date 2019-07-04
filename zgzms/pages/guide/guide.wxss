@@ -1,0 +1,44 @@
+/* pages/guide/guide.wxss */
+.container {
+  padding:30rpx;
+}
+.toutiao {
+  position: relative;
+}
+.toutiao-img {
+  width:100%;
+  vertical-align:middle;
+}
+.toutiao-title-box{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.4);
+  padding:20rpx;
+}
+.toutiao-title{
+  font-size:36rpx;
+  color:#fff;
+}
+.items{
+  margin-top:15rpx;
+  border-bottom:1rpx solid #eeeeee;
+}
+.item{
+  border-top:1rpx solid #eeeeee;
+  padding:14rpx 0;
+  height:100rpx;
+}
+.item-img-box{
+  width:100rpx;
+  float:right;
+}
+.item-title-box{
+  margin-right:130rpx;
+  padding:14rpx 0;
+  font-size:30rpx;
+}
+.item-img{
+  width:100rpx;
+}

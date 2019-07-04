@@ -1,0 +1,189 @@
+<!--pages/home/home.wxml-->
+<!--banner  -->
+<swiper wx:if="{{imgUrls.length > 0}}" indicator-dots="{{imgUrls.length > 1}}"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height:{{swiperHeight}};">  
+  <block wx:for="{{imgUrls}}" wx:key="key" wx:for-index="idx">  
+  <swiper-item class="banner">
+      <image src="{{item.banner}}" bindtap='clickBanner' class="slide-image" data-index="{{idx}}" mode="widthFix" bindload="swiperImageLoad" />  
+  </swiper-item>
+  </block>  
+</swiper>
+<view class="seprate-line"></view>
+<view class="router_box" wx:for="{{routers}}" wx:key="key222" wx:for-item="ritem" wx:for-index="rkey">
+  <view class="router_item" wx:for="{{ritem}}" wx:key="key444" wx:for-item="rti" wx:for-index="rtk" bindtap='clickRouter' data-pindex="{{rkey}}" data-index="{{rtk}}">
+    <image src="{{rti.banner}}" mode="widthFix"></image>
+    <text>{{rti.title}}</text>
+  </view>
+</view>
+ <view class="seprate-line" wx:if="{{routers.length}}"></view>
+ <block wx:if="{{columns.length > 0}}">
+  <view class="weinituijian">打卡学习</view>
+  <view class='column_list'>
+    <view class='column_item' wx:for="{{columns}}" wx:key="key" wx:item-for="item" data-id="{{item.id}}" catchtap='selectcolumn'>
+      <image src='{{item.img_mesne}}'></image>
+      <view class='list-right'>
+        <view class='clumn-name'>{{item.title}}<text wx:if="{{!platform_ios}}">{{item.price_text}}</text></view>
+        <view class='number'>{{item.num > 0 ? item.num + ' 人参加' : item.sub_title}}</view>
+        <view class='desc' wx:if="{{item.newclass_title}}">
+          <text class='new'>最新</text>
+          <text class="ctitle">{{item.newclass_title}}</text>
+          <text class='date'>{{item.created_time}}</text>
+        </view>
+        <view class='desc' wx:else>
+          <text class='date'>{{item.created_time}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="seprate-line"></view>
+</block>   
+<!--每日练习  -->
+<!-- <view wx:if="{{navitems.length > 0}}" wx:for="{{navitems}}" wx:key="groupid" wx:for-item="item" wx:for-index="npkey">
+  <view class="weinituijian">{{item.title}}</view>
+   <view class='practice-daily' >
+      <view class="navigator" wx:for="{{item.items}}" wx:for-item="item_n" wx:key="id" wx:for-index="nkey">
+        <image src="{{item_n.banner}}" bindtap='clickNav' data-pindex="{{npkey}}" data-index="{{nkey}}" />
+      </view>
+  </view> 
+</view> 
+<view class="seprate-line"></view> -->
+<block wx:if="{{platform_ios}}">
+<view class="weinituijian">线下服务、图书、1对1辅导</view>
+<view class="item" wx:for="{{items}}" wx:for-item="item" wx:key="ckey" wx:if="{{item.ios == 0}}">
+  <view data-id='{{item.classid}}' data-viewtype='{{item.viewtype}}' bindtap='gotoClass'>
+    <!-- <view wx:if="{{item.live_type == 1}}" class='live-stuta'>回放课</view>
+    <view wx:if="{{item.live_type == 2}}" class='live-stuta'><image class="live-img" src="/images/icon_course_live@2x.png" mode="aspectFill" />直播中</view>
+    <view wx:if="{{item.live_type > 2}}" class='live-stuta'><image class="live-img" src="/images/icon_course_live@2x.png" mode="aspectFill" />{{item.live_text}}</view> -->
+    <view class="text">
+      <view class="class-title">
+        <image wx:if="{{item.appbanner != ''}}" src='{{item.appbanner}}'></image>
+        <text>{{item.classname}}</text>  
+      </view>
+      <view wx:if="{{item.tips_fenxiao && item.tips_fenxiao != ''}}" class="class-notice-fenxiao">{{item.tips_fenxiao}}</view>
+      <block wx:else>
+        <view wx:if="{{item.tips != ''}}" class="class-notice">{{item.tips}}</view>
+      </block>
+    </view>
+    <view class="introduce">
+      <view class='describe'>
+        <view wx:if="{{item.group_number > 0 && item.group_price > 0}}">
+          <view wx:if="{{!platform_ios}}" class='price'>
+              <view class="group_price" >{{item.group_number}}人拼 ￥<text>{{item.group_price}}</text></view>
+              <view class='ori-price' >
+                <text class='dyntext_1'>已购</text>
+                <text class='dyntext_2'> {{item.salescount}} </text>
+                单独购买:￥<text class='g-p'>{{item.price}}</text>
+              </view>
+          </view>
+        </view>
+        <view wx:else>
+          <view wx:if="{{!platform_ios}}" class='price'>
+              <block wx:if="{{item.viewtype == 2}}">
+                <text class="price_yang">￥</text><text>{{item.bag_price}}</text>
+              </block>
+              <block wx:else>
+                <text class="price_yang">￥</text><text>{{item.price}}</text>
+              </block>
+          </view>
+          <block wx:if="{{item.labels && item.labels.length && !platform_ios}}">
+            <view class='class_sale_text_sale'>
+              <block wx:for="{{item.labels}}" wx:for-item="item3" wx:key="key3">
+                <text space="emsp" class='dyntext_{{item3.color}}'>{{item3.content}}</text>
+              </block>
+            </view>
+          </block>
+          <block wx:else>
+            <view wx:if="{{!platform_ios}}" class='class_sale_text_sale'>
+              <text class='dyntext_1'>已购</text>
+              <text class='dyntext_2'> {{item.salescount}} </text>
+              <text class='dyntext_1'>限购</text>
+              <text class='dyntext_1'> {{item.stock}}</text>
+            </view>
+          </block>   
+        </view>
+      </view>  
+      <view wx:if="{{item.teacherlist}}" class="teacher">
+        <view wx:for="{{item.teacherlist}}" wx:for-item="item4" wx:key="key4" class='teacher-header'>
+          <image src='{{item4.headimg}}'></image>
+          <text>{{item4.teacher}}</text>
+        </view>
+      </view>
+    </view> 
+  </view>  
+</view>
+<view class="weinituijian">专项课</view>
+<view class="item" wx:for="{{items}}" wx:for-item="item" wx:key="ckey" wx:if="{{item.ios == 1}}">
+  <view data-id='{{item.classid}}' data-viewtype='{{item.viewtype}}' bindtap='gotoClass'>
+    <!-- <view wx:if="{{item.live_type == 1}}" class='live-stuta'>回放课</view>
+    <view wx:if="{{item.live_type == 2}}" class='live-stuta'><image class="live-img" src="/images/icon_course_live@2x.png" mode="aspectFill" />直播中</view>
+    <view wx:if="{{item.live_type > 2}}" class='live-stuta'><image class="live-img" src="/images/icon_course_live@2x.png" mode="aspectFill" />{{item.live_text}}</view> -->
+    <view class="text">
+      <view class="class-title">
+        <image wx:if="{{item.appbanner != ''}}" src='{{item.appbanner}}'></image>
+        <text>{{item.classname}}</text>  
+      </view>
+      <view wx:if="{{item.tips_fenxiao && item.tips_fenxiao != ''}}" class="class-notice-fenxiao">{{item.tips_fenxiao}}</view>
+      <block wx:else>
+        <view wx:if="{{item.tips != ''}}" class="class-notice">{{item.tips}}</view>
+      </block>
+    </view>
+    <view class="introduce">
+      <view class='describe'>
+        <view wx:if="{{item.group_number > 0 && item.group_price > 0}}">
+          <view wx:if="{{!platform_ios}}" class='price'>
+              <view class="group_price" >{{item.group_number}}人拼 ￥<text>{{item.group_price}}</text></view>
+              <view class='ori-price' >
+                <text class='dyntext_1'>已购</text>
+                <text class='dyntext_2'> {{item.salescount}} </text>
+                单独购买:￥<text class='g-p'>{{item.price}}</text>
+              </view>
+          </view>
+        </view>
+        <view wx:else>
+          <view wx:if="{{!platform_ios}}" class='price'>
+              <block wx:if="{{item.viewtype == 2}}">
+                <text class="price_yang">￥</text><text>{{item.bag_price}}</text>
+              </block>
+              <block wx:else>
+                <text class="price_yang">￥</text><text>{{item.price}}</text>
+              </block>
+          </view>
+          <block wx:if="{{item.labels && item.labels.length && !platform_ios}}">
+            <view class='class_sale_text_sale'>
+              <block wx:for="{{item.labels}}" wx:for-item="item3" wx:key="key3">
+                <text space="emsp" class='dyntext_{{item3.color}}'>{{item3.content}}</text>
+              </block>
+            </view>
+          </block>
+          <block wx:else>
+            <view wx:if="{{!platform_ios}}" class='class_sale_text_sale'>
+              <text class='dyntext_1'>已购</text>
+              <text class='dyntext_2'> {{item.salescount}} </text>
+              <text class='dyntext_1'>限购</text>
+              <text class='dyntext_1'> {{item.stock}}</text>
+            </view>
+          </block>   
+        </view>
+      </view>  
+      <view wx:if="{{item.teacherlist}}" class="teacher">
+        <view wx:for="{{item.teacherlist}}" wx:for-item="item4" wx:key="key4" class='teacher-header'>
+          <image src='{{item4.headimg}}'></image>
+          <text>{{item4.teacher}}</text>
+        </view>
+      </view>
+    </view> 
+  </view>  
+</view>
+</block>
+<block wx:else>
+<view class="weinituijian">推荐课程</view>
+<include src="../common/classlist.wxml"/>
+</block>
+<button class="contact_btn" session-from="sobot|{{userInfo.nickname}}_首页|{{userInfo.headimgurl}}" style="bottom:90rpx;" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>
+
+<!--弹窗  -->
+<view class='fix_mask' wx:if="{{mask}}">
+  <view class='content'>
+    <image src='{{maskdata.banner}}' class="simpledialog" bindtap='clickBomb'></image>
+    <image class='close' src='http://imgs.52jiaoshi.com/zhjs/btn_close.png' bindtap='close_mask'></image>
+  </view>
+</view>

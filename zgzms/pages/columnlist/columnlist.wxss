@@ -1,0 +1,4 @@
+page{
+  background: #fff;
+}
+@import "../common/columnlist.wxss";

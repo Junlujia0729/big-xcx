@@ -1,0 +1,21 @@
+<!--pages/practice/interface/index.wxml-->
+<view wx:for="{{items}}" wx:for-item="item" wx:key="key" class='interface'>
+    <view data-edu_id="{{item.id}}" data-edu_flag="{{item.edu_flag}}" bindtap="practice" class='info'>
+        <view class='item-left'>
+          <image src="{{item.imgurl}}" />
+        </view>
+        <view class='item-right'>
+          <view class='item-name'>{{item.name}}</view>
+          <view>
+            <progress percent="{{proportion[index] * 100}}" color="#3eccb3" stroke-width="8"></progress>
+            <text class='complate'>{{item.comlpate}}</text><text >/{{item.totality}}</text>
+          </view>
+        </view>
+    </view>
+    <view class='nav'>
+      <view class="chapter" data-id="{{item.id}}" data-edu_flag="{{item.edu_flag}}" data-title="{{item.name}}" bindtap="chapter"> 章节列表 </view>
+    <view class="practice" data-edu_id="{{item.id}}" data-edu_flag="{{item.edu_flag}}" data-title="{{item.name}}" bindtap="practice"> 快速练习 </view>
+    </view>
+</view>
+
+

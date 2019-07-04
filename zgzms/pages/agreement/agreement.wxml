@@ -1,0 +1,15 @@
+<!--agreement.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='contnet'>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<view class='footer'>
+  <view class='footerLeft'>
+    <image src='{{imgurl}}' bindtap='agree' data-agree='{{agree}}'></image>
+    <text bindtap='agree' data-agree='{{agree}}'>我已阅读并同意该协议</text>
+  </view>
+  <view class="footerRight {{agree == 1 ? 'footerRight_a' : ''}}" data-agree='{{agree}}'
+  bindtap='nextstep'>
+    下一步
+  </view>
+</view>

@@ -1,0 +1,2 @@
+/* pages/columnorder/columnorder.wxss */
+@import "../order/order.wxss";

@@ -1,0 +1,16 @@
+/* pages/commentdetail/commentdetail.wxss */
+@import "../common/dynamic.wxss";
+
+page{
+  background: #fff;
+  padding-bottom: 98rpx;
+}
+.d_c_i_h_tit{
+  margin-left:0;
+}
+.d_c_i_cont{
+  padding-left:0;
+}
+.d_c_i_reply{
+  margin-left:0;
+}

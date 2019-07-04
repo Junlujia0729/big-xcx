@@ -1,0 +1,6 @@
+<!-- 课程列表 -->
+<class-item
+  class-list="{{ items }}"
+></class-item>
+
+<button class="contact_btn" session-from="sobot|{{userInfo.nickname}}|{{userInfo.headimgurl}}" open-type="contact" show-message-card="true"><image src="/images/icon_wechat.png" mode="widthFix"></image></button>

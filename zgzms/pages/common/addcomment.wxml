@@ -1,0 +1,62 @@
+<view class="sub_comment_inner">
+  <form report-submit="true" bindsubmit="submitComment">
+    <!--输入文字  -->
+    <view class="textarea_box">
+      <textarea bindinput="textAreaInput" auto-focus show-confirm-bar maxlength="-1" placeholder="{{to_user == '' ? '请输入您的评论...' : '回复 ' + to_user}}" value="{{const_com_text}}"  name="com_text"></textarea>
+    </view>
+    <!--选择图片  -->
+    <view class="image_box" wx:if="{{comment_img_url.length >= 1}}">
+        <view class="select_box" wx:for="{{comment_img_url}}" wx:for-index="idx" wx:key="key">
+          <image class="select" src="{{item}}" mode="aspectFill"></image>
+          <image class="close active" src="/images/publish_picture_delete.png" bindtap='deleteImg' data-index="{{idx}}" mode='widthFix'></image>
+        </view>
+        <view class="select_box" wx:if="{{comment_img_url.length < 3}}">
+          <image class="select" src="/images/publish_picture_add.png" bindtap='selectImg' mode="aspectFill"></image>
+        </view>
+    </view>
+  
+    <!--图片及语音按钮  -->
+    <view class='content'>
+      <!--音频录制  -->
+      <view class='audio_box' wx:if="{{beginaudio}}">
+        <image src='http://imgs.52jiaoshi.com/1530778375.png' class='close_audio' 
+        mode="widthFix" bindtap='closeaudio'></image>
+        <view class='line'></view>
+        <image src='{{wave}}' class='wave'></image>
+        <view class='duration'>{{countDownMinute}}:{{countDownSecond}}</view>
+        <view class='complete_audio' bindtap='stop'>完成</view>
+        <image src='{{start}}' class='start_audio' bindtap='start' data-state="{{state}}"></image>   
+      </view>
+      <!--音频播放  -->
+      <view class='play_audio' wx:if="{{complete_state}}">
+          <view class='play_audio_left' bindtap='audioPlay'>
+            <image src='{{play_img}}'></image>
+          </view>
+          <view class='play_audio_right'>
+            <slider bindchange="handleTouchEnd" min="0" max="100" backgroundColor="#ccc" value='{{ap_progress}}' activeColor="#3eccb3" data-time="{{duration}}" block-size="12" block-color="#3eccb3"/>
+            <view class='play_time'>
+              <text class='time_schedule'>{{process_time}}</text>
+              <text class='play_dura'>{{new_count}}</text>
+            </view>
+          </view>
+          <image class='delete_audio' mode="widthFix" src='/images/publish_picture_delete.png' bindtap='deleteaudio'></image>
+      </view>
+
+      <!--图片及录音按钮  -->
+      <view class='up-btn'>
+        <view class='btn img-btn' wx:if="{{to_user == '' && comment_img_url.length == 0}}">
+          <image src='http://imgs.52jiaoshi.com/1530776132.png' bindtap='selectImg'></image>
+        </view> 
+        <view class='btn audio-btn' wx:if="{{beginaudio == 0 && complete_state == 0}}">
+          <image src='http://imgs.52jiaoshi.com/1530776185.png' bindtap='beginaudio'></image>
+        </view> 
+      </view> 
+    </view>
+    <view class="button_box">
+      <button class="cancel" bindtap='cancelComment'>取消</button>
+      <button form-type="submit" class="submit {{comment_words_count ? 'active' : ''}}">发表评论</button>
+    </view>
+    
+  </form>
+  
+</view>

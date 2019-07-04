@@ -1,0 +1,25 @@
+<view class="container">
+  <navigator url="../article/article?id={{toutiao.id}}">
+    <view class="toutiao">
+      <image src="{{toutiao.img}}" mode="widthFix" class="toutiao-img" />
+      <view class="toutiao-title-box">
+        <text class="toutiao-title">{{toutiao.title}}</text>
+      </view>
+    </view>
+  </navigator>
+
+  <scroll-view class="items" scroll-y="true" height="100%">
+      <block wx:for="{{items}}" wx:key="key">
+        <navigator url="../article/article?id={{item.id}}">
+          <view class="item">
+            <view class="item-img-box">
+              <image src="{{item.img}}" mode="widthFix" class="item-img" />
+            </view>
+            <view class="item-title-box">
+              <text class="item-title">{{item.title}}</text>
+            </view>
+          </view>
+        </navigator>
+      </block>
+  </scroll-view>
+</view>

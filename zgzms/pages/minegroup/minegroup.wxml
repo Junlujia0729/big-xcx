@@ -1,0 +1,52 @@
+
+
+<view>
+  <view  wx:if="{{items.length > 0}}" style="width:100%;overflow:hidden;">
+    <view class='curriculum_list' wx:for="{{items}}" wx:for-item="item" wx:key="key">
+      <view wx:if="{{item.status == 3}}">
+        <view class='curriculum_list_info '>
+          <view class='class_names'>{{item.subject}}</view>
+        </view>
+        <view class='start_time'>参团时间: {{item.createtime}}</view>
+      </view> 
+      <view wx:else>
+        <navigator url='../groupclass/groupclass?classid={{item.classid}}&groupid={{item.groupid}}' >
+          <view class='curriculum_list_info'>
+            <view class='class_names'>{{item.subject}}</view>
+          </view>
+          <view class='start_time'>参团时间: {{item.createtime}}</view>
+        </navigator>
+      </view>
+      <view class='state' wx:if="{{item.status == 2 }}">
+        <text>拼课进行中</text>
+         <button bindtap='shareTo' class='share' data-groupid="{{item.groupid}}" 
+        data-classid="{{item.classid}}" data-classname="{{item.subject}}">邀请好友拼课</button> 
+      </view>
+      <view class='state' wx:if="{{item.status == 3 }}">
+        <text>拼课成功</text>
+        <!-- <button class='share' bindtap='look' data-classid="{{item.classid}}">立即观看课程</button>   -->
+        <text class='onloadAPP'>请下载APP观看课程</text>
+      </view>
+      <view class='state' wx:if="{{item.status == 4 }}">
+        未成团，退费成功
+        <button class='share' data-classid="{{item.classid}}" bindtap='spell'>重新发起拼课</button>
+      </view>
+    </view>
+  </view> 
+  <view wx:if="{{items.length == 0 && loadc == 1}}" class='container'>
+    <view class='classtype'>
+      <view>您在准备2018年上的资格证笔试?</view>
+      <navigator url='../classlist/classlist' class='go-class'>
+        去看看笔试课
+      </navigator>
+    </view>
+    <view class='classtype'>
+      <view>您在准备2017年下的资格证面试?</view>
+      <view class='go-class' bindtap='interview'>去看看面试课</view>
+    </view>
+    <view class='classtype'>
+      <view>您在准备教师招聘考试?</view>
+      <view class='go-class' bindtap='interview_jz'>去看看教招课</view>
+    </view>
+  </view> 
+</view>
